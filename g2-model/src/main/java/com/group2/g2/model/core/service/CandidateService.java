@@ -23,7 +23,7 @@ public class CandidateService implements ICandidateService {
     private DefaultOntimizeDaoHelper daoHelper;
 
     @Override
-    public EntityResult candidateQuery(Map<String, Object> keyMap, List<String> attrList)
+    public EntityResult candidateQuerys(Map<String, Object> keyMap, List<String> attrList)
             throws OntimizeJEERuntimeException {
         return this.daoHelper.query(this.candidateDao, keyMap, attrList);
     }
