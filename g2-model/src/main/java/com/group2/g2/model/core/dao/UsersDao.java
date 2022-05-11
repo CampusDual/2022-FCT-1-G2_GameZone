@@ -8,7 +8,7 @@ import com.ontimize.jee.server.dao.jdbc.OntimizeJdbcDaoSupport;
 
 @Repository("UsersDao")
 @Lazy
-@ConfigurationFile(configurationFile = "dao/UserDao.xml", configurationFilePlaceholder = "dao/placeholders.properties")
+@ConfigurationFile(configurationFile = "dao/UsersDao.xml", configurationFilePlaceholder = "dao/placeholders.properties")
 public class UsersDao extends OntimizeJdbcDaoSupport {
 
 	public static final String ATTR_ID = "id";
