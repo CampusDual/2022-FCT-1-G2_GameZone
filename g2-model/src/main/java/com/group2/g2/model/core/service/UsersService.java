@@ -23,8 +23,7 @@ public class UsersService implements IUsersService {
 	private DefaultOntimizeDaoHelper daoHelper;
 
 	@Override
-	public EntityResult usersQuery(Map<String, Object> keyMap, List<String> attrList)
-			throws OntimizeJEERuntimeException {
+	public EntityResult usersQuery(Map<String, Object> keyMap, List<String> attrList) throws OntimizeJEERuntimeException {
 		return this.daoHelper.query(this.usersDao, keyMap, attrList);
 	}
 
