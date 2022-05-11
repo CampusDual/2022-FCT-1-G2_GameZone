@@ -16,7 +16,7 @@ import com.ontimize.jee.server.dao.DefaultOntimizeDaoHelper;
 
 @Service("UsersService")
 @Lazy
-public class UsersService implements IUsersService{
+public class UsersService implements IUsersService {
 	@Autowired
 	private UsersDao usersDao;
 	@Autowired
@@ -43,29 +43,4 @@ public class UsersService implements IUsersService{
 	public EntityResult usersDelete(Map<String, Object> keyMap) throws OntimizeJEERuntimeException {
 		return this.daoHelper.delete(this.usersDao, keyMap);
 	}
-/*
-	@Override
-	public EntityResult userQuery(Map<?, ?> keyMap, List<?> attrList) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public EntityResult userInsert(Map<?, ?> attrMap) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public EntityResult userUpdate(Map<?, ?> attrMap, Map<?, ?> keyMap) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public EntityResult userDelete(Map<?, ?> keyMap) {
-		// TODO Auto-generated method stub
-		return null;
-	}*/
-
 }
