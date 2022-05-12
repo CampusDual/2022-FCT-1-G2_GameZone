@@ -8,10 +8,10 @@ import com.ontimize.jee.common.exceptions.OntimizeJEERuntimeException;
 
 public interface ICandidateService {
 
-    // CANDIDATE
-    public EntityResult candidateQuerys(Map<String, Object> keyMap, List<String> attrList) throws OntimizeJEERuntimeException;
-    public EntityResult candidateInsert(Map<String, Object> attrMap) throws OntimizeJEERuntimeException;
-    public EntityResult candidateUpdate(Map<String, Object> attrMap, Map<String, Object> keyMap) throws OntimizeJEERuntimeException;
-    public EntityResult candidateDelete(Map<String, Object> keyMap) throws OntimizeJEERuntimeException;
+	// CANDIDATE
+	EntityResult candidateQuery(Map<String, Object> keyMap, List<String> attrList) throws OntimizeJEERuntimeException;
+	EntityResult candidateInsert(Map<String, Object> attrMap) throws OntimizeJEERuntimeException;
+	EntityResult candidateUpdate(Map<String, Object> attrMap, Map<String, Object> keyMap) throws OntimizeJEERuntimeException;
+	EntityResult candidateDelete(Map<String, Object> keyMap) throws OntimizeJEERuntimeException;
 
 }
