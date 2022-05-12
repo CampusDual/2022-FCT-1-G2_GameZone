@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/g2-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/g2-boot/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/g2-model/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/g2-ws/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/hr-api/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/hr-boot/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/hr-model/src/main/java" charset="UTF-8" />

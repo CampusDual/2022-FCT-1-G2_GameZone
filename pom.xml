@@ -74,7 +74,11 @@
 
 
             </dependency>
-
+            <dependency>
+                <groupId>com.rometools</groupId>
+                <artifactId>rome</artifactId>
+                <version>1.18.0</version>
+            </dependency>
 
             <dependency>
 
@@ -104,6 +108,19 @@
 
 
             </dependency>
+            <dependency>
+                <groupId>com.mashape.unirest</groupId>
+                <artifactId>unirest-java</artifactId>
+                <version>1.4.9</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
+            <dependency>
+                <groupId>com.google.code.gson</groupId>
+                <artifactId>gson</artifactId>
+                <version>2.9.0</version>
+            </dependency>
+
 
             <dependency>
                 <groupId>org.postgresql</groupId>
