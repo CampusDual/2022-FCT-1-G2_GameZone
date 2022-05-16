@@ -1,7 +1,10 @@
 package com.group2.g2.model.core.service;
 
+import java.io.DataInput;
+import java.io.IOException;
 import java.util.Arrays;
 
+import com.group2.g2.model.core.dao.GameDAO;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -20,7 +23,7 @@ public class GameService {
 
 	private final String API_URL = "https://api.igdb.com/v4/games";
 
-	public void getGamesFromAPI() throws JsonProcessingException {
+	public void getGamesFromAPI(String name) throws JsonProcessingException {
 		RestTemplate restTemplate = new RestTemplate();
 		HttpHeaders headers = new HttpHeaders();
 		headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
@@ -29,10 +32,13 @@ public class GameService {
 		headers.add("Authorization", "Bearer itun4ro82pfxq8ek5rnchqvsoqkpca");
 		headers.add("Client-ID", "idvvhod17k3cbczniwadsu2jw2xbd4");
 
-		String reqBody = "fields name, id, cover.url, genres.name;search \"fifa\"; limit 500;";
+		String reqBody = "fields name, id, cover.url, genres.name;search \""+name+"\"; limit 500;";
 
 		HttpEntity<String> httpEntity = new HttpEntity<String>(reqBody, headers);
 		String result = restTemplate.postForObject(this.API_URL, httpEntity, String.class);
+
+		System.out.println(result);
+
 
 		// MAPEADO ---
 		ObjectMapper mapper = new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
@@ -63,15 +69,17 @@ public class GameService {
 			parsedNode.add(parsedActualNode);
 		}
 
-		/*
-		 * try { GameDAO[] games = mapper.readValue(result, GameDAO[].class); for
-		 * (GameDAO game : games) { System.out.println(game.getName());
-		 * System.out.println(game.getCover().getUrl());
-		 * System.out.println(game.getGenre().getName()); ; } } catch
-		 * (JsonProcessingException e) { throw new RuntimeException(e); }
-		 */
 
-		System.out.println("API RESULT: ");
+		ObjectMapper mapper1 = new ObjectMapper();
+		GameDAO[] games = mapper1.readValue(parsedNode.toString(), GameDAO[].class);
+
+
+		for (GameDAO game : games) {
+			System.out.println(game.getName());
+			System.out.println(game.getCover());
+			System.out.println(game.getGenres());
+			System.out.println("\n");
+		}
 	}
 
 	public void getCoverFromAPI() {

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -21,8 +22,8 @@ public class GameRestController extends ORestController<GameService> {
     }
 
     @RequestMapping(value = "/game", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public String game() throws JsonProcessingException {
-        this.gameService.getGamesFromAPI();
+    public String game(@RequestParam String name) throws JsonProcessingException {
+        this.gameService.getGamesFromAPI(name);
         return "Endpoint is working!";
     }
 }

@@ -2,22 +2,25 @@ package com.group2.g2.model.core.dao;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.util.ArrayList;
+
 public class GameDAO {
     private Long id;
-    @JsonProperty("cover")
-    private CoverDAO cover;
+
+    private String cover;
     private String name;
-    @JsonProperty("genre")
-    private GenreDAO genre;
+
+    @JsonProperty("genres")
+    private ArrayList<String> genres;
 
 
 
-    public GenreDAO getGenre() {
-        return genre;
+    public ArrayList<String> getGenres() {
+        return genres;
     }
 
-    public void setGenre(GenreDAO genre) {
-        this.genre = genre;
+    public void setGenres(ArrayList<String> genre) {
+        this.genres = genre;
     }
 
     public Long getId() {
@@ -28,11 +31,11 @@ public class GameDAO {
         this.id = id;
     }
 
-    public CoverDAO getCover() {
+    public String getCover() {
         return cover;
     }
 
-    public void setCover(CoverDAO cover) {
+    public void setCover(String cover) {
         this.cover = cover;
     }
 
@@ -44,3 +47,7 @@ public class GameDAO {
         this.name = name;
     }
 }
+
+
+
+
