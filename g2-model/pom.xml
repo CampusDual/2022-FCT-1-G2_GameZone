@@ -38,8 +38,8 @@
 		<dependency>
 			<groupId>com.rometools</groupId>
 			<artifactId>rome</artifactId>
-
 		</dependency>
+
 	</dependencies>
 
 	<build>
