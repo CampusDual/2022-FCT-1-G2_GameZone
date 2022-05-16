@@ -9,8 +9,6 @@ Dg2-model/src/main/java/com/group2/g2/model/core/dao/UserRoleDao.java,9\8\98ced
 g2-ws/pom.xml,b\e\be214f1ce0dc46d928db7fd86468996dfecbf72b
 @
 g2-model/pom.xml,f\d\fd386e47b90b4330b6b78ffa019cf6185eb450f3
-7
-pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
 v
 Fg2-ws/src/main/java/com/group2/g2/ws/core/rest/TestRestController.java,8\b\8b49ffc1ec3b9b3633af11def87a719af575008d
 v
