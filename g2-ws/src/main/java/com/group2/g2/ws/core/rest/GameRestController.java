@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequestMapping("/game")
 public class GameRestController extends ORestController<GameService> {
 
     @Autowired
@@ -26,4 +27,11 @@ public class GameRestController extends ORestController<GameService> {
         this.gameService.getGamesFromAPI(name);
         return "Endpoint is working!";
     }
+
+   /* @RequestMapping(value = "/recommendations", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public String game(@RequestParam String name) throws JsonProcessingException {
+        this.gameService.getGamesFromAPI(name);
+        return "Endpoint is working!";
+    }*/
 }
+

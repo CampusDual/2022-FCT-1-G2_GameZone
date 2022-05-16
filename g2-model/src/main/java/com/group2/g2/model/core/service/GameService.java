@@ -82,7 +82,16 @@ public class GameService {
 		}
 	}
 
-	public void getCoverFromAPI() {
 
+	private void getRecommendationsFromApi(String name) throws JsonProcessingException {
+		RestTemplate restTemplate = new RestTemplate();
+		HttpHeaders headers = new HttpHeaders();
+		headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
+
+		// ENV o CONFIG
+		headers.add("Authorization", "Bearer itun4ro82pfxq8ek5rnchqvsoqkpca");
+		headers.add("Client-ID", "idvvhod17k3cbczniwadsu2jw2xbd4");
 	}
+
+
 }

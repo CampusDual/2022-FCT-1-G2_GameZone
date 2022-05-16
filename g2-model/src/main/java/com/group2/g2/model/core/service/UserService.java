@@ -51,22 +51,4 @@ public class UserService implements IUserService {
 		return this.daoHelper.delete(this.userDao, keyMap);
 	}
 
-	// Sample to permission
-	// @Secured({ PermissionsProviderSecured.SECURED })
-	/*
-	 * public EntityResult userQuery(Map<?, ?> keyMap, List<?> attrList) { return
-	 * this.daoHelper.query(userDao, keyMap, attrList); }
-	 * 
-	 * public EntityResult userInsert(Map<?, ?> attrMap) { return
-	 * this.daoHelper.insert(userDao, attrMap); }
-	 * 
-	 * public EntityResult userUpdate(Map<?, ?> attrMap, Map<?, ?> keyMap) { return
-	 * this.daoHelper.update(userDao, attrMap, keyMap); }
-	 * 
-	 * public EntityResult userDelete(Map<?, ?> keyMap) { Map<Object, Object>
-	 * attrMap = new HashMap<>(); attrMap.put("user_down_date", new
-	 * Timestamp(Calendar.getInstance().getTimeInMillis())); return
-	 * this.daoHelper.update(this.userDao, attrMap, keyMap); }
-	 */
-
 }
