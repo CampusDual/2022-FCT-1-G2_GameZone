@@ -55,6 +55,8 @@ ontimize:
          role-login-column: user_
          role-name-column: rolename
 server:
+   servlet:
+      context-path: /projectImatia/services/rest
    port: 33333
    tomcat:
       uri-encoding: UTF-8
