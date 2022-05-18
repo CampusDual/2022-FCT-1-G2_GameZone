@@ -19,6 +19,7 @@ export class LoginComponent implements OnInit {
 
   router: Router;
 
+
   constructor(
     private actRoute: ActivatedRoute,
     router: Router,
@@ -44,6 +45,7 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): any {
+    this.authService.logout();
     this.navigation.setVisible(false);
 
     this.loginForm.addControl('username', this.userCtrl);

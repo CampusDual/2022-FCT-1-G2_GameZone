@@ -15,14 +15,16 @@
 
           <div fxLayout="column" fxLayoutGap="10px">
             <mat-form-field fxFill class="m-top-24">
-              <input matInput class="mat-input" #user placeholder="{{ 'USERNAME' | oTranslate }}" id="username" [formControl]="userCtrl">
+              <input matInput class="mat-input" #user placeholder="{{ 'USERNAME' | oTranslate }}" id="username"
+                     [formControl]="userCtrl">
               <mat-error *ngIf="userCtrl.hasError('required')">
                 {{ 'ERROR_USER_REQUIRED' | oTranslate }}
               </mat-error>
             </mat-form-field>
             <mat-form-field fxFill class="m-top-24">
-              <input matInput class="mat-input" #password placeholder="{{ 'PASSWORD' | oTranslate }}" id="password" type="password"
-                [formControl]="pwdCtrl">
+              <input matInput class="mat-input" #password placeholder="{{ 'PASSWORD' | oTranslate }}" id="password"
+                     type="password"
+                     [formControl]="pwdCtrl">
               <mat-error *ngIf="pwdCtrl.hasError('required')">
                 {{ 'ERROR_PASS_REQUIRED' | oTranslate }}
               </mat-error>
@@ -39,7 +41,8 @@
           <div fxLayout="column" fxLayoutAlign="center center" layout-padding>
             <span class="login_info">{{ 'EXAMPLE_LOGIN_INFO' | oTranslate }}:</span>
             <span class="dark_text">{{ 'USERNAME' | oTranslate }} : demo</span>
-            <span class="dark_text">{{ 'PASSWORD' | oTranslate }} : demouser</span>
+            <span class="dark_text">{{ 'PASSWORD' | oTranslate }} : demouser</span> <br>
+            <a routerLink="../main/register"> Si no tienes cuenta haz click aquí para registrarte!!</a>
           </div>
         </form>
       </div>
