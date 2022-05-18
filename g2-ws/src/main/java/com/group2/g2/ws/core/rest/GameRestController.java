@@ -33,6 +33,12 @@ public class GameRestController extends ORestController<GameService> {
         this.gameService.getRecommendationsFromApi(name);
         return "Endpoint is working!";
     }
-    
+
+    @RequestMapping(value = "/ranking", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public String ranking_game() throws JsonProcessingException {
+        this.gameService.getRankingFromApi();
+        return "Endpoint is working!";
+    }
+
 }
 

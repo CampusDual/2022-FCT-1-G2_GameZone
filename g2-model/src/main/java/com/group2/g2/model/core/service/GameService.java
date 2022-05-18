@@ -129,28 +129,24 @@ public class GameService {
 
 	}
 }
-	public void getRankingFromApi(String name) throws JsonProcessingException {
+	public void getRankingFromApi() throws JsonProcessingException {
 		RestTemplate restTemplate = new RestTemplate();
 		HttpHeaders headers = new HttpHeaders();
 		headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
 
-		System.out.println(name);
+
 
 		// ENV o CONFIG
 		headers.add("Authorization", "Bearer itun4ro82pfxq8ek5rnchqvsoqkpca");
 		headers.add("Client-ID", "idvvhod17k3cbczniwadsu2jw2xbd4");
 
-		String reqBody = "fields name; sort aggregated_rating desc; where aggregated_rating_count = \""+name+"\"; limit 5;";
+		String reqBody = "fields name; sort aggregated_rating desc; where aggregated_rating_count < 4;";
 
 		HttpEntity<String> httpEntity = new HttpEntity<String>(reqBody, headers);
 		String result = restTemplate.postForObject(this.API_URL, httpEntity, String.class);
 
 		System.out.println(result);
 
-		// MAPEADO ---
-		ObjectMapper mapper = new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-		JsonNode rawTree = mapper.readTree(result);
-		ArrayNode parsedNode = mapper.createArrayNode();
 
 	}
 
