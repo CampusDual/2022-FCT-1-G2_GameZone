@@ -5,7 +5,7 @@ import { SERVICE_CONFIG } from './shared/app.services.config';
 
 export const CONFIG: Config = {
   // The base path of the URL used by app services.
-  apiEndpoint: 'http://localhost:33333/services/projectImatia/services/rest',
+  apiEndpoint: 'http://localhost:33333/projectImatia/services/rest',
   bundle: {
     path: 'bundle'
   },

@@ -16,7 +16,7 @@ import com.ontimize.jee.server.rest.ORestController;
 
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/users")
 @ComponentScan(basePackageClasses={com.group2.g2.api.core.service.IUserService.class})
 public class UserRestController extends ORestController<IUserService> {
 
