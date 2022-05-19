@@ -36,4 +36,12 @@ public class UserRestController extends ORestController<IUserService> {
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 
+	@RequestMapping(
+		value = "/register",
+		method = RequestMethod.POST,
+		produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<EntityResult> register() {
+		return new ResponseEntity<>(HttpStatus.OK);
+	}
+
 }
