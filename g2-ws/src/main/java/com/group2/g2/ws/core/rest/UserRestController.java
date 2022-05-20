@@ -16,7 +16,7 @@ import com.ontimize.jee.server.rest.ORestController;
 
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/users")
 @ComponentScan(basePackageClasses={com.group2.g2.api.core.service.IUserService.class})
 public class UserRestController extends ORestController<IUserService> {
 
@@ -33,6 +33,14 @@ public class UserRestController extends ORestController<IUserService> {
 		method = RequestMethod.POST,
 		produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<EntityResult> login() {
+		return new ResponseEntity<>(HttpStatus.OK);
+	}
+
+	@RequestMapping(
+		value = "/register",
+		method = RequestMethod.POST,
+		produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<EntityResult> register() {
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 
