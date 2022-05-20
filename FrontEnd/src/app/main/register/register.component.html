@@ -1,26 +1,26 @@
-<o-form service="users" entity="users/user" keys="userid">
+<o-form [formControl]="fc" service="users" entity="users/user" keys="userid">
   <o-row>
 
     <o-column title-label="Formulario_Prueba" fxFlex>
       <o-row>
-        <o-text-input class="input-padding" attr="NAME" fxFlex="40" required="yes"></o-text-input>
-        <o-text-input class="input-padding" attr="SURNAME" fxFlex="40" required="yes"></o-text-input>
-        <o-date-input attr="DATE OF BIRTH" fxFlex="20"></o-date-input>
+        <o-text-input class="input-padding" attr="NAME" fxFlex="40" required="yes" name="name" ngDefaultControl [(ngModel)]="user.name"></o-text-input>
+        <o-text-input class="input-padding" attr="SURNAME" fxFlex="40" required="yes" name="surname" ngDefaultControl [(ngModel)]="user.surname"></o-text-input>
+        <o-date-input attr="DATE OF BIRTH" fxFlex="20" name="birthday" ngDefaultControl [(ngModel)]="user.birthday" ></o-date-input>
       </o-row>
 
       <o-row>
-        <o-text-input class="input-padding" attr="NICKNAME" fxFlex="40" required="yes"></o-text-input>
+        <o-text-input class="input-padding" attr="NICKNAME" fxFlex="40" required="yes" name="user_" ngDefaultControl [(ngModel)]="user.user_"></o-text-input>
       </o-row>
 
       <o-row>
-        <o-email-input attr="EMAIL" fxFlex></o-email-input>
+        <o-email-input attr="EMAIL" fxFlex name="email" ngDefaultControl [(ngModel)]="user.email"></o-email-input>
       </o-row>
 
       <o-row>
-        <o-text-input class="input-padding" attr="PASSWORD" fxFlex="40" required="yes"></o-text-input>
+        <o-password-input class="input-padding" attr="PASSWORD" fxFlex="40" required="yes"  name="password" ngDefaultControl [(ngModel)]="user.password" ></o-password-input>
       </o-row>
 
-      <o-button attr="raised" type="RAISED" label="Botoncito2" (click)="onClick($event)"></o-button>
+      <o-button attr="raised" type="RAISED" label="Registrarse" (click)="addUser()"></o-button>
 
 
     </o-column>
