@@ -6,26 +6,25 @@ import {Observable} from "rxjs";
 import {FormControl, NG_VALUE_ACCESSOR} from "@angular/forms";
 
 @Component({
-  selector: 'register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css'],
+  selector: 'update',
+  templateUrl: './update.component.html',
+  styleUrls: ['./update.component.css'],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
       multi: true,
-      useExisting: RegisterComponent
+      useExisting: UpdateComponent
     }
   ]
 
 })
-export class RegisterComponent implements OnInit {
+export class UpdateComponent implements OnInit {
 
   fc  = new FormControl()
   user = new User();
   auth = btoa("demo:demouser")
 
   baseURL: string = "http://localhost:33333/users/user"
-
   constructor(public authService : AuthService, private http : HttpClient) {
     this.user.birthday = new Date()
   }
@@ -33,7 +32,7 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
   }
 
-  addUser() {
+  updateUser() {
     this.Register(this.user)
       .subscribe(data => {
         console.log(data)
@@ -48,4 +47,5 @@ export class RegisterComponent implements OnInit {
     console.log(headers)
     return this.http.post(this.baseURL, body,{'headers':headers})
   }
+
 }

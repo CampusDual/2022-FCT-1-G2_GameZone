@@ -10,7 +10,7 @@ import com.ontimize.jee.server.dao.jdbc.OntimizeJdbcDaoSupport;
 @Lazy
 @ConfigurationFile(configurationFile = "dao/Subsciption_typesDao.xml", configurationFilePlaceholder = "dao/placeholders.properties")
 
-public class Subsciption_typesDao extends OntimizeJdbcDaoSupport {
+public class Subscription_typesDao extends OntimizeJdbcDaoSupport {
 	public static final String ATTR_ID = "id";
 	public static final String ATTR_SUB_TYPE = "sub_type";
 	public static final String ATTR_PRICE = "price";
