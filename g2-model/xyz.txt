@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Test title</title>
+    <link>https://howtodoinjava.com</link>
+    <description>Basic description</description>
+    <item>
+      <title>Entry title</title>
+      <link>First entry</link>
+      <description>First entry</description>
+      <category>Sophisticated category</category>
+      <guid>First entry</guid>
+    </item>
+  </channel>
+</rss>

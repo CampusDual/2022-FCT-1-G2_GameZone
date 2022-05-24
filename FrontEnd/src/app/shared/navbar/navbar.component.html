@@ -1,0 +1,6 @@
+<o-bar-menu title="ProjectImatia">
+  <o-bar-menu-item title="{{user}}"></o-bar-menu-item>
+  <o-bar-menu-item *ngIf="!logged" title = "Login" route="./login"></o-bar-menu-item>
+  <o-bar-menu-item *ngIf="logged" title = "Logout" route="./login"></o-bar-menu-item>
+
+</o-bar-menu>

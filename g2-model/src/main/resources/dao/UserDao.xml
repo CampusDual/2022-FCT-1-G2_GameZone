@@ -11,7 +11,6 @@
     <UpdateKeys>
         <Column>user_</Column>
     </UpdateKeys>
-    <GeneratedKey>user_</GeneratedKey>
     <Queries>
         <Query id="default">
             <ValidColumns>
@@ -20,6 +19,7 @@
                 <Column>password</Column>
                 <Column>name</Column>
                 <Column>surname</Column>
+                <Column>birthday</Column>
             </ValidColumns>
             <Sentence>
                 <![CDATA[
@@ -38,6 +38,7 @@
                 <Column>password</Column>
                 <Column>name</Column>
                 <Column>surname</Column>
+                <Column>birthday</Column>
             </ValidColumns>
             <Sentence>
                 <![CDATA[
