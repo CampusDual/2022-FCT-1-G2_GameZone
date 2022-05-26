@@ -1,22 +1,8 @@
-//import { Component, OnInit } from '@angular/core';
 import {AuthService, OFormComponent} from "ontimize-web-ngx";
-import {User} from "./user";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {FormControl, NG_VALUE_ACCESSOR} from "@angular/forms";
-import { ChangeDetectorRef, Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
-import { OntimizeService } from 'ontimize-web-ngx';
-import { stringify } from "querystring";
-
-
-interface User1 {
-  name:string,
-  surname:string,
-  email:string,
-  password:string,
-  user_:string,
-  birthday:Date
-}
+import {Component, OnInit, ViewChild, } from '@angular/core';
 @Component({
   selector: 'update',
   templateUrl: './update.component.html',
@@ -36,15 +22,11 @@ export class UpdateComponent implements OnInit {
   form : OFormComponent;
 
   fc  = new FormControl()
-  user = new User();
   auth = btoa("demo:demouser")
-  usuario : string
-  user1 : User1;
+  user : string
   baseURL: string = "http://localhost:33333/users/user/search"
 
   constructor(public authService : AuthService, private http : HttpClient) {
-    //this.user.birthday = new Date()
-    //this.user.name = new string
     this.verUser(authService.getSessionInfo().user);
   }
 
@@ -53,31 +35,18 @@ export class UpdateComponent implements OnInit {
 
   updateUser() {
     this.form.update();
-
   }
 
-  verUser(usuario:string) {
-    this.Ver(usuario)
+  verUser(user:string) {
+    this.Ver(user)
       .subscribe(data => {
         this.form.setData(data.data[0])
-        //console.log(this.user1)
       })
-      //.add(console.log(this.user1))
   }
 
-
-  Update(user:User): Observable<any> {
+  Ver(user:string): Observable<any> {
     const headers = { 'content-type': 'application/json', 'Authorization' : 'Basic ' + this.auth}
-    const body= "{\"data\": "+JSON.stringify(user) +"  ,\"sqltypes\": {\"user_\": 12,\"birthday\": 91}} " ;
-    console.log(body)
-    console.log(headers)
-    return this.http.put(this.baseURL, body,{'headers':headers})
-  }
-
-  Ver(usuario:string): Observable<any> {
-    const headers = { 'content-type': 'application/json', 'Authorization' : 'Basic ' + this.auth}
-    const body= '{"filter": {"user_": "'+usuario+'"},"columns": ["name", "surname", "email", "password", "user_", "birthday"]}' ;
-    console.log(body)
+    const body= '{"filter": {"user_": "'+user+'"},"columns": ["name", "surname", "email", "password", "user_", "birthday"]}' ;
     return this.http.post(this.baseURL, body,{'headers':headers})
   }
 
