@@ -1,0 +1,9 @@
+<div class="feed-container">
+  <div class = "feed-elements">
+
+    <div *ngFor="let item of data; let i = index">
+      <div [innerHTML] = item.contents></div>
+    </div>
+
+  </div>
+</div>
