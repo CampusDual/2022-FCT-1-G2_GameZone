@@ -5,13 +5,15 @@ import { SharedModule } from '../../shared/shared.module';
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
 import {RankingModule} from "../ranking/ranking.module";
+import {FeedModule} from "../feed/feed.module";
 
 @NgModule({
     imports: [
         SharedModule,
         OntimizeWebModule,
         HomeRoutingModule,
-        RankingModule
+        RankingModule,
+        FeedModule
     ],
   declarations: [
     HomeComponent

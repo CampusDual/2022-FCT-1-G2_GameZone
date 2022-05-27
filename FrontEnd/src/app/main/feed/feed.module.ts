@@ -10,7 +10,7 @@ import { FeedComponent } from './feed.component';
   imports: [
     CommonModule,
     FeedRoutingModule
-
-  ]
+  ],
+  exports: [FeedComponent]
 })
 export class FeedModule { }
