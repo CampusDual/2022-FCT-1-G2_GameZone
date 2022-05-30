@@ -5,6 +5,7 @@ import { SharedModule } from '../shared/shared.module';
 import { MainRoutingModule } from './main-routing.module';
 import { MainComponent } from './main.component';
 import { UpdateComponent } from './update/update.component';
+import { SeeUsersComponent } from './see-users/see-users.component';
 
 
 @NgModule({

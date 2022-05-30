@@ -20,3 +20,7 @@
 // Propagate theme to screen styles definition.
 @import 'src/app/login/login.theme';
 @include login-theme($theme);
+
+.mat-toolbar-row, .mat-toolbar-single-row {
+  justify-content: flex-end;
+}

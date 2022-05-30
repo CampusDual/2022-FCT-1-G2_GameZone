@@ -51,4 +51,9 @@ public class UserService implements IUserService {
 		return this.daoHelper.delete(this.userDao, keyMap);
 	}
 
+
+	public EntityResult registerInsert(Map<String, Object> attrMap) throws OntimizeJEERuntimeException {
+		return this.daoHelper.insert(this.userDao,attrMap);
+	}
+
 }

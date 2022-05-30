@@ -15,6 +15,9 @@ export const routes: Routes = [
       { path: 'register', loadChildren: () => import('./register/register.module').then(m => m.RegisterModule) },
       { path: 'update', loadChildren: () => import('./update/update.module').then(m => m.UpdateModule) },
       { path: 'users', loadChildren: () => import('./users/users.module').then(m => m.UsersModule) },
+      { path: 'see-users', loadChildren: () => import('./see-users/see-users.module').then(m => m.SeeUsersModule) },
+      { path: 'ranking', loadChildren: () => import('./ranking/ranking.module').then(m => m.RankingModule) },
+      { path: 'feed', loadChildren: () => import('./feed/feed.module').then(m => m.FeedModule)}
 
 
     ]

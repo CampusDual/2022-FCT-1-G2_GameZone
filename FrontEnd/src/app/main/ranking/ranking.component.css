@@ -1,0 +1,36 @@
+.table{
+
+  color: white;
+  margin-top: 10px;
+}
+
+.container{
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+table{
+  border-collapse: collapse;
+  width: 600px;
+}
+
+.img{
+  width: 45px;
+  height: 45px;
+}
+
+tr{
+  padding-right: 10px;
+}
+
+
+
+table tbody tr:nth-child(odd) {
+  background: black;
+}
+table tbody tr:nth-child(even) {
+  background: #191919;
+}

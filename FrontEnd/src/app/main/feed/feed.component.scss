@@ -1,0 +1,24 @@
+.feed-container {
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+}
+
+.feed-elements{
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  width: min-content;
+
+
+}
+
+
+
+.newBody{
+  margin-top: 20px;
+  border-bottom: 1px solid #D2D2D2;
+}
