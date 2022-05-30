@@ -1,0 +1,70 @@
+.stripe-container{
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+}
+
+.stripe-elements{
+  display: flex;
+  background-color: black;
+}
+
+.columns{
+  float: left;
+  width: 33.3%;
+  padding: 8px;
+  text-align: center;
+}
+
+.price{
+  list-style-type: none;
+ // border: 1px solid rgb(129,23,191);
+  margin: 0;
+  padding: 0;
+  padding: 30px;
+}
+
+.price:hover{
+  box-shadow: 0 8px 12px 0 rgba(129,23,191)
+}
+
+.price .header{
+  background-color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  font-size: 30px;
+
+}
+
+.price li{
+  background-color: rgb(0, 0, 0);
+  padding: 15px;
+  color: white;
+}
+
+
+.btn-buy{
+  width: 100%;
+  border: none;
+  color: white;
+  background-color: rgb(129,23,191);
+  padding: 16px 32px;
+  cursor: pointer;
+  margin-top: 70px;
+  font-size: 20px;
+
+}
+
+.money{
+  font-size: 40px;
+  font-weight: bold;
+  margin-top: 70px;
+  margin-bottom: 70px;
+
+}
+
+.subheader{
+  margin-top: -35px;
+}
+
