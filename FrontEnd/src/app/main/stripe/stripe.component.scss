@@ -20,7 +20,7 @@
 
 .price{
   list-style-type: none;
- // border: 1px solid rgb(129,23,191);
+  //border: 1px solid rgb(129,23,191);
   margin: 0;
   padding: 0;
   padding: 30px;
@@ -53,6 +53,7 @@
   cursor: pointer;
   margin-top: 70px;
   font-size: 20px;
+  border-radius: 4px;
 
 }
 
@@ -61,10 +62,17 @@
   font-weight: bold;
   margin-top: 70px;
   margin-bottom: 70px;
-
 }
 
 .subheader{
   margin-top: -35px;
 }
 
+.price-del{
+  font-size: 30px;
+  margin-top: -100px;
+}
+
+.content-li{
+  margin-top: 50px;
+}
