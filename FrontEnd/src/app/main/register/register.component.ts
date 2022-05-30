@@ -28,6 +28,7 @@ export class RegisterComponent implements OnInit {
 
   constructor(public authService : AuthService, private http : HttpClient) {
     this.user.birthday = new Date()
+
   }
 
   ngOnInit() {
@@ -42,7 +43,7 @@ export class RegisterComponent implements OnInit {
 
 
   Register(user:User): Observable<any> {
-    const headers = { 'content-type': 'application/json', 'Authorization' : 'Basic ' + this.auth}
+    const headers = { 'content-type': 'application/json'}
     const body= "{\"data\": "+JSON.stringify(user) +"  ,\"sqltypes\": {\"user_\": 12,\"birthday\": 91}} " ;
     console.log(body)
     console.log(headers)

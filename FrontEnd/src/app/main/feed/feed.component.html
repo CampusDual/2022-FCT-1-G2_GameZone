@@ -1,0 +1,11 @@
+<div class="feed-container">
+
+  <h3>Ultimas noticias relacionadas con videojuegos</h3>
+  <div class = "feed-elements">
+
+    <div *ngFor="let item of data; let i = index">
+      <div [innerHTML] = item.contents class="newBody"></div>
+    </div>
+
+  </div>
+</div>
