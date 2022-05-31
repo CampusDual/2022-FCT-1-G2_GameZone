@@ -2,7 +2,7 @@
   <h3>Juegos mejor valorados según críticos externos</h3>
 
 <div class="table">
-  <table>
+  <table aria-label="ranking de videojuegos">
     <tbody>
     <tr>
       <th>Posición</th>
@@ -14,7 +14,7 @@
       <td class="td">{{i + 1}}</td>
       <td>
         <div>
-        <img class="img" src="http://{{dataItem.url}}">
+        <img class="img"  alt="carátula del juego" src="http://{{dataItem.url}}" >
         </div>
       </td>
       <td> {{dataItem.name}}</td>

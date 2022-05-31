@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import {AuthService} from "ontimize-web-ngx";
 import {HttpClient} from "@angular/common/http";
 import {User} from "./user";
@@ -18,7 +18,7 @@ import {FormControl, NG_VALUE_ACCESSOR} from "@angular/forms";
   ]
 
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent{
 
 
   fc  = new FormControl()
@@ -30,9 +30,6 @@ export class RegisterComponent implements OnInit {
   constructor(public authService : AuthService, private http : HttpClient) {
     this.user.birthday = new Date()
 
-  }
-
-  ngOnInit() {
   }
 
   addUser() {

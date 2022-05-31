@@ -20,7 +20,7 @@ public class FeedService {
 	public List<FeedDao> readFeed() throws IllegalArgumentException, FeedException, IOException {
 
 		URL feedUrl = new URL("http://feeds.feedburner.com/juegosadn");
-		List<FeedDao> feedDaos = new ArrayList<FeedDao>();
+		List<FeedDao> feedDaos = new ArrayList<>();
 
 		SyndFeedInput input = new SyndFeedInput();
 		SyndFeed feed = input.build(new XmlReader(feedUrl));
