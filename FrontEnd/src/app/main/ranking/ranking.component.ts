@@ -1,17 +1,16 @@
-import {Component, OnInit, AfterViewInit} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {map} from "rxjs/operators";
-
+import { AfterViewInit, Component } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
+import { map } from "rxjs/operators";
 
 interface GameData {
-  name: string,
-  id: number,
-  aggregated_rating: number,
+  name: string;
+  id: number;
+  aggregated_rating: number;
   cover: {
-    id: number,
-    url: string
-  }
-url : string
+    id: number;
+    url: string;
+  };
+  url: string;
 }
 
 @Component({
@@ -19,7 +18,7 @@ url : string
   templateUrl: './ranking.component.html',
   styleUrls: ['./ranking.component.css']
 })
-export class RankingComponent implements OnInit, AfterViewInit {
+export class RankingComponent implements AfterViewInit {
 
   data: GameData[];
 
@@ -41,8 +40,5 @@ export class RankingComponent implements OnInit, AfterViewInit {
     ).subscribe(data => this.data= data)
   }
 
-  ngOnInit() {
-
-  }
 
 }

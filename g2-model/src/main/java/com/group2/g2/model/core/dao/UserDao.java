@@ -15,7 +15,7 @@ import com.ontimize.jee.server.dao.jdbc.OntimizeJdbcDaoSupport;
 	configurationFilePlaceholder = "dao/placeholders.properties")
 public class UserDao extends OntimizeJdbcDaoSupport {
 
-	public static final String USR_EMAIL    = "user_email";
+	public static	 final String USR_EMAIL    = "user_email";
 	public static final String USR_PASSWORD = "user_password";
 	public static final String ID            = "user_id";
 	public static final String EMAIL         = "user_email";

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import {AuthService} from "ontimize-web-ngx";
 import {User} from "./user";
 import {HttpClient} from "@angular/common/http";
@@ -19,8 +19,8 @@ import {Router} from "@angular/router";
   ]
 
 })
-export class RegisterComponent implements OnInit {
 
+export class RegisterComponent{
   fc  = new FormControl()
   user = new User();
   auth = btoa("demo:demouser")
@@ -30,9 +30,6 @@ export class RegisterComponent implements OnInit {
   constructor(public authService : AuthService, private http : HttpClient, private router : Router) {
     this.user.birthday = new Date()
 
-  }
-
-  ngOnInit() {
   }
 
   addUser() {

@@ -4,18 +4,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.group2.g2.api.core.service.IFavorite_gamesService;
+import com.group2.g2.api.core.service.IFavoriteGamesService;
 import com.ontimize.jee.server.rest.ORestController;
 
 @RestController
 @RequestMapping("/favorite_games")
-public class Favorite_gamesController extends ORestController<IFavorite_gamesService> {
+public class FavoriteGamesController extends ORestController<IFavoriteGamesService> {
 
 	@Autowired
-	private IFavorite_gamesService favorite_gamesService;
+	private IFavoriteGamesService favoriteGamesService;
 
 	@Override
-	public IFavorite_gamesService getService() {
-		return this.favorite_gamesService;
+	public IFavoriteGamesService getService() {
+		return this.favoriteGamesService;
 	}
 }
