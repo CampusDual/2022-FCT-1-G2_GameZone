@@ -5,7 +5,6 @@ import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { FormControl, NG_VALUE_ACCESSOR } from "@angular/forms";
 import { Router } from "@angular/router";
-import { error } from "protractor";
 
 @Component({
   selector: "register",
@@ -36,7 +35,9 @@ export class RegisterComponent {
 
   addUser() {
     this.Register(this.user).subscribe(
-      () => {},
+      () => {
+        console.log("User added");
+      },
       (err) => {
         console.log(err);
       },
