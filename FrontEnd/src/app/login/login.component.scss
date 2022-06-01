@@ -40,7 +40,6 @@
       height: 100%;
       top: 0;
       left: 0;
-      background: rgba(0, 0, 0, .1);
       opacity: .8;
     }
 
@@ -80,6 +79,8 @@
           margin: 32px 0 0;
           height: 42px;
           font-size: 16px;
+          color: white;
+          border-radius: 40px;
         }
 
         .dark_text {
@@ -94,6 +95,7 @@
 
         .title_text {
           font-weight: 600;
+          color: #8217bf;
         }
 
         .text {
