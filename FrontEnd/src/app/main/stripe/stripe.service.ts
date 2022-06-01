@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { AuthService } from "ontimize-web-ngx";
+import {Router} from "@angular/router";
 
 @Injectable({
   providedIn: "root",
@@ -9,7 +10,7 @@ import { AuthService } from "ontimize-web-ngx";
 export class StripeService {
   paymentHandler: any = null;
 
-  constructor(private http: HttpClient, private authService: AuthService) {
+  constructor(private http: HttpClient, private authService: AuthService,private router:Router) {
     this.invokeStripe();
   }
 
@@ -59,14 +60,17 @@ export class StripeService {
           date.setMonth(date.getMonth() + 1);
           this.sendEmail(stripeToken.email, amount, date);
           this.sendRequest(date, 1).subscribe({ error: (err) => console.log(err) });
+          this.router.navigate(["/main/home"]);
         } else if (amount == 24.99) {
           date.setMonth(date.getMonth() + 3);
           this.sendEmail(stripeToken.email, amount, date);
           this.sendRequest(date, 2).subscribe({ error: (err) => console.log(err) });
+          this.router.navigate(["/main/home"]);
         } else {
           date.setFullYear(date.getFullYear() + 1);
           this.sendEmail(stripeToken.email, amount, date);
           this.sendRequest(date, 3).subscribe({ error: (err) => console.log(err) });
+          this.router.navigate(["/main/home"]);
         }
       },
     });

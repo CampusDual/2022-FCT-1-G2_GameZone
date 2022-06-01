@@ -1,50 +1,64 @@
-import { Component } from '@angular/core';
-import {AuthService} from "ontimize-web-ngx";
-import {User} from "./user";
-import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
-import {FormControl, NG_VALUE_ACCESSOR} from "@angular/forms";
-import {Router} from "@angular/router";
+import { Component } from "@angular/core";
+import { AuthService } from "ontimize-web-ngx";
+import { User } from "./user";
+import { HttpClient } from "@angular/common/http";
+import { Observable } from "rxjs";
+import { FormControl, NG_VALUE_ACCESSOR } from "@angular/forms";
+import { Router } from "@angular/router";
+import { error } from "protractor";
 
 @Component({
-  selector: 'register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css'],
+  selector: "register",
+  templateUrl: "./register.component.html",
+  styleUrls: ["./register.component.css"],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
       multi: true,
-      useExisting: RegisterComponent
-    }
-  ]
-
+      useExisting: RegisterComponent,
+    },
+  ],
 })
-
-export class RegisterComponent{
-  fc  = new FormControl()
+export class RegisterComponent {
+  fc = new FormControl();
   user = new User();
-  auth = btoa("demo:demouser")
+  auth = btoa("demo:demouser");
 
-  baseURL: string = "http://localhost:33333/users/register"
+  baseURL: string = "http://localhost:33333/users/register";
 
-  constructor(public authService : AuthService, private http : HttpClient, private router : Router) {
-    this.user.birthday = new Date()
-
+  constructor(
+    public authService: AuthService,
+    private http: HttpClient,
+    private router: Router
+  ) {
+    this.user.birthday = new Date();
   }
 
   addUser() {
-    this.Register(this.user)
-      .subscribe(() => {
-        this.router.navigate(['/main/stripe'])
-      })
+    this.Register(this.user).subscribe(
+      () => {},
+      (err) => {
+        console.log(err);
+      },
+      () =>
+        this.authService
+          .login(this.user.user_, this.user.password)
+          .subscribe(() => {
+            this.router.navigate(["/main/stripe"]).then(() => {
+              window.location.reload();
+            });
+          })
+    );
   }
 
-
-  Register(user:User): Observable<any> {
-    const headers = { 'content-type': 'application/json'}
-    const body= "{\"data\": "+JSON.stringify(user) +"  ,\"sqltypes\": {\"user_\": 12,\"birthday\": 91}} " ;
-    console.log(body)
-    console.log(headers)
-    return this.http.post(this.baseURL, body,{'headers':headers})
+  Register(user: User): Observable<any> {
+    const headers = { "content-type": "application/json" };
+    const body =
+      '{"data": ' +
+      JSON.stringify(user) +
+      '  ,"sqltypes": {"user_": 12,"birthday": 91}} ';
+    console.log(body);
+    console.log(headers);
+    return this.http.post(this.baseURL, body, { headers: headers });
   }
 }
