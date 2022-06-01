@@ -4,6 +4,7 @@ import {User} from "./user";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {FormControl, NG_VALUE_ACCESSOR} from "@angular/forms";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'register',
@@ -24,9 +25,9 @@ export class RegisterComponent implements OnInit {
   user = new User();
   auth = btoa("demo:demouser")
 
-  baseURL: string = "http://localhost:33333/users/user"
+  baseURL: string = "http://localhost:33333/users/register"
 
-  constructor(public authService : AuthService, private http : HttpClient) {
+  constructor(public authService : AuthService, private http : HttpClient, private router : Router) {
     this.user.birthday = new Date()
 
   }
@@ -36,8 +37,8 @@ export class RegisterComponent implements OnInit {
 
   addUser() {
     this.Register(this.user)
-      .subscribe(data => {
-        console.log(data)
+      .subscribe(() => {
+        this.router.navigate(['/main/stripe'])
       })
   }
 
