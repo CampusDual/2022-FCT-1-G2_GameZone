@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import {AuthService} from "ontimize-web-ngx";
-import {HttpClient} from "@angular/common/http";
 import {User} from "./user";
+import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {FormControl, NG_VALUE_ACCESSOR} from "@angular/forms";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'register',
@@ -20,22 +21,21 @@ import {FormControl, NG_VALUE_ACCESSOR} from "@angular/forms";
 })
 export class RegisterComponent{
 
-
   fc  = new FormControl()
   user = new User();
   auth = btoa("demo:demouser")
 
-  baseURL: string = "http://localhost:33333/users/user"
+  baseURL: string = "http://localhost:33333/users/register"
 
-  constructor(public authService : AuthService, private http : HttpClient) {
+  constructor(public authService : AuthService, private http : HttpClient, private router : Router) {
     this.user.birthday = new Date()
 
   }
 
   addUser() {
     this.Register(this.user)
-      .subscribe(data => {
-        console.log(data)
+      .subscribe(() => {
+        this.router.navigate(['/main/stripe'])
       })
   }
 

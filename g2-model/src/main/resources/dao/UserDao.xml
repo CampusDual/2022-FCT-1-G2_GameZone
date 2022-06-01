@@ -20,6 +20,8 @@
                 <Column>name</Column>
                 <Column>surname</Column>
                 <Column>birthday</Column>
+                <Column>sub_id</Column>
+                <Column>expiration_date</Column>
             </ValidColumns>
             <Sentence>
                 <![CDATA[
@@ -39,6 +41,8 @@
                 <Column>name</Column>
                 <Column>surname</Column>
                 <Column>birthday</Column>
+                 <Column>sub_id</Column>
+                <Column>expiration_date</Column>
             </ValidColumns>
             <Sentence>
                 <![CDATA[
