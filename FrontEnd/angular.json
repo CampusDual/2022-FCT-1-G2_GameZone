@@ -38,7 +38,8 @@
             ],
             "scripts": [
               "src/assets/js/domchange.js",
-              "src/assets/js/keyboard.js"
+              "src/assets/js/keyboard.js",
+              "src/assets/js/smtp.js"
             ]
           },
           "configurations": {

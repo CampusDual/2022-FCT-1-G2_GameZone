@@ -2,7 +2,7 @@ package com.group2.g2.model.core.dao;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class GameDAO {
     private Long id;
@@ -11,15 +11,15 @@ public class GameDAO {
     private String name;
 
     @JsonProperty("genres")
-    private ArrayList<String> genres;
+    private List<String> genres;
 
 
 
-    public ArrayList<String> getGenres() {
+    public List<String> getGenres() {
         return genres;
     }
 
-    public void setGenres(ArrayList<String> genre) {
+    public void setGenres(List<String> genre) {
         this.genres = genre;
     }
 

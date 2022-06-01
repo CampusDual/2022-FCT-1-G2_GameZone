@@ -1,8 +1,6 @@
-import {AuthService, OFormComponent} from "ontimize-web-ngx";
-import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
-import {FormControl, NG_VALUE_ACCESSOR} from "@angular/forms";
-import {Component, OnInit, ViewChild, } from '@angular/core';
+import { NG_VALUE_ACCESSOR } from "@angular/forms";
+import { Component } from "@angular/core";
+
 @Component({
   selector: 'see-users',
   templateUrl: './see-users.component.html',
@@ -16,11 +14,7 @@ import {Component, OnInit, ViewChild, } from '@angular/core';
   ]
 
 })
-export class SeeUsersComponent implements OnInit {
+export class SeeUsersComponent{
 
-  constructor() { }
-
-  ngOnInit() {
-  }
 
 }
