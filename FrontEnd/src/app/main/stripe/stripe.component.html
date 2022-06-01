@@ -1,52 +1,77 @@
-<div class="stripe-container">
 
-  <h2 class="title">PRECIOS</h2>
-  <div class="stripe-elements">
+<title>Pricing Table</title>
 
-    <div class="columns">
-      <ul class="price">
-        <li class="header">Mensual</li>
-        <li class="subheader">Con un texto queda más boni</li>
-        <li class="money">9.99€</li>
-        <li class="price-del"><del>12.99€</del></li>
-        <div class="content-li">
-          <li>Acceso ilimitado a más de 100 juegos</li>
-          <li>Descuentos y eventos exclusivos para miembros</li>
-          <li>Juegos nuevos cada semana</li>
+<body>
+<section>
+  <div class="container-fluid">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="card text-center">
+            <div class="title">
+              <i class="fa fa-paper-plane" aria-hidden="true"></i>
+              <h2>Mensual</h2>
+            </div>
+            <div class="price">
+              <h4><sup>€</sup>9.99</h4>
+              <h2><sup>€</sup><del>12.99</del></h2>
+            </div>
+            <div class="option">
+              <ul>
+              <li> <i class="fa fa-check" aria-hidden="true"></i>Acceso ilimitado a más de 100 juegos</li>
+              <li> <i class="fa fa-check" aria-hidden="true"></i>Descuentos y eventos exclusivos para miembros</li>
+              <li> <i class="fa fa-check" aria-hidden="true"></i>Juegos nuevos cada semana</li>
+              </ul>
+            </div>
+            <button (click)="makePayment(24.99)" class="btn">Comprar</button>
+          </div>
         </div>
-        <li><button (click)="makePayment(24.99)" class="btn-buy">COMPRAR</button></li>
-      </ul>
-    </div>
-
-    <div class="columns">
-      <ul class="price">
-        <li class="header">Trimestral</li>
-        <li class="subheader">Con un texto queda más boni</li>
-        <li class="money">24.99€</li>
-        <li class="price-del"><del>38.97€</del></li>
-        <div class="content-li">
-          <li>Acceso ilimitado a más de 100 juegos</li>
-          <li>Descuentos y eventos exclusivos para miembros</li>
-          <li>Juegos nuevos cada semana</li>
+        <!-- END Col one -->
+        <div class="col-sm-4">
+          <div class="card text-center">
+            <div class="title">
+              <i class="fa fa-plane" aria-hidden="true"></i>
+              <h2>Trimestral</h2>
+            </div>
+            <div class="price">
+              <h4><sup>€</sup>24.99</h4>
+              <h2><sup>€</sup><del>38.97</del></h2>
+            </div>
+            <div class="option">
+              <ul>
+              <li> <i class="fa fa-check" aria-hidden="true"></i>Acceso ilimitado a más de 100 juegos</li>
+              <li> <i class="fa fa-check" aria-hidden="true"></i>Descuentos y eventos exclusivos para miembros</li>
+              <li> <i class="fa fa-check" aria-hidden="true"></i>Juegos nuevos cada semana</li>
+              </ul>
+            </div>
+            <button (click)="makePayment(24.99)" class="btn">Comprar</button>
+          </div>
         </div>
-        <li><button (click)="makePayment(24.99)" class="btn-buy">COMPRAR</button></li>
-      </ul>
-    </div>
-
-    <div class="columns">
-      <ul class="price">
-        <li class="header">Anual</li>
-        <li class="subheader">Con un texto queda más boni</li>
-        <li class="money">99.99€</li>
-        <li class="price-del"><del>155.88€</del></li>
-        <div class="content-li">
-          <li>Acceso ilimitado a más de 100 juegos</li>
-          <li>Descuentos y eventos exclusivos para miembros</li>
-          <li>Juegos nuevos cada semana</li>
+        <!-- END Col two -->
+        <div class="col-sm-4">
+          <div class="card text-center">
+            <div class="title">
+              <i class="fa fa-rocket" aria-hidden="true"></i>
+              <h2>Anual</h2>
+            </div>
+            <div class="price">
+              <h4><sup>€</sup>99.99</h4>
+              <h2><sup>€</sup><del>155.88</del></h2>
+            </div>
+            <div class="option">
+              <ul>
+              <li> <i class="fa fa-check" aria-hidden="true"></i>Acceso ilimitado a más de 100 juegos</li>
+              <li> <i class="fa fa-check" aria-hidden="true"></i>Descuentos y eventos exclusivos para miembros</li>
+              <li> <i class="fa fa-check" aria-hidden="true"></i>Juegos nuevos cada semana</li>
+              </ul>
+            </div>
+            <button (click)="makePayment(24.99)" class="btn">Comprar</button>
+          </div>
         </div>
-        <li><button (click)="makePayment(24.99)" class="btn-buy">COMPRAR</button></li>
-      </ul>
+        <!-- END Col three -->
+      </div>
     </div>
-
   </div>
-</div>
+</section>
+</body>
+
