@@ -19,8 +19,8 @@ import {Router} from "@angular/router";
   ]
 
 })
-export class RegisterComponent{
 
+export class RegisterComponent{
   fc  = new FormControl()
   user = new User();
   auth = btoa("demo:demouser")
