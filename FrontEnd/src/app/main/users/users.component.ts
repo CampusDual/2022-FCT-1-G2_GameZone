@@ -16,9 +16,11 @@ import { Component, ViewChild } from "@angular/core";
     },
   ],
 })
+
 export class UsersComponent {
-  @ViewChild("form", { static: true })
+  @ViewChild("form", {static: true})
   form: OFormComponent;
+
 
   auth = btoa("demo:demouser");
   user: string;
@@ -28,11 +30,15 @@ export class UsersComponent {
     this.verUser(authService.getSessionInfo().user);
   }
 
+
   verUser(user: string) {
-    this.Ver(user).subscribe((data) => {
-      this.form.setData(data.data[0]);
-    });
+    this.Ver(user)
+      .subscribe(data => {
+        this.form.setData(data.data[0])
+
+      })
   }
+
 
   Ver(user: string): Observable<any> {
     const headers = {
@@ -42,7 +48,9 @@ export class UsersComponent {
     const body =
       '{"filter": {"user_": "' +
       user +
-        '"},"columns": ["name", "surname", "email", "user_", "birthday","expiration_date"]}';
-    return this.http.post(this.baseURL, body, { headers: headers });
+      '"},"columns": ["name", "surname", "email", "user_", "birthday","expiration_date"]}';
+    return this.http.post(this.baseURL, body, {headers: headers});
+
+
   }
 }
