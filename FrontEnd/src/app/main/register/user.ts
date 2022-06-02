@@ -1,5 +1,3 @@
-import {RegisterComponent} from "./register.component";
-
 export class User {
   name:string
   surname:string

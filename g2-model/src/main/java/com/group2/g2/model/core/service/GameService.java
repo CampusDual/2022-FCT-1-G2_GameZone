@@ -17,29 +17,36 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.net.URL;
-import java.util.Arrays;
+import java.util.List;
 
 @Service
 public class GameService {
 
-    private final String API_URL = "https://api.igdb.com/v4/games";
+    private static final String API_URL = "https://api.igdb.com/v4/games";
+    private static final String AUTHORIZATION = "Authorization";
+    private static final String CLIENT_ID = "Client-ID";
+    private static final String BEARER = "Bearer itun4ro82pfxq8ek5rnchqvsoqkpca";
+
+    private static final String CLIENT_TOKEN = "idvvhod17k3cbczniwadsu2jw2xbd4";
+    private static final String COVER = "cover";
+    private static final String NAME = "name";
+    private static final String GENRES = "genres";
+
+    private static final String SIMILAR_GAMES_COVER = "similar_games.cover";
 
     public void getGamesFromAPI(String name) throws JsonProcessingException {
         RestTemplate restTemplate = new RestTemplate();
         HttpHeaders headers = new HttpHeaders();
-        headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
+        headers.setAccept(List.of(MediaType.APPLICATION_JSON));
 
         // ENV o CONFIG
-        headers.add("Authorization", "Bearer itun4ro82pfxq8ek5rnchqvsoqkpca");
-        headers.add("Client-ID", "idvvhod17k3cbczniwadsu2jw2xbd4");
+        headers.add(AUTHORIZATION, BEARER);
+        headers.add(CLIENT_ID, CLIENT_TOKEN);
 
         String reqBody = "fields name, id, cover.url, genres.name;search \"" + name + "\"; limit 500;";
 
-        HttpEntity<String> httpEntity = new HttpEntity<String>(reqBody, headers);
-        String result = restTemplate.postForObject(this.API_URL, httpEntity, String.class);
-
-        System.out.println(result);
-
+        HttpEntity<String> httpEntity = new HttpEntity<>(reqBody, headers);
+        String result = restTemplate.postForObject(API_URL, httpEntity, String.class);
 
         // MAPEADO ---
         ObjectMapper mapper = new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
@@ -49,19 +56,19 @@ public class GameService {
         for (JsonNode actualNode : rawTree) {
 
             ObjectNode parsedActualNode = mapper.createObjectNode();
-            parsedActualNode.set("name", actualNode.get("name"));
+            parsedActualNode.set(NAME, actualNode.get(NAME));
 
-            if (actualNode.get("cover") != null) {
-                parsedActualNode.set("cover", actualNode.get("cover").get("url"));
+            if (actualNode.get(COVER) != null) {
+                parsedActualNode.set(COVER, actualNode.get(COVER).get("url"));
             }
 
-            if (actualNode.get("genres") != null) {
-                JsonNode genreNodes = actualNode.get("genres");
+            if (actualNode.get(GENRES) != null) {
+                JsonNode genreNodes = actualNode.get(GENRES);
                 ArrayNode genreParsedNodes = mapper.createArrayNode();
                 for (JsonNode actualGenreNode : genreNodes) {
-                    genreParsedNodes.add(actualGenreNode.get("name"));
+                    genreParsedNodes.add(actualGenreNode.get(NAME));
                 }
-                parsedActualNode.set("genres", genreParsedNodes);
+                parsedActualNode.set(GENRES, genreParsedNodes);
             }
             parsedNode.add(parsedActualNode);
         }
@@ -77,20 +84,18 @@ public class GameService {
     public void getRecommendationsFromApi(String name) throws JsonProcessingException {
         RestTemplate restTemplate = new RestTemplate();
         HttpHeaders headers = new HttpHeaders();
-        headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
+        headers.setAccept(List.of(MediaType.APPLICATION_JSON));
 
-        System.out.println(name);
 
         // ENV o CONFIG
-        headers.add("Authorization", "Bearer itun4ro82pfxq8ek5rnchqvsoqkpca");
-        headers.add("Client-ID", "idvvhod17k3cbczniwadsu2jw2xbd4");
+        headers.add(AUTHORIZATION, BEARER);
+        headers.add(CLIENT_ID, CLIENT_TOKEN);
 
         String reqBody = "fields similar_games.name, similar_games.cover.url; where name = \"" + name + "\";";
 
-        HttpEntity<String> httpEntity = new HttpEntity<String>(reqBody, headers);
-        String result = restTemplate.postForObject(this.API_URL, httpEntity, String.class);
+        HttpEntity<String> httpEntity = new HttpEntity<>(reqBody, headers);
+        String result = restTemplate.postForObject(API_URL, httpEntity, String.class);
 
-        System.out.println(result);
 
         // MAPEADO ---
         ObjectMapper mapper = new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
@@ -102,68 +107,47 @@ public class GameService {
             ObjectNode parsedActualNode = mapper.createObjectNode();
             parsedActualNode.set("similar_games.name", actualNode.get("similar_games.name"));
 
-            if (actualNode.get("similar_games.cover") != null) {
-                parsedActualNode.set("similar_games.cover", actualNode.get("similar_games.cover").get("url"));
-            } else {
-                System.out.println("fallo");
+            if (actualNode.get(SIMILAR_GAMES_COVER) != null) {
+                parsedActualNode.set(SIMILAR_GAMES_COVER, actualNode.get(SIMILAR_GAMES_COVER).get("url"));
             }
 
             ObjectMapper mapper2 = new ObjectMapper();
             GameDAO[] games = mapper2.readValue(parsedNode.toString(), GameDAO[].class);
 
 
-            for (GameDAO similar_game : games) {
-                System.out.println(similar_game.getName());
-                System.out.println(similar_game.getCover());
-                System.out.println("\n");
-            }
-
         }
     }
 
 
+    public String readFeed() {
+        try {
+            URL feedUrl = new URL("http://feeds.feedburner.com/juegosadn");
+            SyndFeedInput input = new SyndFeedInput();
+            SyndFeed feed = input.build(new XmlReader(feedUrl));
+            return feed.toString();
+        } catch (Exception ex) {
+            ex.printStackTrace();
 
-
-        public String readFeed() {
-            try { URL feedUrl = new URL("http://feeds.feedburner.com/juegosadn");
-                SyndFeedInput input = new SyndFeedInput();
-                SyndFeed feed = input.build(new XmlReader(feedUrl));
-//Recorrer los elementos del feed y mostrarlos
-/*for(int i = 0; i< feed.getEntries().size(); i++){
-StringBuilder (feed.getEntries().get(i).getTitle());
-(feed.getEntries().get(i).getLink());
-(feed.getEntries().get(i).getPublishedDate());
-(feed.getEntries().get(i).getDescription().getValue());
-(feed.getEntries().get(i).getContents().get(0).getValue());
-}*/
-                return feed.toString();
-            }
-            catch (Exception ex) {
-                ex.printStackTrace();
-                System.out.println("ERROR: "+ex.getMessage());
-            }
+        }
         return "fallo";
     }
 
 
-
-
-    public String getRankingFromApi() throws JsonProcessingException {
+    public String getRankingFromApi() {
         RestTemplate restTemplate = new RestTemplate();
         HttpHeaders headers = new HttpHeaders();
-        headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
+        headers.setAccept(List.of(MediaType.APPLICATION_JSON));
 
 
         // ENV o CONFIG
-        headers.add("Authorization", "Bearer itun4ro82pfxq8ek5rnchqvsoqkpca");
-        headers.add("Client-ID", "idvvhod17k3cbczniwadsu2jw2xbd4");
+        headers.add(AUTHORIZATION, BEARER);
+        headers.add(CLIENT_ID, CLIENT_TOKEN);
 
         String reqBody = "fields name, aggregated_rating, cover.url; sort aggregated_rating desc; where aggregated_rating_count > 14; limit 5;";
 
-        HttpEntity<String> httpEntity = new HttpEntity<String>(reqBody, headers);
-        String result = restTemplate.postForObject(this.API_URL, httpEntity, String.class);
+        HttpEntity<String> httpEntity = new HttpEntity<>(reqBody, headers);
 
-        return result;
+        return restTemplate.postForObject(API_URL, httpEntity, String.class);
 
 
     }

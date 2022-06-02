@@ -1,13 +1,12 @@
-import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { HttpClient } from "@angular/common/http";
+import { AfterViewInit, Component } from "@angular/core";
 
-interface feedItem{
-  title: string,
-  link:string,
-  publishedDate: Date,
-  description: string,
-  contents: string
-
+interface FeedItem {
+  title: string;
+  link: string;
+  publishedDate: Date;
+  description: string;
+  contents: string;
 }
 
 @Component({
@@ -15,18 +14,16 @@ interface feedItem{
   templateUrl: './feed.component.html',
   styleUrls: ['./feed.component.scss']
 })
-export class FeedComponent implements OnInit {
+export class FeedComponent implements AfterViewInit {
 
-  data: feedItem[]
+  data: FeedItem[]
 
   constructor(private http : HttpClient) {
 
   }
   ngAfterViewInit() {
-    this.http.get<feedItem[]>("http://localhost:33333/feedReader/feed").subscribe(next => {this.data = next},()=>{console.log("miau")}, () => {console.log(this.data)} )
+    this.http.get<FeedItem[]>("http://localhost:33333/feedReader/feed").subscribe(next => {this.data = next},()=>{console.log("miau")}, () => {console.log(this.data)} )
   }
 
-  ngOnInit() {
-  }
 
 }
