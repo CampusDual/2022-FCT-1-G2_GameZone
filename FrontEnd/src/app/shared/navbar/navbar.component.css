@@ -3,4 +3,7 @@ mat-toolbar{
   color:#8217bf;
 }
 
-
+.logo img {
+  display: flex;
+  justify-content: center;
+}
