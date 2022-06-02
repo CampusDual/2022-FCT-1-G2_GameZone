@@ -6,9 +6,9 @@ import org.springframework.stereotype.Repository;
 import com.ontimize.jee.server.dao.common.ConfigurationFile;
 import com.ontimize.jee.server.dao.jdbc.OntimizeJdbcDaoSupport;
 
-@Repository("Subscription_typesDao")
+@Repository("SubscriptionTypesDao")
 @Lazy
-@ConfigurationFile(configurationFile = "dao/Subscription_typesDao.xml", configurationFilePlaceholder = "dao/placeholders.properties")
+@ConfigurationFile(configurationFile = "dao/SubscriptionTypesDao.xml", configurationFilePlaceholder = "dao/placeholders.properties")
 
 public class SubscriptionTypesDao extends OntimizeJdbcDaoSupport {
 	public static final String ATTR_ID = "id";

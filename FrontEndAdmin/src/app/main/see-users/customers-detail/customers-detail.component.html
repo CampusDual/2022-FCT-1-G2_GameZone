@@ -1,7 +1,9 @@
-<o-form show-header="no" #form service="users" entity="user" keys="user_">
+<o-form attr="tabla" service="users" entity="user" keys="user_" header-actions="R;I;U;D" show-header-navigation="no">
   <o-row>
-
-    <o-column title-label="Formulario_Prueba" fxFlex>
+    <o-column>
+      <o-image id="CUSTOMER_PHOTO" attr="PHOTO" empty-image="assets/images/no-image.png" sql-type="OTHER"></o-image>
+    </o-column>
+    <o-column title-label="CUSTOMER_PERSONAL_INFORMATION" fxFlex>
       <o-row>
         <o-text-input class="input-padding" attr="name" fxFlex="40" name="name" read-only="yes"></o-text-input>
         <o-text-input class="input-padding" attr="surname" fxFlex="40" name="surname" read-only="yes"></o-text-input>
@@ -20,6 +22,3 @@
     </o-column>
   </o-row>
 </o-form>
-
-
-

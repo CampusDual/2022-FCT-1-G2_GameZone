@@ -26,10 +26,10 @@ export class NavbarComponent implements OnChanges {
     }
 
     if (this.authService.getSessionInfo().user == "demo") {
-      console.log(this.authService.getSessionInfo());
       this.admin = true;
       console.log("si");
     } else {
+      console.log(this.authService.getSessionInfo());
       this.admin = false;
       console.log("no");
     }

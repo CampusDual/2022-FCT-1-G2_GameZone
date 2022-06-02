@@ -1,5 +1,5 @@
 <div fxFill fxLayout="column" fxLayoutAlign="start" >
-  <o-table attr="tabla" service="users" entity="user" keys="user_"
+  <o-table fxFlex attr="tabla" service="users" entity="user" keys="user_"
     columns="user_;name;surname;birthday;email;sub_id;expiration_date"
     visible-columns="user_;name;surname;birthday;email;sub_id;expiration_date" query-rows="20">
     <o-table-column attr="user_" title="Nickname"></o-table-column>
@@ -8,7 +8,7 @@
     <o-table-column attr="birthday" title="Birthday" type="date" format="LL"></o-table-column>
     <o-table-column attr="email" title="Email"></o-table-column>
      <o-table-column attr="sub_id" title="Subscription plan" type="service" service="subscription_types"
-    entity="subscription_types" columns="id;sub_type" parent-keys="id:sub_id" value-column="sub_type"></o-table-column>
+    entity="subscriptionTypes" columns="id;sub_type" parent-keys="id:sub_id" value-column="sub_type"></o-table-column>
     <o-table-column attr="expiration_date" title="Expiration date" type="date" format="LL"></o-table-column>
   </o-table>
 </div>
