@@ -31,13 +31,16 @@ export class UsersComponent {
   }
 
 
-  verUser(user: string) {
+
+  verUser(user:string) {
+
     this.Ver(user)
       .subscribe(data => {
         this.form.setData(data.data[0])
 
       })
   }
+
 
 
   Ver(user: string): Observable<any> {
@@ -51,6 +54,8 @@ export class UsersComponent {
       '"},"columns": ["name", "surname", "email", "user_", "birthday","expiration_date"]}';
     return this.http.post(this.baseURL, body, {headers: headers});
 
-
   }
+
+
+
 }
