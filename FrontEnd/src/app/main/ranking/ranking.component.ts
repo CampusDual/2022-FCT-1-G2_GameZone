@@ -16,7 +16,7 @@ interface GameData {
 @Component({
   selector: 'app-ranking',
   templateUrl: './ranking.component.html',
-  styleUrls: ['./ranking.component.css']
+  styleUrls: ['./ranking.component.scss']
 })
 export class RankingComponent implements AfterViewInit {
 
