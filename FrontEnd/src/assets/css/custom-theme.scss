@@ -4,20 +4,20 @@
 
 /* Color definitions */
 $mat-custom-primary: (
-  50: #feefe0,
-  100: #fcd8b3,
-  200: #fabe80,
-  300: #f8a34d,
-  400: #f79026,
-  500: #f57c00,
-  600: #f47400,
-  700: #f26900,
-  800: #f05f00,
-  900: #ee4c00,
-  A100: #ffffff,
-  A200: #ffe9e1,
-  A400: #ffc3ae,
-  A700: #ffb095,
+  50: #F0E3F7,
+  100: #DAB9EC,
+  200: #C18BDF,
+  300: #A85DD2,
+  400: #953AC9,
+  500: #8217BF,
+  600: #7A14B9,
+  700: #6F11B1,
+  800: #650DA9,
+  900: #52079B,
+  A100: #E1C8FF,
+  A200: #C595FF,
+  A400: #A962FF,
+  A700: #9B48FF,
   contrast: (
     50: #000000,
     100: #000000,
@@ -37,20 +37,20 @@ $mat-custom-primary: (
 );
 
 $mat-custom-accent: (
-  50: #ebe8ff,
-  100: #ccc5ff,
-  200: #ab9eff,
-  300: #8977fe,
-  400: #6f5afe,
-  500: #563dfe,
-  600: #4f37fe,
-  700: #452ffe,
-  800: #3c27fe,
-  900: #2b1afd,
-  A100: #ffffff,
-  A200: #fdfcff,
-  A400: #cdc9ff,
-  A700: #b5b0ff,
+  50: #F0E3F7,
+  100: #DAB9EC,
+  200: #C18BDF,
+  300: #A85DD2,
+  400: #953AC9,
+  500: #8217BF,
+  600: #7A14B9,
+  700: #6F11B1,
+  800: #650DA9,
+  900: #52079B,
+  A100: #E1C8FF,
+  A200: #C595FF,
+  A400: #A962FF,
+  A700: #9B48FF,
   contrast: (
     50: #000000,
     100: #000000,
@@ -146,7 +146,7 @@ $mat-custom-accent: (
 // Define a theme.
 $primary: mat-palette($mat-custom-primary);
 $accent: mat-palette($mat-custom-accent);
-$background-color: #eceff1;
+$background-color: #ffffff;
 
 /* Light theme */
 $theme: mat-light-theme($primary, $accent);
