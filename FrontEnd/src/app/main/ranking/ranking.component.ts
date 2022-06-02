@@ -17,7 +17,7 @@ url : string
 @Component({
   selector: 'app-ranking',
   templateUrl: './ranking.component.html',
-  styleUrls: ['./ranking.component.css']
+  styleUrls: ['./ranking.component.scss']
 })
 export class RankingComponent implements OnInit, AfterViewInit {
 
