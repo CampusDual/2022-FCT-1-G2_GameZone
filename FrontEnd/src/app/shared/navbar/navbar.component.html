@@ -1,9 +1,17 @@
 <o-bar-menu title="ProjectImatia">
+
   <o-bar-menu-item *ngIf="!logged" title="Login" route="./login"></o-bar-menu-item>
+
   <o-bar-menu-group *ngIf="logged" title="{{user}}" icon=person>
+
     <o-bar-menu-item title="View profile" icon=person route="./main/users"></o-bar-menu-item>
     <o-bar-menu-item title="Edit user" icon=edit route="./main/update"></o-bar-menu-item>
-    <o-bar-menu-item *ngIf="admin" title="Ver Usuarios" icon=edit route="./main/see-users"></o-bar-menu-item>
+    <o-bar-menu-item *ngIf="admin" title="See Users" icon=person route="./main/see-users"></o-bar-menu-item>
     <o-bar-menu-item title="Logout" icon=lock route="./login"></o-bar-menu-item>
   </o-bar-menu-group>
+
+    <img src="./assets/images/Game Zone.png" alt="logo" width="50px" height="30px">
+
+
+
 </o-bar-menu>
