@@ -32,7 +32,7 @@ export class RankingComponent implements AfterViewInit {
           return {
             ...x,
             aggregated_rating: (parseInt(x.aggregated_rating.toFixed(2)) /10),
-            url : x.cover.url.slice(2)
+            url : x.cover.url.slice(2).replace("t_thumb", "t_cover_big")
 
           } as GameData
         })

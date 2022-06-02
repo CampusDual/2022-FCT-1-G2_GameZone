@@ -42,7 +42,7 @@ export class UsersComponent {
     const body =
       '{"filter": {"user_": "' +
       user +
-      '"},"columns": ["name", "surname", "email", "user_", "birthday"]}';
+        '"},"columns": ["name", "surname", "email", "user_", "birthday","expiration_date"]}';
     return this.http.post(this.baseURL, body, { headers: headers });
   }
 }
