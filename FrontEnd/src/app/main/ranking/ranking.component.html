@@ -1,27 +1,29 @@
+
 <div class="container">
-  <h3>Juegos mejor valorados según críticos externos</h3>
 
-<div class="table">
-  <table>
-    <tbody>
-    <tr>
-      <th>Posición</th>
-      <th>Portada</th>
-      <th>Nombre del juego</th>
-      <th>Puntuación</th>
-    </tr>
-    <tr *ngFor="let dataItem of data; let i = index ">
-      <td class="td">{{i + 1}}</td>
-      <td>
-        <div>
-        <img class="img" src="http://{{dataItem.url}}">
-        </div>
-      </td>
-      <td> {{dataItem.name}}</td>
-      <td>{{dataItem.aggregated_rating}}</td>
-    </tr>
-    </tbody>
-  </table>
+  <h2>Juegos mejor valorados según críticos externos</h2>
 
+<ul class="responsive-table">
+
+  <li class="table-header">
+    <div class="col col-1">TOP</div>
+    <div class="col col-2">Portada</div>
+    <div class="col col-3">Nombre del juego</div>
+    <div class="col col-4">Puntuación</div>
+  </li>
+
+  <div *ngFor="let dataItem of data; let i = index">
+    <li class="table-row">
+      <div class="col col-1" data-label = "TOP">{{i+1}}</div>
+      <div class="col col-2">
+        <img src="http://{{dataItem.url}}" alt="{{dataItem.name}}" class="responsive-img">
+      </div>
+      <div class="col col-3">{{dataItem.name}}</div>
+      <div class="col col-4">{{dataItem.aggregated_rating}}</div>
+    </li>
+  </div>
+
+</ul>
 </div>
-</div>
+
+

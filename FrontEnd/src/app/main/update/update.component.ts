@@ -1,8 +1,9 @@
-import {AuthService, OFormComponent} from "ontimize-web-ngx";
-import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
-import {FormControl, NG_VALUE_ACCESSOR} from "@angular/forms";
-import {Component, OnInit, ViewChild, } from '@angular/core';
+import { AuthService, OFormComponent } from "ontimize-web-ngx";
+import { HttpClient } from "@angular/common/http";
+import { Observable } from "rxjs";
+import { FormControl, NG_VALUE_ACCESSOR } from "@angular/forms";
+import { Component, ViewChild } from "@angular/core";
+
 @Component({
   selector: 'update',
   templateUrl: './update.component.html',
@@ -16,7 +17,7 @@ import {Component, OnInit, ViewChild, } from '@angular/core';
   ]
 
 })
-export class UpdateComponent implements OnInit {
+export class UpdateComponent{
 
   @ViewChild('form', {static : true})
   form : OFormComponent;
@@ -28,9 +29,6 @@ export class UpdateComponent implements OnInit {
 
   constructor(public authService : AuthService, private http : HttpClient) {
     this.verUser(authService.getSessionInfo().user);
-  }
-
-  ngOnInit() {
   }
 
   updateUser() {

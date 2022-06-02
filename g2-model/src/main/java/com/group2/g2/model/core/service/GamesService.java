@@ -7,9 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
-import com.group2.g2.api.core.service.IFavorite_gamesService;
 import com.group2.g2.api.core.service.IGamesService;
-import com.group2.g2.model.core.dao.Favorite_gamesDao;
 import com.group2.g2.model.core.dao.GamesDao;
 import com.ontimize.jee.common.dto.EntityResult;
 import com.ontimize.jee.common.exceptions.OntimizeJEERuntimeException;

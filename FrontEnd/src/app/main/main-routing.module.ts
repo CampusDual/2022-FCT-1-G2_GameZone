@@ -1,12 +1,11 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { AuthGuardService } from 'ontimize-web-ngx';
+import { NgModule } from "@angular/core";
+import { RouterModule, Routes } from "@angular/router";
 
-import { MainComponent } from './main.component';
+import { MainComponent } from "./main.component";
 
 export const routes: Routes = [
   {
-    path: '',
+    path: "",
     component: MainComponent,
     //canActivate: [AuthGuardService],
     children: [
