@@ -1,8 +1,8 @@
 import {AuthService, OFormComponent} from "ontimize-web-ngx";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {FormControl, NG_VALUE_ACCESSOR} from "@angular/forms";
-import {Component, OnInit, ViewChild, } from '@angular/core';
+import { NG_VALUE_ACCESSOR} from "@angular/forms";
+import {Component, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'users',
@@ -17,7 +17,7 @@ import {Component, OnInit, ViewChild, } from '@angular/core';
   ]
 
 })
-export class UsersComponent implements OnInit {
+export class UsersComponent  {
 
   @ViewChild('form', {static : true})
   form : OFormComponent;
@@ -30,19 +30,19 @@ export class UsersComponent implements OnInit {
     this.verUser(authService.getSessionInfo().user);
   }
 
-  ngOnInit() {
-  }
+
 
   verUser(user:string) {
     this.Ver(user)
       .subscribe(data => {
         this.form.setData(data.data[0])
+
       })
   }
 
   Ver(user:string): Observable<any> {
     const headers = { 'content-type': 'application/json', 'Authorization' : 'Basic ' + this.auth}
-    const body= '{"filter": {"user_": "'+user+'"},"columns": ["name", "surname", "email", "user_", "birthday"]}' ;
+    const body= '{"filter": {"user_": "'+user+'"},"columns": ["name", "surname","expiration_date", "email", "user_", "birthday"]}' ;
     return this.http.post(this.baseURL, body,{'headers':headers})
   }
 
