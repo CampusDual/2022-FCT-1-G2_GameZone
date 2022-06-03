@@ -26,7 +26,7 @@ export class StripeService {
       To: email,
       From: "nebation98@gmail.com",
       Subject: "prueba Subject",
-      Body: amount + " " + expirationDate,
+      Body: "Gracias por suscribirte a Game Zone, el total del pago ha sido : " + amount + " y se expira la membresía el día : " + expirationDate.toISOString().slice(0, 10),
     });
   }
 

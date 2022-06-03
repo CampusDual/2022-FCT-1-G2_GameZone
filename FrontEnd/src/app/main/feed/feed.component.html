@@ -3,7 +3,7 @@
   <h2>Ultimas noticias relacionadas con videojuegos</h2>
   <div class = "feed-elements">
 
-    <div *ngFor="let item of data; let i = index">
+    <div *ngFor="let item of data | slice:1; let i = index">
       <div [innerHTML] = item.contents class="newBody"></div>
     </div>
 

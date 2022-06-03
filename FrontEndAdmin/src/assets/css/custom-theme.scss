@@ -146,7 +146,7 @@ $mat-custom-accent: (
 // Define a theme.
 $primary: mat-palette($mat-custom-primary);
 $accent: mat-palette($mat-custom-accent);
-$background-color: #ffffff;
+$background-color: #F8F7F7F7;
 
 /* Light theme */
 $theme: mat-light-theme($primary, $accent);

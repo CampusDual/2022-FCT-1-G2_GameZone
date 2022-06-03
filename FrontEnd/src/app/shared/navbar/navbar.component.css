@@ -7,3 +7,8 @@ mat-toolbar{
   display: flex;
   justify-content: center;
 }
+
+img{
+  height: 54px;
+  width: 54px;
+}
