@@ -1,0 +1,14 @@
+mat-toolbar{
+  justify-content: flex-end;
+  color:#8217bf;
+}
+
+.logo img {
+  display: flex;
+  justify-content: center;
+}
+
+img{
+  height: 54px;
+  width: 54px;
+}

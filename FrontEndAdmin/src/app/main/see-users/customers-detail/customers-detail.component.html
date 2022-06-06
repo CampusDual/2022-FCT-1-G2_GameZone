@@ -1,0 +1,21 @@
+<o-form attr="tabla" service="users" entity="user" keys="user_" header-actions="R;I;U;D" show-header-navigation="no">
+  <o-row>
+    <o-column title-label="CUSTOMER_PERSONAL_INFORMATION" fxFlex>
+      <o-row>
+        <o-text-input class="input-padding" attr="name" fxFlex="40" name="name" label="Name" read-only="yes"></o-text-input>
+        <o-text-input class="input-padding" attr="surname" fxFlex="40" name="surname" label="Surname" read-only="yes"></o-text-input>
+        <o-date-input class="birthday" attr="birthday" fxFlex="20" name="birthday" label="Birthday" read-only="yes"
+                      format="LL"></o-date-input>
+        <o-date-input class="birthday" attr="expiration_date" fxFlex="20" name="birthday" label="Expiration date" read-only="yes"
+                      format="LL"></o-date-input>
+      </o-row>
+      <o-row>
+        <o-text-input class="input-padding" attr="user_" fxFlex="40" label="Nickname" name="user_" read-only="yes"></o-text-input>
+      </o-row>
+      <o-row>
+        <o-email-input class="email" attr="email" fxFlex name="email" label="Email"read-only="yes"></o-email-input>
+      </o-row>
+
+    </o-column>
+  </o-row>
+</o-form>

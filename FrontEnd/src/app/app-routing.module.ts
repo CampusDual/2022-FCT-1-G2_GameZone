@@ -1,10 +1,17 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { NgModule } from "@angular/core";
+import { RouterModule, Routes } from "@angular/router";
 
 export const routes: Routes = [
-  { path: 'main', loadChildren: () => import('./main/main.module').then(m => m.MainModule) },
-  { path: 'login', loadChildren: () => import('./login/login.module').then(m => m.LoginModule) },
-  { path: '', redirectTo: 'main', pathMatch: 'full' }
+  {
+    path: "main",
+    loadChildren: () => import("./main/main.module").then((m) => m.MainModule),
+  },
+  {
+    path: "login",
+    loadChildren: () =>
+      import("./login/login.module").then((m) => m.LoginModule),
+  },
+  { path: "", redirectTo: "main", pathMatch: "full" },
 ];
 
 const opt = {
@@ -13,8 +20,8 @@ const opt = {
 };
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, opt)],
+  imports: [RouterModule.forRoot(routes, { onSameUrlNavigation: "reload" })],
   exports: [RouterModule],
-  providers: []
+  providers: [],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
