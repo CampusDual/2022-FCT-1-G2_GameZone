@@ -1,0 +1,12 @@
+
+<o-form show-header="no" #form service="users" entity="user" keys="user_">
+  <o-row>
+    <o-column title-label="Formulario_Prueba" fxFlex>
+      <o-row>
+        <o-text-input class="input-padding" attr="sub_type" fxFlex="40" name="subType" label="Subscription Type"></o-text-input>
+        <o-text-input class="input-padding" attr="price" fxFlex="40" name="price" label="Price"></o-text-input>
+      </o-row>
+      <o-button color="accent" attr="raised" type="RAISED" label="Actualizar" (click)="updatePrice()" ></o-button>
+    </o-column>
+  </o-row>
+</o-form>
