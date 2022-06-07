@@ -1,30 +1,39 @@
-
 <div class="container">
 
   <h2>Juegos mejor valorados según críticos externos</h2>
 
-<ul class="responsive-table">
+  <ul class="responsive-table">
+    <ngx-slick-carousel class="carousel"
+                        #slickModal="slick-carousel"
+                        [config]="slideConfig"
+                        (init)="slickInit($event)"
+                        (breakpoint)="breakpoint($event)"
+                        (afterChange)="afterChange($event)"
+                        (beforeChange)="beforeChange($event)">
+      <div ngxSlickItem *ngFor="let dataItem of data; let i = index" class="slide">
+        <li class="table-row">
+          <div class="inline">
+            <img class="medal" *ngIf="i==0" alt="medallaoro"
+                 src="https://images.emojiterra.com/google/noto-emoji/v2.034/512px/1f947.png">
+            <img class="medal" *ngIf="i==1" alt="medallaplata"
+                 src="https://images.emojiterra.com/google/noto-emoji/v2.034/512px/1f948.png">
+            <img class="medal" *ngIf="i==2" alt="medallabronce"
+                 src="https://images.emojiterra.com/google/noto-emoji/v2.034/512px/1f949.png">
+            <img src="http://{{dataItem.url}}" alt="{{dataItem.name}}" class="responsive-img" style="z-index: -1">
 
-
-
-  <div *ngFor="let dataItem of data; let i = index">
-    <li class="table-row">
-        <div class="inline" >
-          <img class="medal" *ngIf="i==0" src="https://images.emojiterra.com/google/noto-emoji/v2.034/512px/1f947.png" >
-          <img class="medal" *ngIf="i==1" src="https://images.emojiterra.com/google/noto-emoji/v2.034/512px/1f948.png" >
-          <img class="medal" *ngIf="i==2" src="https://images.emojiterra.com/google/noto-emoji/v2.034/512px/1f949.png" >
-        <img src="http://{{dataItem.url}}" alt="{{dataItem.name}}" class="responsive-img" style="z-index: -1">
-
-          <div class="divText">
-            <span>{{dataItem.name}}</span>
-          <br>
-          <span>Puntuación : {{dataItem.aggregated_rating}}</span>
+            <div class="divText">
+              <span>{{dataItem.name}}</span>
+              <br>
+              <span>Puntuación : {{dataItem.aggregated_rating}}</span>
+            </div>
           </div>
-        </div>
-    </li>
-  </div>
+        </li>
+      </div>
+    </ngx-slick-carousel>
 
-</ul>
+
+
+  </ul>
 </div>
 
 
