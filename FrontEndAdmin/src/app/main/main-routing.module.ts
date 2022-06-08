@@ -10,7 +10,8 @@ export const routes: Routes = [
     //canActivate: [AuthGuardService],
     children: [
       { path: '', redirectTo: 'see-users', pathMatch: 'full' },
-      { path: 'see-users', loadChildren: () => import('./see-users/see-users.module').then(m => m.SeeUsersModule) }
+      { path: 'see-users', loadChildren: () => import('./see-users/see-users.module').then(m => m.SeeUsersModule) },
+      { path: 'update-price', loadChildren: () => import('./update-price/update-price.module').then(m => m.UpdatePriceModule) }
     ]
   }
 ];
