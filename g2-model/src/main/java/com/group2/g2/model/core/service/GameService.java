@@ -143,7 +143,7 @@ public class GameService {
         headers.add(AUTHORIZATION, BEARER);
         headers.add(CLIENT_ID, CLIENT_TOKEN);
 
-        String reqBody = "fields name, aggregated_rating, cover.url; sort aggregated_rating desc; where aggregated_rating_count > 14; limit 10;";
+        String reqBody = "fields name, aggregated_rating, cover.url; sort aggregated_rating desc; where aggregated_rating_count > 14; limit 5;";
 
         HttpEntity<String> httpEntity = new HttpEntity<>(reqBody, headers);
 
