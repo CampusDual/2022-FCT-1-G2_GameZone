@@ -1,0 +1,32 @@
+.gallery {
+  display: grid;
+  flex-wrap: wrap;
+  /* Flex-wrap: quebrar a linha quando um item não puder mais compactar o seu conteúdo */
+  padding: 20px 20px 0 20px;
+  max-width: 499px;
+}
+
+/* Flex Item */
+.gallery__item {
+  margin-left: 5%;
+  width: 100%;
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.gallery__item > img {
+  display: block;
+  margin: 0 auto;
+  width: 70%;
+  border-radius: .25rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, .75);
+}
+
+.gallery__item > img:hover {
+  cursor: pointer;
+}
+
+

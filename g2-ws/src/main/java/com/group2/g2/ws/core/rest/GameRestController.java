@@ -1,6 +1,7 @@
 package com.group2.g2.ws.core.rest;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.group2.g2.model.core.dao.GameDAO;
 import com.group2.g2.model.core.service.GameService;
 import com.ontimize.jee.server.rest.ORestController;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/game")
@@ -23,15 +26,14 @@ public class GameRestController extends ORestController<GameService> {
     }
 
     @GetMapping(value = "/game",  produces = MediaType.APPLICATION_JSON_VALUE)
-    public String game(@RequestParam String name) throws JsonProcessingException {
-        this.gameService.getGamesFromAPI(name);
-        return "Endpoint is working!";
+    public List<GameDAO> game(@RequestParam String name) throws JsonProcessingException {
+       return this.gameService.getGamesFromAPI(name);
+
     }
 
     @GetMapping(value = "/recommendations",  produces = MediaType.APPLICATION_JSON_VALUE)
-    public String similarGame(@RequestParam String name) throws JsonProcessingException {
-        this.gameService.getRecommendationsFromApi(name);
-        return "Endpoint is working!";
+    public List<GameDAO> similarGame(@RequestParam String name) throws JsonProcessingException {
+        return this.gameService.getRecommendationsFromApi(name);
     }
 
     @GetMapping(value = "/ranking",  produces = MediaType.APPLICATION_JSON_VALUE)

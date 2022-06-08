@@ -34,7 +34,7 @@ public class GameService {
 
     private static final String SIMILAR_GAMES_COVER = "similar_games.cover";
 
-    public void getGamesFromAPI(String name) throws JsonProcessingException {
+    public List<GameDAO> getGamesFromAPI(String name) throws JsonProcessingException {
         RestTemplate restTemplate = new RestTemplate();
         HttpHeaders headers = new HttpHeaders();
         headers.setAccept(List.of(MediaType.APPLICATION_JSON));
@@ -75,13 +75,14 @@ public class GameService {
 
 
         ObjectMapper mapper1 = new ObjectMapper();
-        GameDAO[] games = mapper1.readValue(parsedNode.toString(), GameDAO[].class);
+        List<GameDAO> games = mapper1.readValue(parsedNode.toString(), List.class);
+        return games;
 
 
     }
 
 
-    public void getRecommendationsFromApi(String name) throws JsonProcessingException {
+    public List<GameDAO> getRecommendationsFromApi(String name) throws JsonProcessingException {
         RestTemplate restTemplate = new RestTemplate();
         HttpHeaders headers = new HttpHeaders();
         headers.setAccept(List.of(MediaType.APPLICATION_JSON));
@@ -111,11 +112,10 @@ public class GameService {
                 parsedActualNode.set(SIMILAR_GAMES_COVER, actualNode.get(SIMILAR_GAMES_COVER).get("url"));
             }
 
-            ObjectMapper mapper2 = new ObjectMapper();
-            GameDAO[] games = mapper2.readValue(parsedNode.toString(), GameDAO[].class);
-
-
         }
+        ObjectMapper mapper2 = new ObjectMapper();
+        List<GameDAO> games = mapper2.readValue(parsedNode.toString(), List.class);
+        return  games;
     }
 
 
