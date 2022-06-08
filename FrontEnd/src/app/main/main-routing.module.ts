@@ -17,7 +17,8 @@ export const routes: Routes = [
       { path: 'ranking', loadChildren: () => import('./ranking/ranking.module').then(m => m.RankingModule) },
       { path: 'feed', loadChildren: () => import('./feed/feed.module').then(m => m.FeedModule)},
       { path: 'stripe', loadChildren: () => import('./stripe/stripe.module').then(m => m.StripeModule)},
-      { path: 'search', loadChildren: () => import('./search-component/search-component.module').then(m => m.SearchComponentModule)}
+      { path: 'search', loadChildren: () => import('./search-component/search-component.module').then(m => m.SearchComponentModule)},
+      { path: 'recommendations', loadChildren: () => import('./recommendations/recommendations.module').then(m => m.RecommendationsModule)}
     ]
   }
 ];
