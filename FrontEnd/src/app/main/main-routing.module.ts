@@ -16,7 +16,8 @@ export const routes: Routes = [
       { path: 'users', loadChildren: () => import('./users/users.module').then(m => m.UsersModule) },
       { path: 'ranking', loadChildren: () => import('./ranking/ranking.module').then(m => m.RankingModule) },
       { path: 'feed', loadChildren: () => import('./feed/feed.module').then(m => m.FeedModule)},
-      { path: 'stripe', loadChildren: () => import('./stripe/stripe.module').then(m => m.StripeModule)}
+      { path: 'stripe', loadChildren: () => import('./stripe/stripe.module').then(m => m.StripeModule)},
+      { path: 'search', loadChildren: () => import('./search-component/search-component.module').then(m => m.SearchComponentModule)}
     ]
   }
 ];

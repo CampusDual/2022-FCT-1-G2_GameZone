@@ -102,20 +102,23 @@ public class GameService {
         ObjectMapper mapper = new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         JsonNode rawTree = mapper.readTree(result);
         ArrayNode parsedNode = mapper.createArrayNode();
-
         for (JsonNode actualNode : rawTree) {
 
-            ObjectNode parsedActualNode = mapper.createObjectNode();
-            parsedActualNode.set("similar_games.name", actualNode.get("similar_games.name"));
-
-            if (actualNode.get(SIMILAR_GAMES_COVER) != null) {
-                parsedActualNode.set(SIMILAR_GAMES_COVER, actualNode.get(SIMILAR_GAMES_COVER).get("url"));
+            if (actualNode.get("similar_games") != null) {
+                JsonNode similarNodes = actualNode.get("similar_games");
+                ObjectNode similarParsedNodes = mapper.createObjectNode();
+                for (JsonNode actualSimilarNode : similarNodes) {
+                    similarParsedNodes.set("name", actualSimilarNode.get(name));
+                    similarParsedNodes.set("cover", actualSimilarNode.get("cover").get("url"));
+                    parsedNode.add(similarParsedNodes);
+                }
             }
 
         }
         ObjectMapper mapper2 = new ObjectMapper();
+
         List<GameDAO> games = mapper2.readValue(parsedNode.toString(), List.class);
-        return  games;
+        return games;
     }
 
 
