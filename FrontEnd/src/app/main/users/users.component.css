@@ -1,13 +1,9 @@
 .o-form {
-  height: 35%;
-  border: 7px solid #8217bf;
   margin: 10em;
-  background-color: white;
+  background-color: #393939 ;
+  color: white;
 }
 
-.input-padding, .birthday, .email {
-  color: #050505;
-  margin-right: 0.5em;
-}
+
 
 
