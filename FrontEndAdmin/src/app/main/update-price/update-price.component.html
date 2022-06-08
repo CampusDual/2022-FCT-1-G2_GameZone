@@ -1,12 +1,10 @@
-
-<o-form show-header="no" #form service="users" entity="user" keys="user_">
-  <o-row>
-    <o-column title-label="Formulario_Prueba" fxFlex>
-      <o-row>
-        <o-text-input class="input-padding" attr="sub_type" fxFlex="40" name="subType" label="Subscription Type"></o-text-input>
-        <o-text-input class="input-padding" attr="price" fxFlex="40" name="price" label="Price"></o-text-input>
-      </o-row>
-      <o-button color="accent" attr="raised" type="RAISED" label="Actualizar" (click)="updatePrice()" ></o-button>
-    </o-column>
-  </o-row>
-</o-form>
+<o-form-layout-manager mode="tab">
+  <div fxFill fxLayout="column" fxLayoutAlign="start" >
+    <o-table fxFlex attr="tabla" service="subscription_types" entity="subscriptionTypes" keys="id" sort-columns="price:asc"
+      columns="sub_type;price"
+      visible-columns="sub_type;price" query-rows="20">
+      <o-table-column  orderable="yes" attr="sub_type" title="Subscription Type" label="subscription type"></o-table-column>
+      <o-table-column  orderable="yes" attr="price" title="Price"></o-table-column>
+    </o-table>
+  </div>
+  </o-form-layout-manager>
