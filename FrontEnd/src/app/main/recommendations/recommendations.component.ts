@@ -5,6 +5,7 @@ import { map } from "rxjs/operators";
 interface GameData {
   name: string;
   cover: string;
+  id:number;
 }
 
 @Component({
