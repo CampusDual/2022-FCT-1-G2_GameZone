@@ -1,6 +1,6 @@
 mat-toolbar{
   justify-content: flex-end;
-  color:#8217bf;
+  color:#4d0c6a ;
 }
 
 .logo img {
@@ -9,6 +9,7 @@ mat-toolbar{
 }
 
 img{
-  height: 94px;
-  width: 94px;
+  margin-top: 20px;
+  height: 124px;
+  width: 124px;
 }
