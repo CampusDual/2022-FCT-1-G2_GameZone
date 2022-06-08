@@ -1,0 +1,28 @@
+<div class="container">
+
+  <h5>Recomendaciones</h5>
+
+  <ul class="responsive-table">
+    <ngx-slick-carousel class="carousel"
+                        #slickModal="slick-carousel"
+                        [config]="slideConfig"
+                        (init)="slickInit($event)"
+                        (breakpoint)="breakpoint($event)"
+                        (afterChange)="afterChange($event)"
+                        (beforeChange)="beforeChange($event)">
+      <div ngxSlickItem *ngFor="let dataItem of data; let i = index" class="slide">
+        <li class="table-row">
+          <div class="inline">
+            <img src="http://{{dataItem.cover}}" alt="{{dataItem.name}}" class="responsive-img" style="z-index: -1">
+            <div class="divText">
+              <span>{{dataItem.name}}</span>
+              <br>
+            </div>
+          </div>
+        </li>
+      </div>
+    </ngx-slick-carousel>
+
+
+  </ul>
+</div>

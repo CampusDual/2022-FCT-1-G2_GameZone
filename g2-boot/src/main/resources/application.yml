@@ -27,7 +27,7 @@ ontimize:
          upper-like: true
    security:
       mode: default
-      ignorePaths: /users/register, /game/ranking, /feedReader/feed, /users/update, /admin/admin, /game/game, game/recommendation
+      ignorePaths: /users/register, /game/ranking, /feedReader/feed, /users/update, /admin/admin, /game/game, /game/recommendations
       role-information-service:
          role-repository: UserRoleDao
          role-name-column: rolename
