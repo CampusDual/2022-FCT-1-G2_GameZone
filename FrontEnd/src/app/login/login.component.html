@@ -7,6 +7,7 @@
     <div class="wrapp-login">
       <div fxFill fxLayout="column" fxLayoutAlign="center center" class="login-inner-container">
         <form [formGroup]="loginForm" (ngSubmit)="login()">
+          <img src="./assets/images/logo_login.png">
 
           <div class="login-title-container" fxLayout="column">
             <p class="session-expired text" *ngIf="sessionExpired">{{ 'ERROR_SESSION_EXPIRED' | oTranslate }}</p>
