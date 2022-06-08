@@ -4,20 +4,20 @@
 
 /* Color definitions */
 $mat-custom-primary: (
-  50: #F0E3F7,
-  100: #DAB9EC,
-  200: #C18BDF,
-  300: #A85DD2,
-  400: #953AC9,
-  500: #8217BF,
-  600: #7A14B9,
-  700: #6F11B1,
-  800: #650DA9,
-  900: #52079B,
-  A100: #E1C8FF,
-  A200: #C595FF,
-  A400: #A962FF,
-  A700: #9B48FF,
+  50: #EAE2ED,
+  100: #CAB6D2,
+  200: #A686B5,
+  300: #825597,
+  400: #683080,
+  500: #4D0C6A,
+  600: #460A62,
+  700: #3D0857,
+  800: #34064D,
+  900: #25033C,
+  A100: #BC72FF,
+  A200: #A33FFF,
+  A400: #8B0CFF,
+  A700: #7E00F1,
   contrast: (
     50: #000000,
     100: #000000,
@@ -37,20 +37,20 @@ $mat-custom-primary: (
 );
 
 $mat-custom-accent: (
-  50: #F0E3F7,
-  100: #DAB9EC,
-  200: #C18BDF,
-  300: #A85DD2,
-  400: #953AC9,
-  500: #8217BF,
-  600: #7A14B9,
-  700: #6F11B1,
-  800: #650DA9,
-  900: #52079B,
-  A100: #E1C8FF,
-  A200: #C595FF,
-  A400: #A962FF,
-  A700: #9B48FF,
+  50: #EAE2ED,
+  100: #CAB6D2,
+  200: #A686B5,
+  300: #825597,
+  400: #683080,
+  500: #4D0C6A,
+  600: #460A62,
+  700: #3D0857,
+  800: #34064D,
+  900: #25033C,
+  A100: #BC72FF,
+  A200: #A33FFF,
+  A400: #8B0CFF,
+  A700: #7E00F1,
   contrast: (
     50: #000000,
     100: #000000,
@@ -68,88 +68,14 @@ $mat-custom-accent: (
     A700: #000000,
   ),
 );
-
-@import "node_modules/@angular/material/theming";
-// Include non-theme styles for core.
-@include mat-core();
-
-/* Color definitions */
-$mat-custom-primary: (
-  50: #F0E3F7,
-  100: #DAB9EC,
-  200: #C18BDF,
-  300: #A85DD2,
-  400: #953AC9,
-  500: #8217BF,
-  600: #7A14B9,
-  700: #6F11B1,
-  800: #650DA9,
-  900: #52079B,
-  A100: #E1C8FF,
-  A200: #C595FF,
-  A400: #A962FF,
-  A700: #9B48FF,
-  contrast: (
-    50: #000000,
-    100: #000000,
-    200: #000000,
-    300: #000000,
-    400: #000000,
-    500: #000000,
-    600: #000000,
-    700: #000000,
-    800: #ffffff,
-    900: #ffffff,
-    A100: #000000,
-    A200: #000000,
-    A400: #000000,
-    A700: #000000,
-  ),
-);
-
-$mat-custom-accent: (
-  50: #F0E3F7,
-  100: #DAB9EC,
-  200: #C18BDF,
-  300: #A85DD2,
-  400: #953AC9,
-  500: #8217BF,
-  600: #7A14B9,
-  700: #6F11B1,
-  800: #650DA9,
-  900: #52079B,
-  A100: #E1C8FF,
-  A200: #C595FF,
-  A400: #A962FF,
-  A700: #9B48FF,
-  contrast: (
-    50: #000000,
-    100: #000000,
-    200: #000000,
-    300: #000000,
-    400: #ffffff,
-    500: #ffffff,
-    600: #ffffff,
-    700: #ffffff,
-    800: #ffffff,
-    900: #ffffff,
-    A100: #000000,
-    A200: #000000,
-    A400: #000000,
-    A700: #000000,
-  ),
-);
-
-
-
 
 // Define a theme.
 $primary: mat-palette($mat-custom-primary);
 $accent: mat-palette($mat-custom-accent);
-$background-color: #ffffff;
+$background-color: #393939;
 
 /* Light theme */
-$theme: mat-light-theme($primary, $accent);
+$theme: mat-dark-theme($primary, $accent);
 
 // Insert custom background color
 $background: map-get($theme, background);
