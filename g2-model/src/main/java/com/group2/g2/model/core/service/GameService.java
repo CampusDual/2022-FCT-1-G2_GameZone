@@ -109,6 +109,7 @@ public class GameService {
 
                 for (JsonNode actualSimilarNode : similarNodes) {
                     ObjectNode similarParsedNodes = mapper.createObjectNode();
+                    similarParsedNodes.set("id",actualSimilarNode.get("id"));
                     similarParsedNodes.set("name", actualSimilarNode.get("name"));
                     similarParsedNodes.set("cover", actualSimilarNode.get("cover").get("url"));
                     parsedNode.add(similarParsedNodes);
