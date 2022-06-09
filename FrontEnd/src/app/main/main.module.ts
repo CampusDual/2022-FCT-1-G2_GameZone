@@ -4,16 +4,15 @@ import { OntimizeWebModule } from "ontimize-web-ngx";
 import { SharedModule } from "../shared/shared.module";
 import { MainRoutingModule } from "./main-routing.module";
 import { MainComponent } from "./main.component";
-
+import { RecommendationsModule } from "./recommendations/recommendations.module";
 
 @NgModule({
   imports: [
     SharedModule,
     OntimizeWebModule,
-    MainRoutingModule
+    MainRoutingModule,
+    RecommendationsModule,
   ],
-  declarations: [
-    MainComponent
-  ]
+  declarations: [MainComponent],
 })
-export class MainModule { }
+export class MainModule {}
