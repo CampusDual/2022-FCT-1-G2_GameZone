@@ -1,23 +1,25 @@
 import {Component, OnChanges} from "@angular/core";
 
 import { AuthService } from "ontimize-web-ngx";
+import {Router} from "@angular/router";
+
 
 
 @Component({
   selector: "app-navbar",
   templateUrl: "./navbar.component.html",
-  styleUrls: ["./navbar.component.css"],
+  styleUrls: ["./navbar.component.scss"],
 })
 export class NavbarComponent implements OnChanges {
   ngOnChanges(){
-    console.log(this.user);
+    this.authService.onLogin.asObservable().subscribe(res=> console.log(res))
   }
 
   user: any;
   logged: boolean;
   admin: boolean = false;
 
-  constructor(public authService: AuthService) {
+  constructor(public authService: AuthService, private router : Router) {
     this.user = this.authService.getSessionInfo().user;
     if (!this.authService.isLoggedIn()) {
       this.logged = false;
@@ -27,11 +29,13 @@ export class NavbarComponent implements OnChanges {
 
     if (this.authService.getSessionInfo().user == "demo") {
       this.admin = true;
-      console.log("si");
     } else {
-      console.log(this.authService.getSessionInfo());
       this.admin = false;
-      console.log("no");
     }
+  }
+
+  handleKey(event : Event){
+    console.log((event.target as HTMLInputElement).value)
+    this.router.navigate(["main/search"],{queryParams: {title:(event.target as HTMLInputElement).value} })
   }
 }
