@@ -7,7 +7,7 @@
     <div class="wrapp-login">
       <div fxFill fxLayout="column" fxLayoutAlign="center center" class="login-inner-container">
         <form [formGroup]="loginForm" (ngSubmit)="login()">
-          <img src="./assets/images/logo_login.png">
+          <img src="./assets/images/logo_login.png" class="logo">
 
           <div class="login-title-container" fxLayout="column">
             <p class="session-expired text" *ngIf="sessionExpired">{{ 'ERROR_SESSION_EXPIRED' | oTranslate }}</p>
@@ -37,8 +37,6 @@
           </div>
 
           <button mat-raised-button color="primary" type="submit">{{ 'LOGIN' | oTranslate }}</button>
-          <div layout-padding></div>
-          <div layout-padding></div>
           <div fxLayout="column" fxLayoutAlign="center center" layout-padding>
 
             <a routerLink="../main/register"> Si no tienes cuenta haz click aquí para registrarte!!</a>
