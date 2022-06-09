@@ -16,5 +16,6 @@ public class EventsDao extends OntimizeJdbcDaoSupport {
 	public static final String ATTR_DESCIPTION = "description";
 	public static final String ATTR_START_DATE = "start_date";
 	public static final String ATTR_END_DATE = "end_date";
+	public static final String ATTR_EVENTUSERSQUERY = "eventUsersQuery";
 
 }

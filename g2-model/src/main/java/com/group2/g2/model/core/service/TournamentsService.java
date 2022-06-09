@@ -13,7 +13,7 @@ import com.ontimize.jee.common.dto.EntityResult;
 import com.ontimize.jee.common.exceptions.OntimizeJEERuntimeException;
 import com.ontimize.jee.server.dao.DefaultOntimizeDaoHelper;
 
-@Service("Tournaments")
+@Service("tournaments")
 @Lazy
 public class TournamentsService implements ITournamentsService {
 	@Autowired

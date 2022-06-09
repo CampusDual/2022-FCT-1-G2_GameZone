@@ -1,0 +1,43 @@
+<o-form attr="formulario" service="events" entity="events" keys="id" keys-sql-types="INTEGER" header-actions="R;I;U;D" show-header-navigation="no">
+  <o-row>
+    <o-column title-label="CUSTOMER_PERSONAL_INFORMATION" fxFlex>
+      <o-row>
+        <o-text-input class="input-padding" attr="event_name" fxFlex="40" name="event_name" label="Name"></o-text-input>
+        <o-text-input class="input-padding" attr="description" fxFlex="40" name="description" label="Description"></o-text-input>
+        <o-date-input class="input-padding" attr="start_date" fxFlex="40" name="start_date" label="Start Date" type="date" format="LL"></o-date-input>
+        <o-text-input class="input-padding" attr="end_date" fxFlex="40" name="end_date" label="End Date" type="date" format="LL"></o-text-input>
+      </o-row>
+    </o-column>
+  </o-row>
+</o-form>
+
+<o-form>
+  <div fxFill fxLayout="column" fxLayoutAlign="start" >
+    <o-table fxFlex attr="tabla" service="events" entity="eventUsers" keys="id" keys-sql-types="INTEGER"
+      columns="id;event_name;description;start_date;end_date;user_name"
+      visible-columns="id;event_name;description;start_date;end_date;user_name" query-rows="20">
+      <o-table-column attr="event_name" title="Events Name" label="events_name"></o-table-column>
+
+      </o-table>
+  </div>
+  </o-form>
+
+
+
+<!-- <o-form-layout-manager mode="tab">
+  <div fxFill fxLayout="column" fxLayoutAlign="start" >
+    <o-table fxFlex attr="tabla" service="eventusers" entity="eventUsers" keys="id"
+      columns="id;event_id;user_name"
+      visible-columns="event_id;user_name" query-rows="20">
+      <o-table-column attr="event_id" fxFlex="40" name="event_name" label="Event Name" type="service" service="events"
+      entity="events" columns="id;event_name" parent-keys="id:event_id" value-column="event_name" read-only="yes"></o-table-column>
+      <o-table-column attr="user_name" title="user_name"></o-table-column>
+    </o-table>
+  </div>
+  </o-form-layout-manager> -->
+
+
+
+  <!-- <o-text-input attr="event_id" fxFlex="40" name="event_name" label="Event Name" type="service" service="events"
+          entity="events" columns="id;event_name" parent-keys="id:event_id" value-column="event_name" read-only="yes"></o-text-input>
+ -->
