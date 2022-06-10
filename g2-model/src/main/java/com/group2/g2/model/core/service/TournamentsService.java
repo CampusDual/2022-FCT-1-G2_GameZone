@@ -42,4 +42,10 @@ public class TournamentsService implements ITournamentsService {
 	public EntityResult tournamentsDelete(Map<String, Object> keyMap) throws OntimizeJEERuntimeException {
 		return this.daoHelper.delete(this.tournamentsDao, keyMap);
 	}
+
+	@Override
+	public EntityResult tourUsersQuery(Map<String, Object> keyMap, List<String> attrList)
+			throws OntimizeJEERuntimeException {
+		return this.daoHelper.query(this.tournamentsDao, keyMap, attrList,TournamentsDao.ATTR_TOURUSERSQUERY);
+	}
 }

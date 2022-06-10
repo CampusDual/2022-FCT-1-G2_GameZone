@@ -1,12 +1,13 @@
-<o-form attr="formulario" service="events" entity="events" keys="id" keys-sql-types="INTEGER" header-actions="R;I;U;D" show-header-navigation="no">
+<o-form attr="formulario" service="tournaments" entity="tournaments" keys="id" keys-sql-types="INTEGER" header-actions="R;I;U;D" show-header-navigation="no">
   <o-integer-input attr="id" oHidden></o-integer-input>
   <o-row>
     <o-column title-label="CUSTOMER_PERSONAL_INFORMATION" fxFlex>
       <o-row>
-        <o-text-input class="input-padding" attr="event_name" fxFlex="40" name="event_name" label="Name"></o-text-input>
+        <o-text-input class="input-padding" attr="tour_name" fxFlex="40" name="tour_name" label="Name"></o-text-input>
         <o-text-input class="input-padding" attr="description" fxFlex="40" name="description" label="Description"></o-text-input>
         <o-date-input class="input-padding" attr="start_date" fxFlex="40" name="start_date" label="Start Date" type="date" format="LL"></o-date-input>
         <o-date-input class="input-padding" attr="end_date" fxFlex="40" name="end_date" label="End Date" type="date" format="LL"></o-date-input>
+
       </o-row>
     </o-column>
   </o-row>
@@ -14,13 +15,12 @@
 
 <o-form>
   <div fxFill fxLayout="column" fxLayoutAlign="start" >
-    <o-table fxFlex attr="tabla" service="events" entity="eventUsers" keys="id" parent-keys="event_id:id" keys-sql-types="INTEGER"
-      columns="id;event_name;user_name;event_id"
-      visible-columns="event_id;event_name;user_name" query-rows="20">
-      <o-table-column attr="event_name" title="Events Name" label="events_name"></o-table-column>
-      <o-table-column attr="event_id" title="Event Id" label="event_id" sql-type="INTEGER"></o-table-column>
+    <o-table fxFlex attr="tabla" service="tournaments" entity="tourUsers" keys="id" parent-keys="tour_id:id" keys-sql-types="INTEGER" 
+      columns="id;tour_id;user_name;tour_name"
+      visible-columns="tour_id;user_name;tour_name" query-rows="20">
+      <o-table-column attr="tour_id" title="Tournament id" label="tour_id" sql-type="INTEGER"></o-table-column>
+      <o-table-column attr="tour_name" title="Tournament Name" label="tour_name"></o-table-column>
       <o-table-column attr="user_name" title="User name" label="user_name"></o-table-column>
-
       </o-table>
   </div>
   </o-form>

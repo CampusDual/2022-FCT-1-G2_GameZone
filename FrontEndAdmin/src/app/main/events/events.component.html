@@ -1,12 +1,12 @@
 <o-form-layout-manager mode="tab">
   <div fxFill fxLayout="column" fxLayoutAlign="start" >
-    <o-table fxFlex attr="tabla" service="events" entity="events" keys="id"
+    <o-table fxFlex attr="tabla" service="events" entity="events" keys="id" sort-columns="id:asc"
       columns="id;event_name;description;start_date;end_date"
       visible-columns="event_name;description;start_date;end_date" query-rows="20">
-      <o-table-column attr="event_name" title="Events Name" label="events_name"></o-table-column>
-      <o-table-column attr="description" title="Description"></o-table-column>
-      <o-table-column attr="start_date" title="Start Date" type="date" format="LL"></o-table-column>
-      <o-table-column attr="end_date" title="End Date" type="date" format="LL"></o-table-column>
+      <o-table-column orderable="yes" attr="event_name" title="Events Name" label="events_name"></o-table-column>
+      <o-table-column orderable="yes" attr="description" title="Description"></o-table-column>
+      <o-table-column orderable="yes" attr="start_date" title="Start Date" type="date" format="LL"></o-table-column>
+      <o-table-column orderable="yes" attr="end_date" title="End Date" type="date" format="LL"></o-table-column>
       </o-table>
   </div>
   </o-form-layout-manager>

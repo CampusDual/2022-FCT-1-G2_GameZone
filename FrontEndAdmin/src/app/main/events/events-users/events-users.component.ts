@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EventsUsersComponent implements OnInit {
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
   }
