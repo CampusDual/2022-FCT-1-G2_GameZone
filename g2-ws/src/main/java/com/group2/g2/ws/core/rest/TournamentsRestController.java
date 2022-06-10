@@ -7,7 +7,7 @@ import com.group2.g2.api.core.service.ITournamentsService;
 import com.ontimize.jee.server.rest.ORestController;
 
 @RestController
-@RequestMapping("/Tournaments")
+@RequestMapping("/tournaments")
 public class TournamentsRestController extends ORestController<ITournamentsService> {
 
 	@Autowired

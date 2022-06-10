@@ -8,7 +8,7 @@ import com.group2.g2.api.core.service.IEventsService;
 import com.ontimize.jee.server.rest.ORestController;
 
 @RestController
-@RequestMapping("/Events")
+@RequestMapping("/events")
 public class EventsRestController extends ORestController<IEventsService> {
 
 	@Autowired
