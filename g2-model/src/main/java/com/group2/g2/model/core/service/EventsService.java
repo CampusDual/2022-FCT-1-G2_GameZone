@@ -13,7 +13,7 @@ import com.ontimize.jee.common.dto.EntityResult;
 import com.ontimize.jee.common.exceptions.OntimizeJEERuntimeException;
 import com.ontimize.jee.server.dao.DefaultOntimizeDaoHelper;
 
-@Service("Events")
+@Service("events")
 @Lazy
 public class EventsService implements IEventsService {
 	@Autowired
@@ -41,5 +41,11 @@ public class EventsService implements IEventsService {
 	@Override
 	public EntityResult eventsDelete(Map<String, Object> keyMap) throws OntimizeJEERuntimeException {
 		return this.daoHelper.delete(this.eventsDao, keyMap);
+	}
+
+	@Override
+	public EntityResult eventUsersQuery(Map<String, Object> keyMap, List<String> attrList)
+			throws OntimizeJEERuntimeException {
+		return this.daoHelper.query(this.eventsDao, keyMap, attrList, EventsDao.ATTR_EVENTUSERSQUERY);
 	}
 }

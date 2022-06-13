@@ -16,5 +16,8 @@ public interface IEventsService {
 			throws OntimizeJEERuntimeException;
 
 	public EntityResult eventsDelete(Map<String, Object> keyMap) throws OntimizeJEERuntimeException;
+	
+	public EntityResult eventUsersQuery(Map<String, Object> keyMap, List<String> attrList)
+			throws OntimizeJEERuntimeException;
 
 }
