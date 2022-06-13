@@ -36,7 +36,9 @@ public class FavoriteGamesService implements IFavoriteGamesService {
 	public EntityResult favoriteGamesInsert(Map<String, Object> attrMap) throws OntimizeJEERuntimeException {
 
 		Map<String, Object> gameKey = new HashMap<>();
+		System.out.println(attrMap);
 		gameKey.put(GamesDao.ATTR_GAME_NAME, attrMap.remove(GamesDao.ATTR_GAME_NAME));
+		gameKey.put(GamesDao.ATTR_GAME_ID, attrMap.remove(GamesDao.ATTR_GAME_ID));
 
 		List<String> gameId = new ArrayList<>();
 		gameId.add(GamesDao.ATTR_ID);
@@ -71,5 +73,10 @@ public class FavoriteGamesService implements IFavoriteGamesService {
 	@Override
 	public EntityResult favoriteGamesDelete(Map<String, Object> keyMap) throws OntimizeJEERuntimeException {
 		return this.daoHelper.delete(this.favoriteGamesDao, keyMap);
+	}
+
+	public EntityResult gameAndUserQuery(Map<String, Object> keyMap, List<String> attrList)
+			throws OntimizeJEERuntimeException {
+		return this.daoHelper.query(this.favoriteGamesDao, keyMap, attrList,favoriteGamesDao.ATTR_GAME_AND_USER);
 	}
 }

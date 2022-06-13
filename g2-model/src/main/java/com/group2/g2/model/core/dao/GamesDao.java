@@ -13,5 +13,6 @@ import com.ontimize.jee.server.dao.jdbc.OntimizeJdbcDaoSupport;
 public class GamesDao extends OntimizeJdbcDaoSupport {
 	public static final String ATTR_ID = "id";
 	public static final String ATTR_GAME_NAME = "game_name";
+	public static final String ATTR_GAME_ID = "game_id";
 
 }
