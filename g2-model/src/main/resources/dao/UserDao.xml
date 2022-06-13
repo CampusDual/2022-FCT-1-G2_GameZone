@@ -22,6 +22,7 @@
                 <Column>birthday</Column>
                 <Column>sub_id</Column>
                 <Column>expiration_date</Column>
+                <Column>sub_date</Column>
             </ValidColumns>
             <Sentence>
                 <![CDATA[
@@ -43,7 +44,19 @@
                 <Column>birthday</Column>
                  <Column>sub_id</Column>
                 <Column>expiration_date</Column>
+                <Column>sub_date</Column>
             </ValidColumns>
+            <Sentence>
+                <![CDATA[
+                    SELECT
+                        #COLUMNS#
+                    FROM
+                        ${mainschema}.tuser
+                    #WHERE#
+                ]]>
+            </Sentence>
+        </Query>
+        <Query id="newSubs">
             <Sentence>
                 <![CDATA[
                     SELECT
