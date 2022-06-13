@@ -28,5 +28,7 @@ public class UserDao extends OntimizeJdbcDaoSupport {
 	public static final String BIRTHDAY     = "user_birthday";
 	public static final String SUB_ID     = "user_sub_id";
 	public static final String EXPIRATION_DATE     = "user_expiration_date";
+	public static final String SUB_DATE     = "user_sub_date";
+
 
 }

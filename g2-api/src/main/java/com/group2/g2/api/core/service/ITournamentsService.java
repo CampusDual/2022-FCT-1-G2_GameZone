@@ -16,5 +16,8 @@ public interface ITournamentsService {
 			throws OntimizeJEERuntimeException;
 
 	public EntityResult tournamentsDelete(Map<String, Object> keyMap) throws OntimizeJEERuntimeException;
+	
+	public EntityResult tourUsersQuery(Map<String, Object> keyMap, List<String> attrList)
+			throws OntimizeJEERuntimeException;
 
 }

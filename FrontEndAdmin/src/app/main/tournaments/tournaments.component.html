@@ -1,0 +1,12 @@
+<o-form-layout-manager mode="tab">
+  <div fxFill fxLayout="column" fxLayoutAlign="start" >
+    <o-table fxFlex attr="tabla" service="tournaments" entity="tournaments" keys="id" sort-columns="id:asc"
+      columns="id;tour_name;description;start_date;end_date"
+      visible-columns="tour_name;description;start_date;end_date" query-rows="20">
+      <o-table-column orderable="yes" attr="tour_name" title="Tournament Name" label="tour_name"></o-table-column>
+      <o-table-column orderable="yes" attr="description" title="Description"></o-table-column>
+      <o-table-column orderable="yes" attr="start_date" title="Start Date" type="date" format="LL"></o-table-column>
+      <o-table-column orderable="yes" attr="end_date" title="End Date" type="date" format="LL"></o-table-column>
+      </o-table>
+  </div>
+  </o-form-layout-manager>

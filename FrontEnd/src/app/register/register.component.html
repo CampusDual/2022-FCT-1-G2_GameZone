@@ -1,0 +1,28 @@
+<o-form [formControl]="fc" service="users" entity="users/user" keys="user_" show-header="no">
+  <o-row>
+
+    <o-column title-label="Formulario_Prueba" fxFlex>
+      <o-row>
+        <o-text-input class="input-padding" attr="NAME" fxFlex="40" required="yes" name="name" ngDefaultControl [(ngModel)]="user.name"></o-text-input> &nbsp;&nbsp;&nbsp;&nbsp;
+        <o-text-input class="input-padding" attr="SURNAME" fxFlex="40" required="yes" name="surname" ngDefaultControl [(ngModel)]="user.surname"></o-text-input>
+      </o-row>
+
+      <o-row>
+        <o-date-input attr="DATE OF BIRTH" fxFlex="20" name="birthday" ngDefaultControl [(ngModel)]="user.birthday" ></o-date-input>
+      </o-row>
+
+      <o-row>
+        <o-text-input class="input-padding" attr="NICKNAME" fxFlex="40" required="yes" name="user_" ngDefaultControl [(ngModel)]="user.user_" ></o-text-input>
+      </o-row>
+
+      <o-row>
+        <o-email-input attr="EMAIL" fxFlex name="email" ngDefaultControl [(ngModel)]="user.email" fxFlex="40"></o-email-input> &nbsp;&nbsp;&nbsp;&nbsp;
+        <o-password-input class="input-padding" attr="PASSWORD" fxFlex="40" required="yes"  name="password" ngDefaultControl [(ngModel)]="user.password" ></o-password-input>
+      </o-row>
+
+      <o-button color="accent" attr="raised" type="RAISED" label="Registrarse" (click)="addUser()"></o-button>
+
+
+    </o-column>
+  </o-row>
+</o-form>

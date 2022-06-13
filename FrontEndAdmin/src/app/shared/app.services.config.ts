@@ -5,5 +5,18 @@ export const SERVICE_CONFIG: Object = {
 
   'subscription_types':{
     'path': '/subscription_types'
+  },
+
+  'tournaments':{
+    'path': '/tournaments'
+  },
+
+  'events':{
+    'path': '/events'
+  }
+  ,
+
+  'eventsusers':{
+    'path': '/eventsusers'
   }
 };

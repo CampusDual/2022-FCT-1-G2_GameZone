@@ -1,14 +1,8 @@
 import { AfterViewInit, Component } from "@angular/core";
-import { FormControl } from "@angular/forms";
-import {
-  debounceTime,
-  distinctUntilChanged,
-  filter,
-  map,
-  switchMap,
-} from "rxjs/operators";
+import { debounceTime, distinctUntilChanged, switchMap } from "rxjs/operators";
 
 import { HttpClient } from "@angular/common/http";
+import { ActivatedRoute } from "@angular/router";
 
 interface GameData {
   name: string;
@@ -22,32 +16,32 @@ interface GameData {
 @Component({
   selector: "app-search-component",
   templateUrl: "./search-component.component.html",
-  styleUrls: ["./search-component.component.css"],
+  styleUrls: ["./search-component.component.scss"],
 })
 export class SearchComponentComponent implements AfterViewInit {
-  queryField = new FormControl();
   readonly SEARCH_URL = "http://localhost:33333/game/game?name=";
-  items : [];
   pageOfItems: Array<any>;
   data: GameData[];
-  readonly FIELDS = "name,description,version,homepage";
 
-  constructor(private http: HttpClient) {}
+
+  constructor(private http: HttpClient, private router: ActivatedRoute) {}
 
   ngAfterViewInit() {
-    this.queryField.valueChanges
+    this.router.queryParams
       .pipe(
-        map((value: string) => value.trim()),
-        filter((value: string) => value.length > 3),
         debounceTime(200),
         distinctUntilChanged(),
-        switchMap((value) => this.http.get<GameData[]>(this.SEARCH_URL + value))
+        switchMap((value) =>
+          this.http.get<GameData[]>(this.SEARCH_URL + value.title)
+        )
       )
-      .subscribe((data) => (this.data = data),error => console.log(error), ()=> console.log(this.data));
-
+      .subscribe(
+        (data) => (this.data=data.filter((item)=>item.cover)),
+        (error) => console.log(error)
+      );
   }
+
   onChangePage(pageOfItems: Array<any>) {
-    // update current page of items
     this.pageOfItems = pageOfItems;
   }
 }

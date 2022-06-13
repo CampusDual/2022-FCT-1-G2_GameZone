@@ -1,3 +1,18 @@
+p {
+  color: white !important;
+  margin-top: 10px;
+  font-size: medium;
+ font-weight: bold;
+}
+
+.barraPaginacion {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin-top: -20px;
+
+}
+
 .gallery {
   display: grid;
   flex-wrap: wrap;
@@ -8,25 +23,26 @@
 
 /* Flex Item */
 .gallery__item {
-  margin-left: 5%;
+  margin-top: 20px;
+  margin-left: 1.5%;
   width: 100%;
   margin-bottom: 20px;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: center;
+
 }
 
-.gallery__item > img {
+img {
   display: block;
-  margin: 0 auto;
-  width: 70%;
+  width: 264px;
+  height: 352px;
   border-radius: .25rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, .75);
 }
 
-.gallery__item > img:hover {
+img:hover {
   cursor: pointer;
 }
-
 

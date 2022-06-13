@@ -25,5 +25,4 @@ export class FeedComponent implements AfterViewInit {
     this.http.get<FeedItem[]>("http://localhost:33333/feedReader/feed").subscribe(next => {this.data = next},()=>{console.log("miau")}, () => {console.log(this.data)} )
   }
 
-
 }

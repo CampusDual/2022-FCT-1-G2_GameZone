@@ -19,7 +19,12 @@
                  src="https://images.emojiterra.com/google/noto-emoji/v2.034/512px/1f948.png">
             <img class="medal" *ngIf="i==2" alt="medallabronce"
                  src="https://images.emojiterra.com/google/noto-emoji/v2.034/512px/1f949.png">
-            <img src="http://{{dataItem.url}}" alt="{{dataItem.name}}" class="responsive-img" style="z-index: -1">
+            <a [routerLink]="['/main/prueba/'+dataItem.id]">
+              <img src="http://{{dataItem.url}}" alt="{{dataItem.name}}" class="responsive-img" style="z-index: -1" >
+            </a>
+
+
+
 
             <div class="divText">
               <span>{{dataItem.name}}</span>
