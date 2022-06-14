@@ -1,0 +1,48 @@
+p {
+  color: white !important;
+  margin-top: 10px;
+  font-size: medium;
+  font-weight: bold;
+}
+
+.barraPaginacion {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin-top: -20px;
+
+}
+
+.gallery {
+  display: grid;
+  flex-wrap: wrap;
+  /* Flex-wrap: quebrar a linha quando um item não puder mais compactar o seu conteúdo */
+  padding: 20px 20px 0 20px;
+  max-width: 499px;
+}
+
+/* Flex Item */
+.gallery__item {
+  margin-top: 20px;
+  margin-left: 1.5%;
+  width: 100%;
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+
+}
+
+img {
+  display: block;
+  width: 264px;
+  height: 352px;
+  border-radius: .25rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, .75);
+}
+
+img:hover {
+  cursor: pointer;
+}
+
