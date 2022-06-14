@@ -8,8 +8,7 @@ import com.ontimize.jee.common.exceptions.OntimizeJEERuntimeException;
 
 public interface IUserService {
 
-	public EntityResult userQuery(Map<String, Object> keyMap, List<String> attrList)
-			throws OntimizeJEERuntimeException;
+	public EntityResult userQuery(Map<String, Object> keyMap, List<String> attrList) throws OntimizeJEERuntimeException;
 
 	public EntityResult userInsert(Map<String, Object> attrMap) throws OntimizeJEERuntimeException;
 
@@ -18,5 +17,7 @@ public interface IUserService {
 
 	public EntityResult userDelete(Map<String, Object> keyMap) throws OntimizeJEERuntimeException;
 
-
+	public EntityResult newSubsQuery(Map<String, Object> keyMap, List<String> attrList) throws OntimizeJEERuntimeException;
+	
+	public EntityResult subsPriceQuery(Map<String, Object> keyMap, List<String> attrList) throws OntimizeJEERuntimeException;
 }
