@@ -1,9 +1,18 @@
-import { HttpClient } from '@angular/common/http';
-import { AfterViewInit, Component, Pipe, PipeTransform } from '@angular/core';
-import { DomSanitizer } from '@angular/platform-browser';
-import { map } from 'rxjs/operators';
-import { ProfileItems } from '../profile.component';
+import { HttpClient } from "@angular/common/http";
+import { AfterViewInit, Component, Pipe } from "@angular/core";
+import { DomSanitizer } from "@angular/platform-browser";
+import { map } from "rxjs/operators";
+import { ProfileItems } from "../profile.component";
 
+@Pipe({name: 'safeHtml'})
+export class SafeHtml {
+  constructor(private sanitizer:DomSanitizer){}
+
+  transform(html) {
+    console.log(this.sanitizer.bypassSecurityTrustStyle('url(\'http://' + html+ '\')'))
+    return this.sanitizer.bypassSecurityTrustStyle('url(http://' + html+ ')');
+  }
+}
 @Component({
   selector: 'app-summary',
   templateUrl: './summary.component.html',

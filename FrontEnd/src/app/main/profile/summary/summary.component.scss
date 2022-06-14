@@ -8,18 +8,24 @@
   padding-top: 10px;
 }
 .game-banner{
-  position: absolute;
-  left: 0;
-  width: 100%;
-  overflow: hidden;
-}
-
-.game-banner-img{
   height: 100%;
   width: 100%;
   background-size: cover;
   background-position: center center;
+  -moz-filter: blur(8px);
+  -webkit-filter: blur(8px);
   filter: blur(8px);
   transform: scale(1.1);
 }
+
+
+  .details{
+
+    left: 0;
+    height: 442px;
+
+    width: 100%;
+    overflow: hidden;
+  }
+
 

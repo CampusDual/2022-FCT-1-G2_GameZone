@@ -17,10 +17,10 @@ export interface ProfileItems{
   }
   releaseDatesY: number
 
-  genres:{
+  genres:[{
     id:number
-    url:string
-  }
+    name:string
+  }]
 
   platforms:{
     id:number
