@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 
 
 export interface ProfileItems{
+
   backgroundCover: string
   cover: {
     id:number
@@ -22,22 +23,27 @@ export interface ProfileItems{
   description: string
   memberRating: string
   criticRating: string
-  videos: {
+  videos: [{
+    id:number
+    video_id:string
+   }]
+  screenshots:[{
     id:number
     url:string
-   }
-  screenshots:{
+   }]
+  artworks:[{
     id:number
     url:string
-   }
-  artwork:{
-    id:number
-    url:string
-   }
+   }]
   recommendations: {
     id:number
     url:string
    }
+  dataScreenshots : string[]
+  dataVideos : string[]
+  dataArtworks : string[]
+  id:number
+  name:string
 }
 
 @Component({

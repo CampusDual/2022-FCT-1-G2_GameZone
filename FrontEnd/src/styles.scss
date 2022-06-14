@@ -11,12 +11,12 @@ body .slick-next {
   width: 40px;
   background: grey !important;
   z-index: 100;
+
 }
 
 .slick-next{
   right: 6px !important;
 }
-
 
 .pagination > .active > a{
   background-color: #4d0c6a !important;
@@ -25,4 +25,8 @@ body .slick-next {
 
 .pagination>li>a{
   color : #4d0c6a;
+}
+
+.carousel slick-initialized slick-slider{
+  width: 1920px !important;
 }

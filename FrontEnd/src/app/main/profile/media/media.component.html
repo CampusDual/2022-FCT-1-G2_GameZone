@@ -1,1 +1,42 @@
-<p>media works!</p>
+<div class="divLibrary">
+  <div class="responsive-table">
+    <ngx-slick-carousel class="carousel"
+                        #slickModal="slick-carousel"
+                        [config]="slideConfig"
+                        (init)="slickInit($event)"
+                        (breakpoint)="breakpoint($event)"
+                        (afterChange)="afterChange($event)"
+                        (beforeChange)="beforeChange($event)">
+      <ng-container *ngFor="let dataItem of dataMedia">
+        <div ngxSlickItem *ngIf="dataItem.screenshotUrl" class="slide">
+          <li class="table-row">
+            <div class="inline">
+              <a>
+                <img src="http://{{dataItem.screenshotUrl}}" alt="screenshot" class="responsive-img"
+                     style="z-index: -1">
+              </a>
+            </div>
+          </li>
+        </div>
+        <div ngxSlickItem *ngIf="dataItem.artworkUrl" class="slide">
+          <li class="table-row">
+            <div class="inline">
+              <a>
+                <img src="http://{{dataItem.artworkUrl}}" alt="screenshot" class="responsive-img" style="z-index: -1">
+              </a>
+            </div>
+          </li>
+        </div>
+        <div ngxSlickItem *ngIf="dataItem.videoUrl" class="slide">
+          <li class="table-row">
+            <div class="inline">
+              <iframe class="responsive-img"
+                      [src]="('https://www.youtube.com/embed/' + dataItem.videoUrl) | safe"></iframe>
+            </div>
+          </li>
+        </div>
+      </ng-container>
+    </ngx-slick-carousel>
+  </div>
+</div>
+
