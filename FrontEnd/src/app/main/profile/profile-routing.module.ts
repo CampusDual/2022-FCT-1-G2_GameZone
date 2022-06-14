@@ -9,8 +9,8 @@ export const routes: Routes = [
     component: ProfileComponent,
     children:[
       {
-        path: 'cover',
-        loadChildren:()=>import('./cover/cover.module').then(m=>m.CoverModule)
+        path: 'summary',
+        loadChildren:()=>import('./summary/summary.module').then(m=>m.SummaryModule)
       }
     ]
 

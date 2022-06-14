@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { CoverComponent } from './cover.component';
+import { SummaryComponent } from './summary.component';
 
 
 const routes: Routes = [{
   path: '',
-  component: CoverComponent
+  component: SummaryComponent
 },];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class CoverRoutingModule { }
+export class SummaryRoutingModule { }

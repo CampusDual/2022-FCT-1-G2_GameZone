@@ -1,1 +1,35 @@
-<p>summary works!</p>
+<div class="details">
+  <div class="game-banner" >
+    <img class="game-banner-img" src="http://{{data && data[0].coverUrl}}" alt="cover">
+  </div>
+  <div class="game-content">
+    <div class="details-wrapper">
+      <div class="game-header">
+        <h1 class="game-header-title">{{data && data[0].title}}</h1>
+        <h2 class="game-header-date">{{data && data[0].releaseDatesY}}</h2>
+        <p class="game-header-genres">
+
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+
+<div class="platforms">
+  <span>{{data && data[0].platforms}}</span>
+</div>
+
+<div class="genres">
+  <span>{{data && data[0].genres}}</span>
+</div>
+
+<div class="date">
+  <span></span>
+</div>
+
+<div class="description">
+  <span>{{data && data[0].summary}}</span>
+</div>
+
+</div>

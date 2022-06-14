@@ -1,0 +1,25 @@
+*{
+
+  box-sizing: border-box;
+}
+
+.details-wrapper{
+  width: 100%;
+  padding-top: 10px;
+}
+.game-banner{
+  position: absolute;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+.game-banner-img{
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-position: center center;
+  filter: blur(8px);
+  transform: scale(1.1);
+}
+

@@ -8,18 +8,28 @@ export interface ProfileItems{
     id:number
     url:string
    }
-   coverUrl:string
+  coverUrl:string
   title: string
-  dateRelease: string
+
+  release_dates:{
+    id:number
+    y:number
+  }
+  releaseDatesY: number
+
   genres:{
     id:number
     url:string
   }
-  plataforms:{
+
+  platforms:{
     id:number
     url:string
    }
-  description: string
+  platformsName: string
+  platformsPlatformsLogoUrl: string
+
+  summary: string
   memberRating: string
   criticRating: string
   videos: {
