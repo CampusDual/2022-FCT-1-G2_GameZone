@@ -12,4 +12,22 @@
 		<Column>id</Column>
 	</UpdateKeys>
 	<GeneratedKey>id</GeneratedKey>
+	<Queries>
+		<Query id="GameAndUser">
+			<AmbiguousColumns>
+				<AmbiguousColumn name="game_id" prefix="gm"/>
+			</AmbiguousColumns>
+			<Sentence>
+				<![CDATA[
+					select
+						#COLUMNS#
+					from
+						${mainschema}.favorite_games fg
+						JOIN ${mainschema}.games gm ON fg.game_id = gm.id
+					#WHERE#
+					#ORDER#
+					]]>
+			</Sentence>
+		</Query>
+	</Queries>
 </JdbcEntitySetup>

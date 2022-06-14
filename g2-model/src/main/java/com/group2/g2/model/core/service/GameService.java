@@ -32,7 +32,6 @@ public class GameService {
     private static final String NAME = "name";
     private static final String GENRES = "genres";
 
-    private static final String SIMILAR_GAMES_COVER = "similar_games.cover";
 
     public List<GameDAO> getGamesFromAPI(String name) throws JsonProcessingException {
         RestTemplate restTemplate = new RestTemplate();
@@ -78,11 +77,10 @@ public class GameService {
         List<GameDAO> games = mapper1.readValue(parsedNode.toString(), List.class);
         return games;
 
-
     }
 
 
-    public List<GameDAO> getRecommendationsFromApi(String name) throws JsonProcessingException {
+    public List<GameDAO> getRecommendationsFromApi(Integer id) throws JsonProcessingException {
         RestTemplate restTemplate = new RestTemplate();
         HttpHeaders headers = new HttpHeaders();
         headers.setAccept(List.of(MediaType.APPLICATION_JSON));
@@ -92,7 +90,7 @@ public class GameService {
         headers.add(AUTHORIZATION, BEARER);
         headers.add(CLIENT_ID, CLIENT_TOKEN);
 
-        String reqBody = "fields similar_games.name, similar_games.cover.url; where name = \"" + name + "\";";
+        String reqBody = "fields similar_games.name, similar_games.cover.url; where id = " + id + ";";
 
         HttpEntity<String> httpEntity = new HttpEntity<>(reqBody, headers);
         String result = restTemplate.postForObject(API_URL, httpEntity, String.class);

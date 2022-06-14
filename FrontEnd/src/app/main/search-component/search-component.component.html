@@ -1,53 +1,15 @@
-<!--<div class="container search-table">
-  <div class="search-box">
-    <div class="row">
-      <div class="col-md-9">
-        <input
-          type="text"
-          id="myInput"
-          class="form-control"
-          [formControl]="queryField"
-          placeholder="Nombre del Juego"
-        />
-      </div>
-    </div>
-  </div>
-  <div class="search-list">
-    <table class="table" id="myTable">
-      <thead>
-      <tr>
-        <th>Juego</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr *ngFor="let dataItem of data ">
-        <td>{{ dataItem.name }}</td>
-      </tr>
-      </tbody>
-    </table>
-  </div>
-</div>--->
-<div class="col-md-9">
-  <input
-    type="text"
-    id="myInput"
-    class="form-control"
-    [formControl]="queryField"
-    placeholder="Nombre del Juego"
-  />
-</div>
-<br>
-<br>
-
-
   <div class="gallery__item">
+    <span *ngIf="!pageOfItems || pageOfItems.length==0"> No hay resultados </span>
     <ng-container *ngFor="let img of pageOfItems">
-      <div style="flex-basis: 25%;">
+      <div style="flex-basis: 17%;margin-bottom: 20px;">
         <img
           src="http://{{img.cover.slice(2).replace('t_thumb', 't_cover_big')}}"
         alt="Img">
+        <p>{{img.name}}</p>
       </div>
     </ng-container>
   </div>
+<div class="barraPaginacion">
+  <jw-pagination [items]="data" (changePage)="onChangePage($event)"></jw-pagination>
+</div>
 
-<jw-pagination [items]="data" (changePage)="onChangePage($event)"></jw-pagination>

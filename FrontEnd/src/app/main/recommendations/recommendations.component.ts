@@ -1,4 +1,4 @@
-import { AfterViewInit, Component } from "@angular/core";
+import {AfterViewInit, Component, Input} from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { map } from "rxjs/operators";
 
@@ -15,7 +15,7 @@ interface GameData {
 })
 export class RecommendationsComponent implements AfterViewInit {
   data: GameData[];
-
+  @Input() id: number;
   slideConfig = { slidesToShow: 4, slidesToScroll: 4 };
 
   slickInit(e: any) {
@@ -38,7 +38,7 @@ export class RecommendationsComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     this.http
-      .get<GameData[]>("http://localhost:33333/game/recommendations?name=VALORANT")
+      .get<GameData[]>("http://localhost:33333/game/recommendations?id=" + this.id)
       .pipe(
         map((item) => {
           return item.map((x) => {

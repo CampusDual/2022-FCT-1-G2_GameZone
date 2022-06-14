@@ -11,7 +11,9 @@ export const routes: Routes = [
     children: [
       { path: '', redirectTo: 'see-users', pathMatch: 'full' },
       { path: 'see-users', loadChildren: () => import('./see-users/see-users.module').then(m => m.SeeUsersModule) },
-      { path: 'update-price', loadChildren: () => import('./update-price/update-price.module').then(m => m.UpdatePriceModule) }
+      { path: 'update-price', loadChildren: () => import('./update-price/update-price.module').then(m => m.UpdatePriceModule) },
+      { path: 'tournaments', loadChildren: () => import('./tournaments/tournaments.module').then(m => m.TournamentsModule) },
+      { path: 'events', loadChildren: () => import('./events/events.module').then(m => m.EventsModule) }
     ]
   }
 ];

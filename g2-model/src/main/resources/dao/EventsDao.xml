@@ -12,4 +12,32 @@
 		<Column>id</Column>
 	</UpdateKeys>
 	<GeneratedKey>id</GeneratedKey>
+	<Queries>
+		<Query id="default">
+			<Sentence>
+				<![CDATA[
+                    SELECT
+                        #COLUMNS#
+                    FROM
+                        ${mainschema}.events
+                    #WHERE#
+                ]]>
+			</Sentence>
+		</Query>
+		<Query id="eventUsersQuery">
+		<AmbiguousColumns>
+		<AmbiguousColumn name="id" prefix="evt"/>
+		</AmbiguousColumns>
+			<Sentence>
+			<![CDATA[
+                    SELECT
+                        #COLUMNS#
+                    FROM
+                        ${mainschema}.events evt
+                        join ${mainschema}.event_users evtu on evt.id = evtu.event_id
+                    #WHERE#
+                ]]>
+			</Sentence>
+		</Query>
+	</Queries>
 </JdbcEntitySetup>

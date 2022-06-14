@@ -32,8 +32,8 @@ public class GameRestController extends ORestController<GameService> {
     }
 
     @GetMapping(value = "/recommendations",  produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<GameDAO> similarGame(@RequestParam String name) throws JsonProcessingException {
-        return this.gameService.getRecommendationsFromApi(name);
+    public List<GameDAO> similarGame(@RequestParam Integer id) throws JsonProcessingException {
+        return this.gameService.getRecommendationsFromApi(id);
     }
 
     @GetMapping(value = "/ranking",  produces = MediaType.APPLICATION_JSON_VALUE)

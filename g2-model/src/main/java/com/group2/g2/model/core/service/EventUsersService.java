@@ -13,7 +13,7 @@ import com.ontimize.jee.common.dto.EntityResult;
 import com.ontimize.jee.common.exceptions.OntimizeJEERuntimeException;
 import com.ontimize.jee.server.dao.DefaultOntimizeDaoHelper;
 
-@Service("EventUsers")
+@Service("eventusers")
 @Lazy
 public class EventUsersService implements IEventUsersService {
 	@Autowired

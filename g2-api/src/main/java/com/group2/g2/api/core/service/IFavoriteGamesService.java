@@ -17,4 +17,7 @@ public interface IFavoriteGamesService {
 
 	public EntityResult favoriteGamesDelete(Map<String, Object> keyMap) throws OntimizeJEERuntimeException;
 
+	public EntityResult gameAndUserQuery(Map<String, Object> keyMap, List<String> attrList)
+			throws OntimizeJEERuntimeException;
+
 }

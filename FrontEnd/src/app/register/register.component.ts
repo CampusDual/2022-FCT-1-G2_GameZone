@@ -1,10 +1,10 @@
-import { Component } from "@angular/core";
-import { AuthService } from "ontimize-web-ngx";
-import { User } from "./user";
-import { HttpClient } from "@angular/common/http";
-import { Observable } from "rxjs";
-import { FormControl, NG_VALUE_ACCESSOR } from "@angular/forms";
-import { Router } from "@angular/router";
+import {Component} from "@angular/core";
+import {AuthService} from "ontimize-web-ngx";
+import {User} from "./user";
+import {HttpClient} from "@angular/common/http";
+import {Observable} from "rxjs";
+import {FormControl, NG_VALUE_ACCESSOR} from "@angular/forms";
+import {Router} from "@angular/router";
 
 @Component({
   selector: "register",
@@ -41,25 +41,26 @@ export class RegisterComponent {
       (err) => {
         console.log(err);
       },
-      () =>
-        this.authService
-          .login(this.user.user_, this.user.password)
+      () => {
+        this.authService.login(this.user.user_,this.user.password)
           .subscribe(() => {
             this.router.navigate(["/main/stripe"]).then(() => {
-              window.location.reload();
             });
           })
-    );
-  }
+      })}
 
-  Register(user: User): Observable<any> {
-    const headers = { "content-type": "application/json" };
-    const body =
-      '{"data": ' +
-      JSON.stringify(user) +
-      '  ,"sqltypes": {"user_": 12,"birthday": 91}} ';
-    console.log(body);
-    console.log(headers);
-    return this.http.post(this.baseURL, body, { headers: headers });
+    Register(user
+  :
+    User
+  ):
+    Observable < any > {
+      const headers = {"content-type": "application/json"};
+      const body =
+        '{"data": ' +
+        JSON.stringify(user) +
+        '  ,"sqltypes": {"user_": 12,"birthday": 91}} ';
+      console.log(body);
+      console.log(headers);
+      return this.http.post(this.baseURL, body, {headers: headers});
+    }
   }
-}
