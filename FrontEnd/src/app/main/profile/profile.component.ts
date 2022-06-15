@@ -1,26 +1,42 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 
-export interface ProfileItems {
-  backgroundCover: string;
+
+
+export interface ProfileItems{
+  backgroundCover: string
   cover: {
-    id: number;
-    url: string;
-  };
-  coverUrl: string;
-  title: string;
-  dateRelease: string;
-  genres: {
-    id: number;
-    url: string;
-  };
-  plataforms: {
-    id: number;
-    url: string;
-  };
+    id:number
+    url:string
+   }
+  coverUrl:string
+
+  title: string
+  name:string
+
+  release_dates:{
+    id:number
+    y:number
+  }
+  releaseDatesY: number
+
+  genres:{
+    id:number
+    url:string
+  }
+
+  platforms:{
+    id:number
+    url:string
+   }
+  platformsName: string
+  platformsPlatformsLogoUrl: string
+
+  summary: string
+
+  memberRating: string
+  criticRating: string
   description: string;
-  memberRating: number;
-  criticRating: number;
   videos: [
     {
       id: number;

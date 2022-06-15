@@ -1,0 +1,72 @@
+*{
+  box-sizing: border-box;
+  top: -230px
+}
+
+.details-wrapper{
+  width: 100%;
+  padding-top: 10px;
+  position: relative;
+  max-width: 900px;
+  margin: 20px auto;
+}
+
+.game-banner{
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-position: center center;
+  -moz-filter: blur(8px);
+  -webkit-filter: blur(8px);
+  filter: blur(8px);
+  transform: scale(1.1);
+}
+
+  .gamepage-background{
+    left: 0;
+    height: 442px;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .game-cover ::before{
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+  }
+
+  .game-cover{
+    float: left;
+    width: 264px;
+    margin-right: 15px;
+
+  }
+
+.game-header-title{
+  font-size: 70px;
+  color: #fff;
+  height: auto;
+
+}
+
+.game-header-date{
+  color: #fff;
+  font-weight: 700;
+}
+
+.game-header-genres{
+  color: #fff;
+  font-weight: 700;
+}
+
+.game-header-platforms{
+  color: #fff;
+  font-weight: 700;
+}
+
+.game-header-description{
+  color: #fff;
+  font-weight: 200;
+}

@@ -22,10 +22,10 @@ public class ProfileService {
     private static final String BACKGROUND_COVER= "backgroundCover";
     private static final String COVER = "cover";
     private static final String TITLE = "title";
-    private static final String DATE_RELEASE = "dateRelease";
+    private static final String RELEASE_DATES = "releaseDates";
     private static final String GENRES = "genres";
     private static final String PLATAFORMS = "plataforms";
-    private static final String DESCRIPTION = "description";
+    private static final String SUMMARY = "summary";
     private static final String MEMBER_RATING = "memberRating";
     private static final String CRITIC_RATING = "criticRating";
     private static final String TRAILERS = "trailers";
