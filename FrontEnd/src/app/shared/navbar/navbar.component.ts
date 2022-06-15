@@ -1,7 +1,7 @@
 import {Component, OnChanges} from "@angular/core";
 
 import { AuthService } from "ontimize-web-ngx";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 
 
@@ -19,7 +19,8 @@ export class NavbarComponent implements OnChanges {
   logged: boolean;
   admin: boolean = false;
 
-  constructor(public authService: AuthService, private router : Router) {
+  constructor(public authService: AuthService, private router : Router, private  route:ActivatedRoute) {
+    console.log(this.router.url)
     this.user = this.authService.getSessionInfo().user;
     if (!this.authService.isLoggedIn()) {
       this.logged = false;
@@ -35,7 +36,10 @@ export class NavbarComponent implements OnChanges {
   }
 
   handleKey(event : Event){
-    console.log((event.target as HTMLInputElement).value)
     this.router.navigate(["main/search"],{queryParams: {title:(event.target as HTMLInputElement).value} })
+  }
+
+  validateUrl(){
+    return !(/\/main\/profile./.test(this.router.url))
   }
 }

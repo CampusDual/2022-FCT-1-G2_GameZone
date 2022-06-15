@@ -1,7 +1,7 @@
 <o-bar-menu title="ProjectImatia">
 
 
-    <input *ngIf="logged"
+    <input *ngIf="logged && validateUrl()"
       type="text"
       id="myInput"
       class="form-control"
