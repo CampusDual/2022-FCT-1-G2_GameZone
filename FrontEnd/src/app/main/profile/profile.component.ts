@@ -4,12 +4,15 @@ import { ActivatedRoute } from '@angular/router';
 
 export interface ProfileItems{
   backgroundCover: string
+
   cover: {
     id:number
     url:string
    }
   coverUrl:string
+
   title: string
+  name:string
 
   release_dates:{
     id:number
@@ -17,10 +20,10 @@ export interface ProfileItems{
   }
   releaseDatesY: number
 
-  genres:[{
+  genres:{
     id:number
-    name:string
-  }]
+    url:string
+  }
 
   platforms:{
     id:number
@@ -30,6 +33,7 @@ export interface ProfileItems{
   platformsPlatformsLogoUrl: string
 
   summary: string
+
   memberRating: string
   criticRating: string
   videos: {
