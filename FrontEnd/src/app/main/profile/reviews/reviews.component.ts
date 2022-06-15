@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from "@angular/core";
+import {Component, Input, OnInit, ViewChild} from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { ProfileItems } from "../profile.component";
 import { map } from "rxjs/operators";
@@ -37,6 +37,7 @@ export type ChartOptions2 = {
 export class ReviewsComponent implements OnInit {
   readonly SEARCH_URL = "http://localhost:33333/profile/profile?id=";
   data: ProfileItems[];
+  @Input() id: number;
   dataLoaded : Promise<boolean>
   // @ts-ignore
   @ViewChild("chart") chart: ChartComponent;
@@ -44,7 +45,7 @@ export class ReviewsComponent implements OnInit {
   public chartOptions2: Partial<ChartOptions>;
   constructor(private http: HttpClient) {
     this.http
-      .get<ProfileItems[]>(this.SEARCH_URL + 126459)
+      .get<ProfileItems[]>(this.SEARCH_URL + this.id)
       .pipe(
         map((item) => {
           return item.map((x) => {

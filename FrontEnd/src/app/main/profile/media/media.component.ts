@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, Pipe, PipeTransform} from "@angular/core";
+import {AfterViewInit, Component, Input, Pipe, PipeTransform} from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { ProfileItems } from "../profile.component";
 import {map} from "rxjs/operators";
@@ -23,6 +23,7 @@ export class MediaComponent implements AfterViewInit {
   readonly SEARCH_URL = "http://localhost:33333/profile/profile?id=";
   data: ProfileItems[];
   dataMedia  ;
+  @Input() id: number;
   slideConfig = {
     slidesToShow: 3,
     slidesToScroll: 3,
@@ -47,7 +48,7 @@ export class MediaComponent implements AfterViewInit {
   ngAfterViewInit() {
     this.http
       .get<ProfileItems[]>(
-        this.SEARCH_URL + 126459
+        this.SEARCH_URL + this.id
       ).pipe(
       map((item) => {
         return item.map((x) => {

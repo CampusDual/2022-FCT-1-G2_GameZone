@@ -14,11 +14,11 @@ export interface ProfileItems {
     id: number;
     url: string;
   };
-  plataforms: {
+  platforms: {
     id: number;
     url: string;
   };
-  description: string;
+  summary: string;
   memberRating: number;
   criticRating: number;
   videos: [
@@ -49,6 +49,11 @@ export interface ProfileItems {
   id: number;
   aggregated_rating: number;
   total_rating: number;
+  name: string;
+  release_dates: {
+    y: number;
+    id: number;
+  };
 }
 
 @Component({
@@ -57,10 +62,10 @@ export interface ProfileItems {
   styleUrls: ["./profile.component.css"],
 })
 export class ProfileComponent implements OnInit {
-  id: string;
+  id: number;
 
   constructor(private route: ActivatedRoute) {
-    this.id = this.route.snapshot.paramMap.get("id");
+    this.id = Number(this.route.snapshot.paramMap.get("id"));
   }
 
   ngOnInit() {

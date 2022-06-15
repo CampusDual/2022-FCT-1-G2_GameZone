@@ -9,5 +9,6 @@ import {NgApexchartsModule} from "ng-apexcharts";
 @NgModule({
   declarations: [ReviewsComponent],
   imports: [CommonModule, ReviewsRoutingModule, NgApexchartsModule],
+  exports: [ReviewsComponent],
 })
 export class ReviewsModule {}
