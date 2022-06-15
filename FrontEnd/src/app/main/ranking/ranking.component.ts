@@ -1,6 +1,7 @@
 import { AfterViewInit, Component } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { map } from "rxjs/operators";
+import {AuthService} from "ontimize-web-ngx";
 
 interface GameData {
   name: string;
@@ -21,7 +22,7 @@ interface GameData {
 export class RankingComponent implements AfterViewInit {
 
   data: GameData[];
-
+ logged:boolean
   slideConfig = { slidesToShow: 4, slidesToScroll: 4 };
 
 
@@ -38,7 +39,12 @@ export class RankingComponent implements AfterViewInit {
     console.log('beforeChange');
   }
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private auth:AuthService) {
+    if (!this.auth.isLoggedIn()) {
+      this.logged = false;
+    } else {
+      this.logged = true;
+    }
   }
 
   ngAfterViewInit() {

@@ -4,15 +4,12 @@ import { CommonModule } from '@angular/common';
 import { SummaryRoutingModule } from './summary-routing.module';
 
 import {SafeHtml, SummaryComponent} from "./summary.component";
+import {OntimizeWebModule} from "ontimize-web-ngx";
 
 
 @NgModule({
   declarations: [SummaryComponent, SafeHtml],
-  imports: [
-    CommonModule,
-    SummaryRoutingModule
-  ],
-  exports:[SummaryComponent]
-
+  imports: [CommonModule, SummaryRoutingModule, OntimizeWebModule],
+  exports: [SummaryComponent],
 })
-export class SummaryModule { }
+export class SummaryModule {}

@@ -1,14 +1,14 @@
 *{
   box-sizing: border-box;
-  top: -230px
+  top: -215px
 }
 
 .details-wrapper{
   width: 100%;
   padding-top: 10px;
   position: relative;
-  max-width: 900px;
-  margin: 20px auto;
+  max-width: 1155px;
+  left: 246px;
 }
 
 .game-banner{
@@ -22,7 +22,6 @@
   transform: scale(1.1);
 }
 
-<<<<<<< HEAD
 .gamepage-background{
   left: 0;
   height: 442px;
@@ -44,35 +43,13 @@
   margin-right: 15px;
 
 }
-=======
-  .gamepage-background{
-    left: 0;
-    height: 442px;
-    width: 100%;
-    overflow: hidden;
-  }
 
-  .game-cover ::before{
-    content: ".";
-    display: block;
-    height: 0;
-    clear: both;
-    visibility: hidden;
-  }
-
-  .game-cover{
-    float: left;
-    width: 264px;
-    margin-right: 15px;
-
-  }
->>>>>>> 3090523de483490ea2b52c59332dd68d76bbaec5
 
 .game-header-title{
   font-size: 70px;
   color: #fff;
   height: auto;
-
+font-weight: bold;
 }
 
 .game-header-date{
@@ -93,8 +70,19 @@
 .game-header-description{
   color: #fff;
   font-weight: 200;
-<<<<<<< HEAD
+  margin-top: 10px;
+  font-size: 15px;
+
 }
-=======
+
+button {
+  width: 100%;
+  margin: 32px 0 0;
+  height: 42px;
+  font-size: 16px;
+  color: white !important;
+  border-radius: 40px;
+  position: relative;
+  top: -10px
 }
->>>>>>> 3090523de483490ea2b52c59332dd68d76bbaec5
+

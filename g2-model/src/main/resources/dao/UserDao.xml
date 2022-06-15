@@ -62,8 +62,9 @@
                     select count(TO_CHAR(sub_date, 'month')), TO_CHAR(sub_date, 'month') as date_part
 from tuser
 where EXTRACT(MONTH FROM sub_date) != 0
-group by TO_CHAR(sub_date, 'month'), sub_date
-order by sub_date asc
+group by TO_CHAR(sub_date, 'month'), EXTRACT(month from sub_date)
+order by
+    EXTRACT(month from sub_date) asc
                 ]]>
             </Sentence>
         </Query>
@@ -84,9 +85,9 @@ from
 where
     sub_id is not null
 group by
-    TO_CHAR(sub_date, 'month'), sub_date
+    TO_CHAR(sub_date, 'month'), EXTRACT(month from sub_date)
 order by
-    sub_date asc
+    EXTRACT(month from sub_date) asc
 				]]>
             </Sentence>
         </Query>

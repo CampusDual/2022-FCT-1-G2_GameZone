@@ -8,6 +8,14 @@
                         (afterChange)="afterChange($event)"
                         (beforeChange)="beforeChange($event)">
       <ng-container *ngFor="let dataItem of dataMedia">
+        <div ngxSlickItem *ngIf="dataItem.videoUrl" class="slide">
+          <li class="table-row">
+            <div class="inline">
+              <iframe class="responsive-img"
+                      [src]="('https://www.youtube.com/embed/' + dataItem.videoUrl) | safe"></iframe>
+            </div>
+          </li>
+        </div>
         <div ngxSlickItem *ngIf="dataItem.screenshotUrl" class="slide">
           <li class="table-row">
             <div class="inline">
@@ -27,14 +35,7 @@
             </div>
           </li>
         </div>
-        <div ngxSlickItem *ngIf="dataItem.videoUrl" class="slide">
-          <li class="table-row">
-            <div class="inline">
-              <iframe class="responsive-img"
-                      [src]="('https://www.youtube.com/embed/' + dataItem.videoUrl) | safe"></iframe>
-            </div>
-          </li>
-        </div>
+
       </ng-container>
     </ngx-slick-carousel>
   </div>

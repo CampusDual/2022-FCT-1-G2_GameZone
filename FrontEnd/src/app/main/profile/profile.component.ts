@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
+import {ActivatedRoute, ParamMap, Router} from "@angular/router";
 
 
 
@@ -12,14 +12,14 @@ export interface ProfileItems{
   coverUrl: string;
   title: string;
   dateRelease: string;
-  genres: {
+  genres: [{
     id: number;
     url: string;
-  };
-  platforms: {
+  }];
+  platforms:[ {
     id: number;
     url: string;
-  };
+  }];
   summary: string;
   memberRating: number;
   criticRating: number;
@@ -62,16 +62,20 @@ export interface ProfileItems{
 @Component({
   selector: "app-profile",
   templateUrl: "./profile.component.html",
-  styleUrls: ["./profile.component.css"],
+  styleUrls: ["./profile.component.scss"],
 })
 export class ProfileComponent implements OnInit {
   id: number;
 
-  constructor(private route: ActivatedRoute) {
-    this.id = Number(this.route.snapshot.paramMap.get("id"));
+  constructor(private route: ActivatedRoute, private router : Router) {
+    this.router.routeReuseStrategy.shouldReuseRoute = function () {
+      return false;
+    };
   }
 
   ngOnInit() {
-    console.log(this.id);
+    this.route.paramMap.subscribe((params: ParamMap) => {
+      this.id = Number(params.get('id'));
+    });
   }
 }

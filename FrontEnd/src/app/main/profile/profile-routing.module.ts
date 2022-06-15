@@ -6,13 +6,6 @@ export const routes: Routes = [
   {
     path: "",
     component: ProfileComponent,
-<<<<<<< HEAD
-    children:[
-      {path: 'media',loadChildren:()=>import('./media/media.module').then(m=>m.MediaModule)},
-      {path: 'reviews',loadChildren:()=>import('./reviews/reviews.module').then(m=>m.ReviewsModule)}
-    ]
-  }
-=======
     children: [
       {
         path: "summary",
@@ -32,7 +25,6 @@ export const routes: Routes = [
       },
     ],
   },
->>>>>>> 3090523de483490ea2b52c59332dd68d76bbaec5
 ];
 
 @NgModule({

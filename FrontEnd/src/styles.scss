@@ -30,3 +30,40 @@ body .slick-next {
 .carousel slick-initialized slick-slider{
   width: 1920px !important;
 }
+
+
+
+.o-bar-menu nav .fake-li a{
+  top: 10px !important;
+}
+
+.o-bar-menu nav a {
+  align-items: baseline !important;
+}
+
+.o-bar-menu-group .fake-li .o-bar-menu-group-icon, .o-bar-menu-group .fake-ul .o-bar-menu-group-icon {
+  position: relative;
+  display: inline-block;
+  margin: 0px 10px 0 0;
+  top: 6px;
+}
+
+.o-bar-menu-group .fake-li .o-bar-menu-group-icon-arrow, .o-bar-menu-group .fake-ul .o-bar-menu-group-icon-arrow {
+  position: relative;
+  top: 6px;
+}
+
+.o-bar-menu nav .fake-ul .fake-ul {
+  display: none;
+  position: absolute;
+  top: 103px !important;
+
+}
+
+.o-bar-menu-item .o-bar-menu-item-icon{
+  position: relative;
+  top: 6px;
+}
+.o-bar-menu nav .fake-ul .fake-li {
+  padding-bottom: 4px ;
+}

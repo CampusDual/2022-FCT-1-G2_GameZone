@@ -72,7 +72,7 @@ export class LoginComponent implements OnInit {
       const self = this;
       this.authService.login(userName, password).subscribe(() => {
         self.sessionExpired = false;
-        self.router.navigate(["../"], { relativeTo: this.actRoute });
+        self.router.navigate(["../main/favlibrary"], { relativeTo: this.actRoute });
       }, this.handleError);
     }
   }

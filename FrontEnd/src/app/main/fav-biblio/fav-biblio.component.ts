@@ -11,6 +11,7 @@ interface GameData {
     url: string;
   };
   url: string;
+  id:number
 }
 
 @Component({
@@ -53,7 +54,8 @@ export class FavBiblioComponent implements AfterViewInit {
                       url: x.cover.url
                         .slice(2)
                         .replace("t_thumb", "t_cover_big"),
-                      name: x.name
+                      name: x.name,
+                      id : x.id
                     } as GameData;
                   });
                 })

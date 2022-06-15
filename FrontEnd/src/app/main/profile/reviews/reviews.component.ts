@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, ViewChild} from "@angular/core";
+import {Component, Input, OnChanges, OnInit, ViewChild} from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { ProfileItems } from "../profile.component";
 import { map } from "rxjs/operators";
@@ -34,16 +34,18 @@ export type ChartOptions2 = {
   templateUrl: "./reviews.component.html",
   styleUrls: ["./reviews.component.css"],
 })
-export class ReviewsComponent implements OnInit {
+export class ReviewsComponent implements OnInit, OnChanges {
   readonly SEARCH_URL = "http://localhost:33333/profile/profile?id=";
   data: ProfileItems[];
   @Input() id: number;
-  dataLoaded : Promise<boolean>
+  dataLoaded: Promise<boolean>;
   // @ts-ignore
   @ViewChild("chart") chart: ChartComponent;
   public chartOptions: Partial<ChartOptions>;
   public chartOptions2: Partial<ChartOptions>;
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient) {}
+
+  ngOnChanges() {
     this.http
       .get<ProfileItems[]>(this.SEARCH_URL + this.id)
       .pipe(
@@ -57,12 +59,10 @@ export class ReviewsComponent implements OnInit {
         })
       )
       .subscribe(
-        (data) => (this.data = data),
+        (data) => (this.data=data),
         (error) => console.log(error),
         ()=> this.dataLoaded = Promise.resolve(true)
       );
-
-
   }
 
   ngOnInit() {
@@ -73,7 +73,7 @@ export class ReviewsComponent implements OnInit {
         height: 200,
         type: "radialBar",
         toolbar: {
-          show: false
+          show: false,
         },
       },
       plotOptions: {
@@ -91,8 +91,8 @@ export class ReviewsComponent implements OnInit {
               top: 3,
               left: 0,
               blur: 4,
-              opacity: 0.24
-            }
+              opacity: 0.24,
+            },
           },
           track: {
             background: "#fff",
@@ -103,8 +103,8 @@ export class ReviewsComponent implements OnInit {
               top: -3,
               left: 0,
               blur: 4,
-              opacity: 0.35
-            }
+              opacity: 0.35,
+            },
           },
 
           dataLabels: {
@@ -113,18 +113,18 @@ export class ReviewsComponent implements OnInit {
               offsetY: -10,
               show: true,
               color: "#888",
-              fontSize: "17px"
+              fontSize: "17px",
             },
             value: {
-              formatter: function(val) {
+              formatter: function (val) {
                 return parseInt(val.toString(), 10).toString();
               },
               color: "#111",
               fontSize: "36px",
-              show: true
-            }
-          }
-        }
+              show: true,
+            },
+          },
+        },
       },
       fill: {
         type: "gradient",
@@ -132,17 +132,17 @@ export class ReviewsComponent implements OnInit {
           shade: "dark",
           type: "horizontal",
           shadeIntensity: 1,
-          gradientToColors: ["#ABE5A1"],
+          gradientToColors: ["#4D0C6A"],
           inverseColors: true,
           opacityFrom: 1,
           opacityTo: 1,
-          stops: [0, 100]
-        }
+          stops: [0, 100],
+        },
       },
       stroke: {
-        lineCap: "round"
+        lineCap: "round",
       },
-      labels: ["Critics Rating"]
+      labels: ["Nota Críticos"],
     };
     this.chartOptions2 = {
       // @ts-ignore
@@ -151,7 +151,7 @@ export class ReviewsComponent implements OnInit {
         height: 250,
         type: "radialBar",
         toolbar: {
-          show: false
+          show: false,
         },
       },
       plotOptions: {
@@ -169,8 +169,8 @@ export class ReviewsComponent implements OnInit {
               top: 3,
               left: 0,
               blur: 4,
-              opacity: 0.24
-            }
+              opacity: 0.24,
+            },
           },
           track: {
             background: "#fff",
@@ -181,8 +181,8 @@ export class ReviewsComponent implements OnInit {
               top: -3,
               left: 0,
               blur: 4,
-              opacity: 0.35
-            }
+              opacity: 0.35,
+            },
           },
 
           dataLabels: {
@@ -191,18 +191,18 @@ export class ReviewsComponent implements OnInit {
               offsetY: -10,
               show: true,
               color: "#888",
-              fontSize: "17px"
+              fontSize: "17px",
             },
             value: {
-              formatter: function(val) {
+              formatter: function (val) {
                 return parseInt(val.toString(), 10).toString();
               },
               color: "#111",
               fontSize: "36px",
-              show: true
-            }
-          }
-        }
+              show: true,
+            },
+          },
+        },
       },
       fill: {
         type: "gradient",
@@ -210,17 +210,17 @@ export class ReviewsComponent implements OnInit {
           shade: "dark",
           type: "horizontal",
           shadeIntensity: 1,
-          gradientToColors: ["#ABE5A1"],
+          gradientToColors: ["#4D0C6A"],
           inverseColors: true,
           opacityFrom: 1,
           opacityTo: 1,
-          stops: [0, 100]
-        }
+          stops: [0, 100],
+        },
       },
       stroke: {
-        lineCap: "round"
+        lineCap: "round",
       },
-      labels: ["Members Rating"]
+      labels: ["Nota Usuarios"],
     };
   }
 }

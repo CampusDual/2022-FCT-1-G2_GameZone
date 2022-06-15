@@ -16,6 +16,7 @@ interface GameData {
 export class RecommendationsComponent implements AfterViewInit {
   data: GameData[];
   @Input() id: number;
+  dataLoaded:Promise<boolean>
   slideConfig = { slidesToShow: 4, slidesToScroll: 4 };
 
   slickInit(e: any) {
@@ -49,6 +50,8 @@ export class RecommendationsComponent implements AfterViewInit {
           });
         })
       )
-      .subscribe((data) => (this.data = data));
+      .subscribe((data) => (this.data = data),
+        error => console.log(error),
+        ()=>this.dataLoaded=Promise.resolve(true));
   }
 }

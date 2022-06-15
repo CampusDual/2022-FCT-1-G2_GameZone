@@ -2,9 +2,12 @@
   <span *ngIf="!pageOfItems || pageOfItems.length==0"> No hay resultados </span>
   <ng-container *ngFor="let img of pageOfItems">
     <div style="flex-basis: 17%;margin-bottom: 20px;">
-      <img
-        src="http://{{img[0].url}}"
-        alt="Img">
+      <a [routerLink]="['/main/profile/'+img[0].id]">
+        <img
+          src="http://{{img[0].url}}"
+          alt="Img">
+      </a>
+
       <p>{{img[0].name}}</p>
     </div>
   </ng-container>

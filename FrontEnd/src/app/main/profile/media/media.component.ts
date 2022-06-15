@@ -63,7 +63,7 @@ export class MediaComponent implements AfterViewInit {
       .subscribe(
         (data) => (this.data = data),
         (error) => console.log(error),
-        ()=> this.dataMedia =  this.data[0].dataArtworks.concat(this.data[0].dataScreenshots).concat(this.data[0].dataVideos)
+        ()=> this.dataMedia = this.data[0].dataVideos.concat(this.data[0].dataArtworks).concat(this.data[0].dataScreenshots)
       );
 
 
