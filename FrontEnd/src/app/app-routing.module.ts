@@ -16,6 +16,11 @@ export const routes: Routes = [
     path: "register",
     loadChildren: () =>
       import("./register/register.module").then((m) => m.RegisterModule),
+  },
+  {
+    path: "preRegister",
+    loadChildren: () =>
+      import("./preRegister/preRegister.module").then((m) => m.PreRegisterModule),
   }
 ];
 
