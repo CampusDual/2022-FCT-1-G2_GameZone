@@ -48,7 +48,6 @@ export class MediaComponent implements AfterViewInit {
     this.http
       .get<ProfileItems[]>(
         this.SEARCH_URL + 126459
-        // @ts-ignore
       ).pipe(
       map((item) => {
         return item.map((x) => {
