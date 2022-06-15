@@ -1,0 +1,20 @@
+<div *ngIf="dataLoaded | async" id="card">
+  <div id="chart">
+    <apx-chart
+      [series]="[data[0].memberRating]"
+      [chart]="chartOptions2.chart"
+      [plotOptions]="chartOptions2.plotOptions"
+      [labels]="chartOptions2.labels"
+      [stroke]="chartOptions2.stroke"
+      [fill]="chartOptions2.fill"
+    ></apx-chart>
+    <apx-chart class="chartSmall"
+      [series]="[data[0].criticRating]"
+      [chart]="chartOptions.chart"
+      [plotOptions]="chartOptions.plotOptions"
+      [labels]="chartOptions.labels"
+      [stroke]="chartOptions.stroke"
+      [fill]="chartOptions.fill"
+    ></apx-chart>
+  </div>
+</div>

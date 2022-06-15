@@ -18,7 +18,8 @@ export const routes: Routes = [
       { path: 'stripe', loadChildren: () => import('./stripe/stripe.module').then(m => m.StripeModule)},
       { path: 'search', loadChildren: () => import('./search-component/search-component.module').then(m => m.SearchComponentModule)},
       { path: 'recommendations', loadChildren: () => import('./recommendations/recommendations.module').then(m => m.RecommendationsModule)},
-      { path: 'profile', loadChildren: () => import('./profile/profile.module').then(m => m.ProfileModule)}
+      { path: 'profile', loadChildren: () => import('./profile/profile.module').then(m => m.ProfileModule)},
+      { path: 'favlibrary', loadChildren: () => import('./fav-biblio/fav-biblio.module').then(m => m.FavBiblioModule)}
     ]
   }
 ];

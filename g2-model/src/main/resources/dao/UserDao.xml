@@ -42,7 +42,7 @@
                 <Column>name</Column>
                 <Column>surname</Column>
                 <Column>birthday</Column>
-                 <Column>sub_id</Column>
+                <Column>sub_id</Column>
                 <Column>expiration_date</Column>
                 <Column>sub_date</Column>
             </ValidColumns>
@@ -56,15 +56,38 @@
                 ]]>
             </Sentence>
         </Query>
-        <Query id="newSubs">
+        <Query id="newSubsQuery">
             <Sentence>
                 <![CDATA[
-                    SELECT
-                        #COLUMNS#
-                    FROM
-                        ${mainschema}.tuser
-                    #WHERE#
+                    select count(TO_CHAR(sub_date, 'month')), TO_CHAR(sub_date, 'month') as date_part
+from tuser
+where EXTRACT(MONTH FROM sub_date) != 0
+group by TO_CHAR(sub_date, 'month'), sub_date
+order by sub_date asc
                 ]]>
+            </Sentence>
+        </Query>
+        <Query id="subsPriceQuery">
+            <Sentence>
+                <![CDATA[
+					select
+    TO_CHAR(sub_date, 'month') as month,
+    count (sub_id) as total_month,
+    sum(case sub_id when 1 then 1 else 0 end) as mensual,
+    sum(case sub_id when 1 then 1 else 0 end)*9.99 as total_mensual,
+    sum(case sub_id when 2 then 1 else 0 end) as trimestral ,
+    sum(case sub_id when 2 then 1 else 0 end)*14.99 as total_trimestral ,
+    sum(case sub_id when 3 then 1 else 0 end) as anual,
+    sum(case sub_id when 3 then 1 else 0 end)*49.99 as total_anual
+from
+    tuser t
+where
+    sub_id is not null
+group by
+    TO_CHAR(sub_date, 'month'), sub_date
+order by
+    sub_date asc
+				]]>
             </Sentence>
         </Query>
     </Queries>

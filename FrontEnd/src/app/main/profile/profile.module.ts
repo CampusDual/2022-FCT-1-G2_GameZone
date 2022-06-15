@@ -1,9 +1,10 @@
+
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProfileRoutingModule } from './profile-routing.module';
 import { ProfileComponent } from './profile.component';
 import { SummaryModule } from './summary/summary.module';
-
+import { SlickCarouselModule } from "ngx-slick-carousel";
 
 
 @NgModule({
@@ -11,8 +12,12 @@ import { SummaryModule } from './summary/summary.module';
   imports: [
     CommonModule,
     ProfileRoutingModule,
-    SummaryModule
+    SummaryModule,
+    CommonModule,
+    ProfileRoutingModule,
+    SlickCarouselModule,
+
   ],
-  exports: [ProfileComponent]
+  exports: [ProfileComponent],
 })
-export class ProfileModule { }
+export class ProfileModule {}

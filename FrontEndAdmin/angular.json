@@ -33,6 +33,7 @@
               "node_modules/devextreme/dist/css/dx.common.css",
               "node_modules/devextreme/dist/css/dx.light.css",
               "node_modules/ontimize-web-ngx/ontimize.scss",
+              "node_modules/ontimize-web-ngx-charts/styles.scss",
               "src/assets/css/app.scss",
               "src/styles.scss"
             ],
