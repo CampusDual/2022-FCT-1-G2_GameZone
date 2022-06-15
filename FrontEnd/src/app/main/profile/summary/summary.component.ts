@@ -34,7 +34,7 @@ data: ProfileItems[]
          return {
            ...x,
           coverUrl:x.cover.url.slice(2).replace("t_thumb", "t_cover_big"),
-          title:x.title,
+          title:x.name,
           summary:x.summary,
           releaseDatesY:x.release_dates[0].y,
           platforms:x.platforms[0].name,
