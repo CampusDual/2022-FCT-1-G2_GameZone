@@ -47,23 +47,35 @@ export class MediaComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     this.http
-      .get<ProfileItems[]>(
-        this.SEARCH_URL + this.id
-      ).pipe(
-      map((item) => {
-        return item.map((x) => {
-          return {
-            dataVideos: x.videos.map( value =>({videoUrl:value.video_id})),
-            dataArtworks: x.artworks.map(value=>({ artworkUrl:value.url.slice(2).replace("t_thumb", "t_original")})),
-            dataScreenshots: x.screenshots.map(value=>({ screenshotUrl:value.url.slice(2).replace("t_thumb", "t_original")}))
-          } as unknown as ProfileItems
+      .get<ProfileItems[]>(this.SEARCH_URL + this.id)
+      .pipe(
+        map((item) => {
+          return item.map((x) => {
+            return {
+              dataVideos: x.videos.map((value) => ({
+                videoUrl: value.video_id,
+              })),
+              dataArtworks: x.artworks.map((value) => ({
+                artworkUrl: value.url.slice(2).replace("t_thumb", "t_original"),
+              })),
+              dataScreenshots: x.screenshots.map((value) => ({
+                screenshotUrl: value.url
+                  .slice(2)
+                  .replace("t_thumb", "t_original"),
+              })),
+            } as unknown as ProfileItems;
+          });
         })
-      })
-    )
+      )
       .subscribe(
         (data) => (this.data = data),
         (error) => console.log(error),
-        ()=> this.dataMedia = this.data[0].dataVideos.concat(this.data[0].dataArtworks).concat(this.data[0].dataScreenshots)
+        () =>
+            this.dataMedia=
+            this.data[0].dataVideos
+              .concat(this.data[0].dataArtworks)
+              .concat(this.data[0].dataScreenshots)
+
       );
 
 

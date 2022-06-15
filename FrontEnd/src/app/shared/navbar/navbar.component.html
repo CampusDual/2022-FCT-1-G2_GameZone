@@ -1,12 +1,15 @@
 <o-bar-menu title="ProjectImatia">
 
-  <input *ngIf="logged"
-    type="text"
-    id="myInput"
-    class="form-control"
-    placeholder="Nombre del Juego"
-    (keyup)="handleKey($event)"
-  />
+
+    <input *ngIf="logged"
+      type="text"
+      id="myInput"
+      class="form-control"
+      placeholder="Nombre del Juego"
+      (keyup)="handleKey($event)"
+    />
+
+
   <o-bar-menu-item *ngIf="logged" title="Biblioteca" icon=photo_library route="./main/favlibrary"></o-bar-menu-item>
   <o-bar-menu-item *ngIf="!logged" title="Iniciar sesión" route="./login"></o-bar-menu-item>
 

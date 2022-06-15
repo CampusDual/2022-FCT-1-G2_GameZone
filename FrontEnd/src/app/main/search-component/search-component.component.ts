@@ -11,6 +11,7 @@ interface GameData {
     url: string;
   };
   url: string;
+  id:number;
 }
 
 @Component({
@@ -42,6 +43,7 @@ export class SearchComponentComponent implements AfterViewInit {
   }
 
   onChangePage(pageOfItems: Array<any>) {
+    console.log(pageOfItems)
     this.pageOfItems = pageOfItems;
   }
 }

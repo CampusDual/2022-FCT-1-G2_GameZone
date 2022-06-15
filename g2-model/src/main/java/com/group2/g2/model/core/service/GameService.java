@@ -56,6 +56,7 @@ public class GameService {
 
             ObjectNode parsedActualNode = mapper.createObjectNode();
             parsedActualNode.set(NAME, actualNode.get(NAME));
+            parsedActualNode.set("id", actualNode.get("id"));
 
             if (actualNode.get(COVER) != null) {
                 parsedActualNode.set(COVER, actualNode.get(COVER).get("url"));
