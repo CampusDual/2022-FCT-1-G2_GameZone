@@ -1,8 +1,10 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 
-export interface ProfileItems {
-  backgroundCover: string;
+
+
+export interface ProfileItems{
+  backgroundCover: string
   cover: {
     id: number;
     url: string;
@@ -21,6 +23,7 @@ export interface ProfileItems {
   summary: string;
   memberRating: number;
   criticRating: number;
+
   videos: [
     {
       id: number;

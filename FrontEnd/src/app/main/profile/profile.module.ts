@@ -1,9 +1,9 @@
-import { NgModule } from "@angular/core";
-import { CommonModule } from "@angular/common";
 
-import { ProfileRoutingModule } from "./profile-routing.module";
-import { ProfileComponent } from "./profile.component";
-import { CoverModule } from "./cover/cover.module";
+
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ProfileRoutingModule } from './profile-routing.module';
+import { ProfileComponent } from './profile.component';
 import { SlickCarouselModule } from "ngx-slick-carousel";
 import { MediaModule } from "./media/media.module";
 import { ReviewsModule } from "./reviews/reviews.module";
@@ -15,12 +15,14 @@ import {SummaryModule} from "./summary/summary.module";
   imports: [
     CommonModule,
     ProfileRoutingModule,
-    CoverModule,
+    SummaryModule,
+    CommonModule,
+    ProfileRoutingModule,
     SlickCarouselModule,
+
     MediaModule,
     ReviewsModule,
-    RecommendationsModule,
-    SummaryModule
+    RecommendationsModule
   ],
   exports: [ProfileComponent],
 })

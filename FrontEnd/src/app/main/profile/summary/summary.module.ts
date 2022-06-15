@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { SummaryRoutingModule } from './summary-routing.module';
+
 import {SafeHtml, SummaryComponent} from "./summary.component";
 
 
@@ -12,5 +13,6 @@ import {SafeHtml, SummaryComponent} from "./summary.component";
     SummaryRoutingModule
   ],
   exports:[SummaryComponent]
+
 })
 export class SummaryModule { }

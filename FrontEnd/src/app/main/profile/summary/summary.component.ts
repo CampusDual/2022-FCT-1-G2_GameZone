@@ -1,4 +1,5 @@
 import { HttpClient } from "@angular/common/http";
+
 import {AfterViewInit, Component, Input, Pipe} from "@angular/core";
 import { DomSanitizer } from "@angular/platform-browser";
 import { map } from "rxjs/operators";
@@ -19,6 +20,7 @@ export class SafeHtml {
   styleUrls: ['./summary.component.scss']
 })
 export class SummaryComponent implements AfterViewInit {
+
 
   data: ProfileItems[]
   @Input() id: number;

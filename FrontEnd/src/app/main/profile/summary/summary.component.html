@@ -7,19 +7,23 @@
 </div>
 <div class="gamepage-header-content">
 
-  <div class="details-wrapper">
-    <div class="game-header">
-      <div class="game-cover">
-        <img src="http://{{data && data[0].coverUrl}}" alt="cover">
+
+    <div class="details-wrapper">
+      <div class="game-header">
+        <div class="game-cover">
+          <img src="http://{{data && data[0].coverUrl}}" alt="cover">
+        </div>
+          <h1 class="game-header-title">{{data && data[0].title}}</h1>
+          <h2 class="game-header-date">{{data && data[0].releaseDatesY}}</h2>
+          <p class="game-header-genres">
+            <ng-container *ngFor="let dataItem of data" >
+            <div class="genres" *ngFor="let genre of dataItem.genres ">
+            <span>{{genre.name}}</span>
+            </div>
+            </ng-container>
+            </p>
+          <div class="game-header-platforms">{{data && data[0].platforms}}</div>
+          <div class="game-header-description">{{data && data[0].summary}}</div>
       </div>
-      <h1 class="game-header-title">{{data && data[0].title}}</h1>
-      <h2 class="game-header-date">{{data && data[0].releaseDatesY}}</h2>
-      <p class="game-header-genres">
-        <ng-container *ngFor="let dataItem of data">
-      <div class="genres" *ngFor="let genre of dataItem.genres "><span>{{genre.name}}</span></div>
-      </ng-container></p>
-      <div class="game-header-platforms">{{data && data[0].platforms}}</div>
-      <div class="game-header-description">{{data && data[0].summary}}</div>
     </div>
-  </div>
 </div>
