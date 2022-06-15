@@ -22,5 +22,9 @@
   "name": "nombre",
   "surname": "apellido",
   "birthday": "fecha de nacimiento",
-  "expirationDate": "fecha de expiración"
+  "expirationDate": "fecha de expiración",
+  "EVENTS": "Eventos",
+  "TOURNAMENTS": "Torneos",
+  "NEW_SUBS": "Nuevos subscriptores",
+  "SUBS_AND_INCOME": "Subs e ingresos"
 }

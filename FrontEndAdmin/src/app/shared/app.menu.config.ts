@@ -7,7 +7,7 @@ export const MENU_CONFIG: MenuRootItem[] = [
   {id: 'update-price' , name: 'UPDATE PRICES', icon: 'home', route: '/main/update-price'},
   {id: 'tournaments' , name: 'TOURNAMENTS', icon: 'home', route: '/main/tournaments'},
   {id: 'events' , name: 'EVENTS', icon: 'home', route: '/main/events'},
-  {id: 'new-subs' , name: 'NEW SUBS', icon: 'home', route: '/main/new-subs'},
-  {id: 'subs-price' , name: 'SUBS AND PRICE', icon: 'home', route: '/main/subs-price'}
+  {id: 'new-subs' , name: 'NEW_SUBS', icon: 'home', route: '/main/new-subs'},
+  {id: 'subs-price' , name: 'SUBS_AND_INCOME', icon: 'home', route: '/main/subs-price'}
 ];
 
