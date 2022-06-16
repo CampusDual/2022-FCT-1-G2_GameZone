@@ -12,7 +12,6 @@
     </o-column>
   </o-row>
 </o-form>
-
 <o-form  (beforeInsertMode)="isInInsertMode()" *ngIf="!insertMode" >
   <div fxFill fxLayout="column" fxLayoutAlign="start"  >
     <o-table fxFlex attr="tabla" service="tournaments" entity="tourUsers" keys="id" parent-keys="tour_id:id" keys-sql-types="INTEGER"
