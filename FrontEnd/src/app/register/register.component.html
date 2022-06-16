@@ -8,7 +8,7 @@
       </o-row>
 
       <o-row>
-        <o-date-input attr="DATE OF BIRTH" fxFlex="20" name="birthday" ngDefaultControl [(ngModel)]="user.birthday" ></o-date-input>
+        <o-date-input attr="DATE OF BIRTH" fxFlex="40" name="birthday" ngDefaultControl [(ngModel)]="user.birthday" ></o-date-input>
       </o-row>
 
       <o-row>
@@ -16,13 +16,14 @@
       </o-row>
 
       <o-row>
-        <o-email-input attr="EMAIL" fxFlex name="email" ngDefaultControl [(ngModel)]="user.email" fxFlex="40"></o-email-input> &nbsp;&nbsp;&nbsp;&nbsp;
         <o-password-input class="input-padding" attr="PASSWORD" fxFlex="40" required="yes"  name="password" ngDefaultControl [(ngModel)]="user.password" ></o-password-input>
       </o-row>
 
-      <o-button color="accent" attr="raised" type="RAISED" label="Registrarse" (click)="addUser()"></o-button>
+      <o-row>
+        <o-email-input attr="EMAIL" fxFlex name="email" ngDefaultControl [(ngModel)]="user.email" fxFlex="81"></o-email-input> &nbsp;&nbsp;&nbsp;&nbsp;
+      </o-row>
 
-
+      <o-button color="accent" attr="raised" type="RAISED" label="Registrarse" (click)="addUser()" fxFlex="81"></o-button>
     </o-column>
   </o-row>
 </o-form>
