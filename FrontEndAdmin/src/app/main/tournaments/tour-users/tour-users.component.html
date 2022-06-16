@@ -15,7 +15,7 @@
 
 <o-form>
   <div fxFill fxLayout="column" fxLayoutAlign="start" >
-    <o-table fxFlex attr="tabla" service="tournaments" entity="tourUsers" keys="id" parent-keys="tour_id:id" keys-sql-types="INTEGER" 
+    <o-table fxFlex attr="tabla" service="tournaments" entity="tourUsers" keys="id" parent-keys="tour_id:id" keys-sql-types="INTEGER"
       columns="id;tour_id;user_name;tour_name"
       visible-columns="tour_id;user_name;tour_name" query-rows="20">
       <o-table-column attr="tour_id" title="Tournament id" label="tour_id" sql-type="INTEGER"></o-table-column>
