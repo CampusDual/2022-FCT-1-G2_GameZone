@@ -1,10 +1,8 @@
-import { Component, OnInit } from "@angular/core";
-import {ActivatedRoute, ParamMap, Router} from "@angular/router";
+import {AfterViewChecked, Component, OnDestroy} from "@angular/core";
+import { ActivatedRoute, Router } from "@angular/router";
 
-
-
-export interface ProfileItems{
-  backgroundCover: string
+export interface ProfileItems {
+  backgroundCover: string;
   cover: {
     id: number;
     url: string;
@@ -12,14 +10,18 @@ export interface ProfileItems{
   coverUrl: string;
   title: string;
   dateRelease: string;
-  genres: [{
-    id: number;
-    url: string;
-  }];
-  platforms:[ {
-    id: number;
-    url: string;
-  }];
+  genres: [
+    {
+      id: number;
+      url: string;
+    }
+  ];
+  platforms: [
+    {
+      id: number;
+      url: string;
+    }
+  ];
   summary: string;
   memberRating: number;
   criticRating: number;
@@ -64,18 +66,30 @@ export interface ProfileItems{
   templateUrl: "./profile.component.html",
   styleUrls: ["./profile.component.scss"],
 })
-export class ProfileComponent implements OnInit {
+export class ProfileComponent implements OnDestroy {
   id: number;
 
-  constructor(private route: ActivatedRoute, private router : Router) {
-    this.router.routeReuseStrategy.shouldReuseRoute = function () {
-      return false;
-    };
+
+  constructor(private route: ActivatedRoute, private router: Router) {
+    this.subscribeRouteChange();
   }
 
-  ngOnInit() {
-    this.route.paramMap.subscribe((params: ParamMap) => {
-      this.id = Number(params.get('id'));
+  subscribeRouteChange() {
+
+    this.route.params.subscribe((params = {}) => {
+
+      this.id = params.id
+
+      this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+
     });
+  }
+
+  ngOnDestroy() {
+    this.router.routeReuseStrategy.shouldReuseRoute= (future , curr)=>
+    {
+      return future.routeConfig === curr.routeConfig;
+    }
+
   }
 }

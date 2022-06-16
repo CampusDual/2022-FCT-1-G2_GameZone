@@ -36,6 +36,10 @@ export class NavbarComponent implements OnChanges {
   }
 
   handleKey(event : Event){
+    this.router.routeReuseStrategy.shouldReuseRoute= (future , curr)=>
+    {
+      return future.routeConfig === curr.routeConfig;
+    }
     this.router.navigate(["main/search"],{queryParams: {title:(event.target as HTMLInputElement).value} })
   }
 

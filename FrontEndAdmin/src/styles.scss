@@ -1,3 +1,7 @@
 .o-app-sidenav .o-app-sidenav-sidenav li a{
   color: white;
 }
+
+.o-app-sidenav .o-app-sidenav-container .mat-drawer.o-app-sidenav-sidenav:not(.mat-drawer-closed) .o-app-sidenav-menugroup{
+  color: white;
+}

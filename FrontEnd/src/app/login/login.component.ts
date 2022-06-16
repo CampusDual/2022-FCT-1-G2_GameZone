@@ -26,17 +26,18 @@ export class LoginComponent implements OnInit {
   pwdCtrl: FormControl = new FormControl("", Validators.required);
   sessionExpired = false;
 
-  router: Router;
+
 
   constructor(
     private actRoute: ActivatedRoute,
-    router: Router,
+   private router: Router,
     @Inject(NavigationService) public navigation: NavigationService,
     @Inject(AuthService) private authService: AuthService,
     @Inject(LocalStorageService) private localStorageService,
     public injector: Injector
   ) {
-    this.router = router;
+
+
 
     const qParamObs: Observable<any> = this.actRoute.queryParams;
     qParamObs.subscribe((params) => {

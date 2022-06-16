@@ -3,6 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import { AuthService } from "ontimize-web-ngx";
 import { map, mergeMap } from "rxjs/operators";
 import { forkJoin } from "rxjs";
+import {Router} from "@angular/router";
 
 interface GameData {
   name: string;
@@ -26,7 +27,7 @@ export class FavBiblioComponent implements AfterViewInit {
   data: any;
   user: string;
 
-  constructor(private http: HttpClient, private auth: AuthService) {
+  constructor(private http: HttpClient, private auth: AuthService, private router:Router) {
     this.user = this.auth.getSessionInfo().user;
   }
 
