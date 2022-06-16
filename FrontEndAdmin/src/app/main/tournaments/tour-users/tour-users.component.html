@@ -1,5 +1,5 @@
 <o-form attr="formulario" service="tournaments" entity="tournaments" keys="id" keys-sql-types="INTEGER" header-actions="R;I;U;D" show-header-navigation="no">
-  <o-integer-input attr="id" oHidden></o-integer-input>
+
   <o-row>
     <o-column title-label="CUSTOMER_PERSONAL_INFORMATION" fxFlex>
       <o-row>
@@ -12,15 +12,14 @@
     </o-column>
   </o-row>
 </o-form>
-
-<o-form>
-  <div fxFill fxLayout="column" fxLayoutAlign="start" >
+<o-form  (beforeInsertMode)="isInInsertMode()" *ngIf="!insertMode" >
+  <div fxFill fxLayout="column" fxLayoutAlign="start"  >
     <o-table fxFlex attr="tabla" service="tournaments" entity="tourUsers" keys="id" parent-keys="tour_id:id" keys-sql-types="INTEGER"
-      columns="id;tour_id;user_name;tour_name"
-      visible-columns="tour_id;user_name;tour_name" query-rows="20">
+             columns="id;tour_id;user_name;tour_name"
+             visible-columns="tour_id;user_name;tour_name" query-rows="20" >
       <o-table-column attr="tour_id" title="Tournament id" label="tour_id" sql-type="INTEGER"></o-table-column>
       <o-table-column attr="tour_name" title="Tournament Name" label="tour_name"></o-table-column>
       <o-table-column attr="user_name" title="User name" label="user_name"></o-table-column>
-      </o-table>
+    </o-table>
   </div>
-  </o-form>
+</o-form>
