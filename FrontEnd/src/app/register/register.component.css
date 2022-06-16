@@ -1,5 +1,4 @@
 o-row{
-  margin:2em;
   color: white;
   height: 40%;
 }
@@ -7,3 +6,4 @@ o-row{
 .o-button button.mat-raised-button{
   background-color: #4d0c6a ;
 }
+

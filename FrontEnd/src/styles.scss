@@ -1,4 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
+*{
+  font-family: 'Kanit', sans-serif;
+}
 
 .slick-slider {
   width: 88%;
@@ -67,3 +70,10 @@ body .slick-next {
 .o-bar-menu nav .fake-ul .fake-li {
   padding-bottom: 4px ;
 }
+
+
+.o-form form .o-form-content-wrapper{
+  padding-left: 250px;
+}
+
+
