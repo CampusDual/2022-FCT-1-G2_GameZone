@@ -42,8 +42,11 @@
   "Name": "Name",
   "Surname": "Surname",
   "Email": "Email",
+  "Birthday": "Birthday",
   "Subscription plan": "Subscription plan",
-  "Subciption date": "Subciption date",
+  "Subscription Types": "Subscription Type",
+  "Subscription date": "Subciption date",
   "Expiration date": "Expiration date",
-  "GRAPHICS": "Graphics"
+  "GRAPHICS": "Graphics",
+  "User name": "User Name"
 }
