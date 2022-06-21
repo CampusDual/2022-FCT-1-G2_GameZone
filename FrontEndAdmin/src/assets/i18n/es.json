@@ -46,8 +46,11 @@
   "Name": "Nombre",
   "Surname": "Apellido",
   "Email": "Email",
+  "Birthday": "Cumpleaños",
   "Subscription plan": "Tipo de Suscripcion",
-  "Subciption date": "Fecha de Suscripcion",
+  "Subscription Types": "Tipo de Suscripcion",
+  "Subscription date": "Fecha de Suscripcion",
   "Expiration date": "Fecha de expiracion",
-  "GRAPHICS": "Gráficas"
+  "GRAPHICS": "Gráficas",
+  "User name": "Usuario"
 }

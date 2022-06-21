@@ -1,10 +1,11 @@
 <div class="feed-container">
 
-  <h2>Ultimas noticias relacionadas con videojuegos</h2>
+  <h2 class="title">Ultimas noticias relacionadas con videojuegos</h2>
   <div class = "feed-elements">
 
     <div *ngFor="let item of data | slice:1; let i = index">
-      <div [innerHTML] = item.contents class="newBody"></div>
+      <div [innerHTML] = item.contents ></div>
+      <h6 class="fuente">Fuente obtenida de Red ADN</h6>
     </div>
 
   </div>

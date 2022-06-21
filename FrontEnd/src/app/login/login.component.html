@@ -11,19 +11,19 @@
 
           <div class="login-title-container" fxLayout="column">
             <p class="session-expired text" *ngIf="sessionExpired">{{ 'ERROR_SESSION_EXPIRED' | oTranslate }}</p>
-            <span class="title_text">{{ 'LOGIN_TITLE' | oTranslate }}:</span>
+            <span class="title_text">{{ 'Inicia sesión en tu cuenta' | oTranslate }}:</span>
           </div>
 
           <div fxLayout="column" fxLayoutGap="10px">
             <mat-form-field fxFill class="m-top-24">
-              <input matInput class="mat-input" #user placeholder="{{ 'USERNAME' | oTranslate }}" id="username"
+              <input matInput class="mat-input" #user placeholder="{{ 'Nombre' | oTranslate }}" id="username"
                      [formControl]="userCtrl">
               <mat-error *ngIf="userCtrl.hasError('required')">
                 {{ 'ERROR_USER_REQUIRED' | oTranslate }}
               </mat-error>
             </mat-form-field>
             <mat-form-field fxFill class="m-top-24">
-              <input matInput class="mat-input" #password placeholder="{{ 'PASSWORD' | oTranslate }}" id="password"
+              <input matInput class="mat-input" #password placeholder="{{ 'Contraseña' | oTranslate }}" id="password"
                      type="password"
                      [formControl]="pwdCtrl">
               <mat-error *ngIf="pwdCtrl.hasError('required')">
@@ -32,7 +32,7 @@
             </mat-form-field>
           </div>
 
-          <button mat-raised-button color="primary" type="submit">{{ 'LOGIN' | oTranslate }}</button>
+          <button mat-raised-button color="primary" type="submit">{{ 'Entrar' | oTranslate }}</button>
           <div layout-padding></div>
           <div layout-padding></div>
           <div fxLayout="column" fxLayoutAlign="center center" layout-padding style="position: relative; top:-30px;">
