@@ -6,7 +6,8 @@
 	catalog="" schema="${mainschema}" table="favorite_games"
 	datasource="mainDataSource" sqlhandler="dbSQLStatementHandler">
 	<DeleteKeys>
-		<Column>id</Column>
+		<Column>user_id</Column>
+		<Column>game_name</Column>
 	</DeleteKeys>
 	<UpdateKeys>
 		<Column>id</Column>

@@ -20,4 +20,6 @@ public interface IFavoriteGamesService {
 	public EntityResult gameAndUserQuery(Map<String, Object> keyMap, List<String> attrList)
 			throws OntimizeJEERuntimeException;
 
+
+
 }

@@ -37,7 +37,7 @@ public class FavoriteGamesService implements IFavoriteGamesService {
 
 		Map<String, Object> gameKey = new HashMap<>();
 		System.out.println(attrMap);
-		gameKey.put(GamesDao.ATTR_GAME_NAME, attrMap.remove(GamesDao.ATTR_GAME_NAME));
+		//gameKey.put(GamesDao.ATTR_GAME_NAME, attrMap.remove(GamesDao.ATTR_GAME_NAME));
 		gameKey.put(GamesDao.ATTR_GAME_ID, attrMap.remove(GamesDao.ATTR_GAME_ID));
 
 		List<String> gameId = new ArrayList<>();
@@ -79,4 +79,8 @@ public class FavoriteGamesService implements IFavoriteGamesService {
 			throws OntimizeJEERuntimeException {
 		return this.daoHelper.query(this.favoriteGamesDao, keyMap, attrList,favoriteGamesDao.ATTR_GAME_AND_USER);
 	}
+
+
+
+
 }

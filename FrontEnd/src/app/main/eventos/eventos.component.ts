@@ -7,20 +7,33 @@ import { HttpClient } from "@angular/common/http";
   styleUrls: ["./eventos.component.css"],
 })
 export class EventosComponent implements OnInit {
-  constructor(private http: HttpClient) {}
+  dataEvents: [];
+  dataUsers: [];
 
-  ngOnInit() {
-    this.http
-      .get(
-        "http://localhost:33333/events/eventUsers?columns=event_id,user_name,event_name,description,start_date,end_date"
-      )
-      .subscribe((res) => console.log(res));
-
+  constructor(private http: HttpClient) {
     this.http
       .get(
         "http://localhost:33333/events/events?columns=id,event_name,description,start_date,end_date,"
       )
-      // @ts-ignore
-      .subscribe((res) => console.log(...res.data));
+
+      .subscribe(
+        // @ts-ignore
+        (res) => (this.dataEvents = [...res.data]),
+        (err) => console.log(err),
+        () => console.log("this.dataEvents", this.dataEvents)
+      );
+
+    this.http
+      .get(
+        "http://localhost:33333/events/eventUsers?columns=event_id,user_name,event_name,description,start_date,end_date"
+      )
+
+      .subscribe(
+        // @ts-ignore
+        (res) => (this.dataUsers = [...res.data]),
+        (err) => console.log(err)
+      );
   }
+
+  ngOnInit() {}
 }
