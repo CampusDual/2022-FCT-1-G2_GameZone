@@ -1,27 +1,23 @@
 <o-bar-menu title="ProjectImatia">
+  <input
+    type="text"
+    id="myInput"
+    class="form-control"
+    placeholder="Nombre del Juego"
+    (keyup)="handleKey($event)"
+  />
 
 
-    <input
-      type="text"
-      id="myInput"
-      class="form-control"
-      placeholder="Nombre del Juego"
-      (keyup)="handleKey($event)"
-    />
-
-
+  <o-bar-menu-item title="Torneos" route="./main/tournaments"></o-bar-menu-item>
+  <o-bar-menu-item title="Eventos" route="./main/events"></o-bar-menu-item>
   <o-bar-menu-item *ngIf="logged" title="Biblioteca" icon=photo_library route="./main/favlibrary"></o-bar-menu-item>
   <o-bar-menu-item *ngIf="!logged" title="Iniciar sesión" route="./login"></o-bar-menu-item>
-
   <o-bar-menu-group *ngIf="logged" title="{{user}}" icon=person>
-
     <o-bar-menu-item title="Ver perfil" icon=person route="./main/users"></o-bar-menu-item>
     <o-bar-menu-item title="Editar perfil" icon=edit route="./main/update"></o-bar-menu-item>
     <o-bar-menu-item title="Salir" icon=lock route="./login"></o-bar-menu-item>
-
   </o-bar-menu-group>
-    <a [routerLink]="['/main/home']" style="display: inline">
-    <img src="./assets/images/logo_navbar_together.png" alt="logo" >
+  <a [routerLink]="['/main/home']" style="display: inline">
+    <img src="./assets/images/logo_navbar_together.png" alt="logo">
   </a>
-
 </o-bar-menu>

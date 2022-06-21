@@ -19,7 +19,9 @@ export const routes: Routes = [
       { path: 'search', loadChildren: () => import('./search-component/search-component.module').then(m => m.SearchComponentModule)},
       { path: 'recommendations', loadChildren: () => import('./recommendations/recommendations.module').then(m => m.RecommendationsModule)},
       { path: 'profile/:id', loadChildren: () => import('./profile/profile.module').then(m => m.ProfileModule)},
-      { path: 'favlibrary', loadChildren: () => import('./fav-biblio/fav-biblio.module').then(m => m.FavBiblioModule)}
+      { path: 'favlibrary', loadChildren: () => import('./fav-biblio/fav-biblio.module').then(m => m.FavBiblioModule)},
+      { path: 'tournaments', loadChildren: () => import('./torneos/torneos.module').then(m => m.TorneosModule)},
+      { path: 'events', loadChildren: () => import('./eventos/eventos.module').then(m => m.EventosModule)}
     ]
   }
 ];
