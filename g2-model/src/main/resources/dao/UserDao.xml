@@ -60,11 +60,15 @@
             <Sentence>
                 <![CDATA[
                     select count(TO_CHAR(sub_date, 'month')), TO_CHAR(sub_date, 'MM/YY') as month
-from tuser
-where EXTRACT(MONTH FROM sub_date) != 0
-group by TO_CHAR(sub_date, 'MM/YY'), EXTRACT(month from sub_date)
-order by
-    EXTRACT(month from sub_date) asc
+					from tuser
+					where
+						sub_id is not null
+						and sub_date is not null
+						group by
+						TO_CHAR(sub_date, 'MM/YY'), extract(month from sub_date),TO_CHAR(sub_date, 'YY')
+						order by
+						TO_CHAR(sub_date, 'YY') asc 
+						limit 12
                 ]]>
             </Sentence>
         </Query>
@@ -86,9 +90,10 @@ order by
 						sub_id is not null
 						and sub_date is not null
 						group by
-						TO_CHAR(sub_date, 'MM/YY'), extract(month from sub_date)
+						TO_CHAR(sub_date, 'MM/YY'), extract(month from sub_date),TO_CHAR(sub_date, 'YY')
 						order by
-						extract(month from sub_date) asc
+						TO_CHAR(sub_date, 'YY') asc 
+						limit 12
 				]]>
             </Sentence>
         </Query>
