@@ -8,6 +8,7 @@ interface Tournament {
   description: string;
   start_date: Timestamp<any>;
   end_date: Timestamp<any>;
+  prize: string;
   users: string[];
 }
 
@@ -34,7 +35,7 @@ export class TorneosComponent implements OnInit {
   ngOnInit() {
     this.http
       .get(
-        "http://localhost:33333/tournaments/tourUsers?columns=tour_name,description,start_date,end_date,tour_id,user_name,tour_name"
+        "http://localhost:33333/tournaments/tourUsers?columns=tour_name,description,start_date,end_date,tour_id,user_name,tour_name,prize"
       )
       .subscribe(
         // @ts-ignore
@@ -44,7 +45,7 @@ export class TorneosComponent implements OnInit {
 
     this.http
       .get(
-        "http://localhost:33333/tournaments/tournaments?columns=id,tour_name,description,start_date,end_date"
+        "http://localhost:33333/tournaments/tournaments?columns=id,tour_name,description,start_date,end_date,prize"
       )
       // @ts-ignore
       .subscribe((res) => (this.dataTournaments = [...res.data]),
