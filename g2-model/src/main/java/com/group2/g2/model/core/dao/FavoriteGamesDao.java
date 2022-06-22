@@ -16,6 +16,8 @@ public class FavoriteGamesDao extends OntimizeJdbcDaoSupport {
 	public static final String ATTR_ID = "id";
 	public static final String ATTR_GAME_ID = "game_id";
 	public static final String ATTR_USER_ID = "user_id";
+	public static final String ATTR_GAME_NAME = "game_name";
 	public static final String ATTR_GAME_AND_USER="GameAndUser";
+	public static final String ATTR_DELETE_FAV_GAME="deleteFavGame";
 
 }

@@ -9,9 +9,11 @@
       </a>
 
       <p>{{img[0].name}}</p>
+      <button mat-raised-button color="primary" (click)="deleteFav(img[0].name)">Eliminar</button>
     </div>
   </ng-container>
 </div>
-<div class="barraPaginacion">
-  <jw-pagination [items]="data" (changePage)="onChangePage($event)"></jw-pagination>
+<div  class="barraPaginacion" >
+  <jw-pagination [hidden]="!pageOfItems" [items]="data" (changePage)="onChangePage($event)"></jw-pagination>
 </div>
+

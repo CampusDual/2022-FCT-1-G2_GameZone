@@ -1,9 +1,8 @@
 import { AfterViewInit, Component } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { AuthService } from "ontimize-web-ngx";
 import { map, mergeMap } from "rxjs/operators";
 import { forkJoin } from "rxjs";
-import {Router} from "@angular/router";
 
 interface GameData {
   name: string;
@@ -12,7 +11,7 @@ interface GameData {
     url: string;
   };
   url: string;
-  id:number
+  id: number;
 }
 
 @Component({
@@ -26,14 +25,26 @@ export class FavBiblioComponent implements AfterViewInit {
   pageOfItems: Array<any>;
   data: any;
   user: string;
+  constructor(
+    private http: HttpClient,
+    private auth: AuthService
 
-  constructor(private http: HttpClient, private auth: AuthService, private router:Router) {
+  ) {
     this.user = this.auth.getSessionInfo().user;
   }
 
   ngAfterViewInit() {
+    this.getData();
+  }
+
+  onChangePage(pageOfItems: Array<any>) {
+    this.pageOfItems = pageOfItems;
+  }
+
+  getData() {
     const headers = { "content-type": "application/json" };
 
+    // @ts-ignore
     this.http
       .post<any[]>(
         "http://localhost:33333/favorite_games/gameAndUser/search",
@@ -47,6 +58,7 @@ export class FavBiblioComponent implements AfterViewInit {
         mergeMap((x) =>
           forkJoin(
             // @ts-ignore
+            // @ts-ignore
             x.data.map((y) =>
               this.http.get<GameData[]>(this.SEARCH_URL + y.game_id).pipe(
                 map((item) => {
@@ -56,7 +68,7 @@ export class FavBiblioComponent implements AfterViewInit {
                         .slice(2)
                         .replace("t_thumb", "t_cover_big"),
                       name: x.name,
-                      id : x.id
+                      id: x.id,
                     } as GameData;
                   });
                 })
@@ -65,10 +77,35 @@ export class FavBiblioComponent implements AfterViewInit {
           )
         )
       )
-      .subscribe((data) => this.data=data, error => console.log(error),()=>console.log(this.data));
+      .subscribe(
+        (data) => (this.data = data),
+        (error) => console.log(error),
+        () => console.log(this.data)
+      );
   }
 
-  onChangePage(pageOfItems: Array<any>) {
-    this.pageOfItems = pageOfItems;
+  deleteFav(name) {
+    const httpOptions = {
+      headers: new HttpHeaders({ "Content-Type": "application/json" }),
+      body: { filter: { user_id: this.user, game_name: "" + name + "" } },
+    };
+    console.log(httpOptions);
+    this.http
+      .delete(
+        "http://localhost:33333/favorite_games/favoriteGames",
+        httpOptions
+      )
+      .subscribe(
+        () => {},
+        (error) => console.log(error),
+        () =>{
+          if (this.data.length == 1) {
+            this.pageOfItems= undefined
+          }else {
+            this.getData()
+          }
+
+        }
+      );
   }
 }

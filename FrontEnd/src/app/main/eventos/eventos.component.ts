@@ -28,6 +28,7 @@ export class EventosComponent implements OnInit {
   dataEvents: Event[];
   dataUsers: User[];
 
+
   constructor(private http: HttpClient) {
     this.http
       .get(
@@ -56,6 +57,7 @@ export class EventosComponent implements OnInit {
           if(y.event_id===x.id)x.users.push(y.user_name)
           })
           })
+
       );
   }
 

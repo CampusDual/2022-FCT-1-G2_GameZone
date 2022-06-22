@@ -46,3 +46,13 @@ img:hover {
   cursor: pointer;
 }
 
+button {
+  width: 75%;
+  margin: 32px 0 0;
+  height: 42px;
+  font-size: 16px;
+  color: white !important;
+  border-radius: 40px;
+  position: relative;
+  top: -10px
+}
