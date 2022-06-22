@@ -8,7 +8,7 @@ import com.group2.g2.api.core.service.ITourUsersService;
 import com.ontimize.jee.server.rest.ORestController;
 
 @RestController
-@RequestMapping("/tourusers")
+	@RequestMapping("/tourusers")
 public class TourUsersRestController extends ORestController<ITourUsersService> {
 
 	@Autowired

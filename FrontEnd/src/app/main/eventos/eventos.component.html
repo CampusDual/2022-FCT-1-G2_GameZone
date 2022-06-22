@@ -1,1 +1,25 @@
-<p>eventos works!</p>
+<div class="container-torneo " >
+  <table>
+    <thead>
+    <tr>
+      <th>Torneo</th>
+      <th>Fecha de inicio</th>
+      <th>Fecha de finalización</th>
+      <th>Participantes</th>
+      <th>Registro</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of dataEvents ">
+      <td >{{item.event_name}}</td>
+      <td >{{item.start_date | date: 'dd-MM-yyyy'}}</td>
+      <td>{{item.end_date | date: 'dd-MM-yyyy'}}</td>
+      <td *ngIf="item.users_max">{{item.users.length}}/{{item.users_max}}</td>
+      <td *ngIf="!item.users_max">{{item.users.length}}</td>
+      <td *ngIf="item.users_max!=item.users.length && logged"><button class="boton" (click)="Participar(item.id)">Participar</button></td>
+      <td *ngIf="item.users_max!=item.users.length && !logged"><button class="boton" routerLink="/preRegister">Participar</button></td>
+      <td *ngIf="item.users_max===item.users.length">Completo</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
