@@ -56,7 +56,10 @@ export class TorneosComponent implements OnInit {
           x.users.push(y.user_name);
           }
           });
-          })
+        })
+  }
+  showData(){
+    console.log(this.dataTournaments)
   }
 
 }
