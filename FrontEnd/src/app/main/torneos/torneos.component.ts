@@ -59,7 +59,7 @@ export class TorneosComponent implements OnInit {
         })
   }
   showData(){
-    console.log(this.dataTournaments)
+    console.log(this.dataTournaments )
   }
 
 }
