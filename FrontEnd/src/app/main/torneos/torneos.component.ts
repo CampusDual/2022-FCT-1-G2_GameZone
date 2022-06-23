@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import {Component, OnDestroy, OnInit} from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Timestamp } from "rxjs/internal/operators/timestamp";
 import { AuthService } from "ontimize-web-ngx";
@@ -28,12 +28,13 @@ interface User {
   templateUrl: "./torneos.component.html",
   styleUrls: ["./torneos.component.scss"],
 })
-export class TorneosComponent implements OnInit {
+export class TorneosComponent implements OnInit, OnDestroy {
   dataTournaments: Tournament[];
   dataUsers: User[];
   logged: boolean;
   user: string;
-
+  dataLoaded:Promise<boolean> = Promise.resolve(false)
+  participa:boolean = false;
 
   constructor(private http: HttpClient, private authService: AuthService) {
     this.user = this.authService.getSessionInfo().user;
@@ -42,10 +43,11 @@ export class TorneosComponent implements OnInit {
     } else {
       this.logged = true;
     }
+    this.getData();
   }
 
   ngOnInit() {
-    this.getData();
+
   }
 
   parseData() {
@@ -55,23 +57,20 @@ export class TorneosComponent implements OnInit {
         if (y.tour_id === x.id) {
           x.users.push(y.user_name);
         }
+        if(x.id === y.tour_id && this.user === y.user_name){
+          this.participa=true
+        }
       });
     });
+    this.dataLoaded=Promise.resolve(true)
   }
 
   Participar(id) {
-   let participa:boolean = false;
+
     const headers = { "content-type": "application/json" };
     let body = '{"data":{"tour_id":'+id+',"user_name":"'+this.user+'"}}';
-    if(this.dataUsers){
-      this.dataUsers.forEach((x)=>{
-        if(id === x.tour_id && this.user === x.user_name){
-          participa=true
-        }
-      })
-    }
 
-    if(!participa){
+
       this.http
         .post("http://localhost:33333/tourusers/tourUsers", body, { headers })
         .subscribe(
@@ -79,11 +78,6 @@ export class TorneosComponent implements OnInit {
           () => {},
           () => this.getData()
         );
-    }else{
-      alert("ya participas en este torneo")
-    }
-
-
   }
 
   getData() {
@@ -105,10 +99,14 @@ export class TorneosComponent implements OnInit {
         // @ts-ignore
         (res) => (this.dataTournaments = [...res.data]),
         (err) => console.log(err),
-        () => this.parseData()
+        () => {
+          this.parseData();
+        }
       );
   }
 
-
+  ngOnDestroy() {
+    this.dataLoaded = Promise.resolve(false);
+  }
 }
 

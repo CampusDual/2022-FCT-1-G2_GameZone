@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import {Component, OnDestroy, OnInit} from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Timestamp } from "rxjs/internal/operators/timestamp";
 import { AuthService } from "ontimize-web-ngx";
@@ -27,12 +27,13 @@ interface User {
   templateUrl: "./eventos.component.html",
   styleUrls: ["./eventos.component.scss"],
 })
-export class EventosComponent implements OnInit {
+export class EventosComponent implements OnInit, OnDestroy {
   dataEvents: Event[];
   dataUsers: User[];
   logged: boolean;
   user: string;
-
+  dataLoaded: Promise<boolean> = Promise.resolve(false);
+  participa: boolean = false;
 
   constructor(private http: HttpClient, private authService: AuthService) {
     this.user = this.authService.getSessionInfo().user;
@@ -41,10 +42,11 @@ export class EventosComponent implements OnInit {
     } else {
       this.logged = true;
     }
+    this.getData();
   }
 
   ngOnInit() {
-    this.getData();
+
   }
 
   getData() {
@@ -66,34 +68,21 @@ export class EventosComponent implements OnInit {
         // @ts-ignore
         (res) => (this.dataEvents = [...res.data]),
         (err) => console.log(err),
-        () =>this.parseData()
+        () => this.parseData()
       );
   }
 
   Participar(id) {
-    let participa : boolean = false;
     const headers = { "content-type": "application/json" };
     let body =
       '{"data":{"event_id":' + id + ',"user_name":"' + this.user + '"}}';
-    if (this.dataUsers) {
-      this.dataUsers.forEach((x) => {
-        if (id === x.event_id && this.user === x.user_name) {
-          participa = true;
-        }
-      });
-    }
-
-    if (!participa) {
-      this.http
-        .post("http://localhost:33333/eventusers/eventUsers", body, { headers })
-        .subscribe(
-          () => {},
-          () => {},
-          () => this.getData()
-        );
-    } else {
-      alert("ya participas en este torneo");
-    }
+    this.http
+      .post("http://localhost:33333/eventusers/eventUsers", body, { headers })
+      .subscribe(
+        () => {},
+        () => {},
+        () => this.getData()
+      );
   }
 
   parseData() {
@@ -103,7 +92,15 @@ export class EventosComponent implements OnInit {
         if (y.event_id === x.id) {
           x.users.push(y.user_name);
         }
+        if (x.id === y.event_id && this.user === y.user_name) {
+          this.participa = true;
+        }
       });
     });
+    this.dataLoaded = Promise.resolve(true);
+  }
+
+  ngOnDestroy() {
+    this.dataLoaded = Promise.resolve(false);
   }
 }
