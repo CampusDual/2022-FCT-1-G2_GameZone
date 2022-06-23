@@ -1,5 +1,5 @@
 <div class="gallery__item">
-  <span *ngIf="!pageOfItems || pageOfItems.length==0"> No hay resultados </span>
+  <span *ngIf="!pageOfItems || pageOfItems.length==0" class="empty"> Añade tu primer juego!</span>
   <ng-container *ngFor="let img of pageOfItems">
     <div style="flex-basis: 17%;margin-bottom: 20px;">
       <a [routerLink]="['/main/profile/'+img[0].id]">

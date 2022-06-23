@@ -1,7 +1,9 @@
 .o-form {
-  margin: 10em;
-  background-color: #393939 ;
-  color: white;
+  background-color: #393939;
+  padding-top: 200px;
 }
 
-
+o-row{
+  color: white;
+  height: 40%;
+}
