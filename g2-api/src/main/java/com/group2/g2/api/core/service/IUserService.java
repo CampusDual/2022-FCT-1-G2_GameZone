@@ -20,4 +20,6 @@ public interface IUserService {
 	public EntityResult newSubsQuery(Map<String, Object> keyMap, List<String> attrList) throws OntimizeJEERuntimeException;
 	
 	public EntityResult subsPriceQuery(Map<String, Object> keyMap, List<String> attrList) throws OntimizeJEERuntimeException;
+
+	public EntityResult dashBoardQuery(Map<String, Object> keyMap, List<String> attrList) throws OntimizeJEERuntimeException;
 }
