@@ -62,13 +62,13 @@
                     select count(TO_CHAR(sub_date, 'month')), TO_CHAR(sub_date, 'MM/YY') as month
 					from tuser
 					where
-						sub_id is not null
-						and sub_date is not null
-						group by
-						TO_CHAR(sub_date, 'MM/YY'), extract(month from sub_date),TO_CHAR(sub_date, 'YY')
-						order by
-						TO_CHAR(sub_date, 'YY') asc 
-						limit 12
+					sub_id is not null
+					and sub_date is not null
+					group by
+					TO_CHAR(sub_date, 'YY/MM'), extract(month from sub_date),TO_CHAR(sub_date, 'MM/YY')
+					order by
+					TO_CHAR(sub_date, 'YY/MM') desc
+					limit 12
                 ]]>
             </Sentence>
         </Query>
@@ -77,6 +77,7 @@
                 <![CDATA[
 					select
 						TO_CHAR(sub_date, 'MM/YY') as month,
+						 extract(month from sub_date) as mes,
 						count (sub_id) as total_month,
 						sum(case sub_id when 1 then 1 else 0 end) as mensual,
 						sum(case sub_id when 1 then 1 else 0 end)* 9.99 as total_mensual,
@@ -90,10 +91,36 @@
 						sub_id is not null
 						and sub_date is not null
 						group by
-						TO_CHAR(sub_date, 'MM/YY'), extract(month from sub_date),TO_CHAR(sub_date, 'YY')
+						TO_CHAR(sub_date, 'YY/MM'), extract(month from sub_date),TO_CHAR(sub_date, 'MM/YY')
 						order by
-						TO_CHAR(sub_date, 'YY') asc 
+						TO_CHAR(sub_date, 'YY/MM') desc
 						limit 12
+				]]>
+            </Sentence>
+        </Query>
+         <Query id="dashBoardQuery">
+            <Sentence>
+                <![CDATA[
+					select
+						TO_CHAR(sub_date, 'MM/YY') as month,
+						count(TO_CHAR(sub_date, 'month')) as total,
+						count (sub_id) as total_month,
+						sum(case sub_id when 1 then 1 else 0 end) as mensual,
+						sum(case sub_id when 1 then 1 else 0 end)* 9.99 as total_mensual,
+						sum(case sub_id when 2 then 1 else 0 end) as trimestral ,
+						sum(case sub_id when 2 then 1 else 0 end)* 14.99 as total_trimestral ,
+						sum(case sub_id when 3 then 1 else 0 end) as anual,
+						sum(case sub_id when 3 then 1 else 0 end)* 49.99 as total_anual
+						from
+						tuser t
+						where
+						sub_id is not null
+						and sub_date is not null
+						group by
+						TO_CHAR(sub_date, 'YY/MM'), extract(month from sub_date),TO_CHAR(sub_date, 'MM/YY')
+						order by
+						TO_CHAR(sub_date, 'YY/MM') desc
+						limit 4
 				]]>
             </Sentence>
         </Query>

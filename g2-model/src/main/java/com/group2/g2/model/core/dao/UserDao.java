@@ -31,5 +31,6 @@ public class UserDao extends OntimizeJdbcDaoSupport {
 	public static final String SUB_DATE     = "user_sub_date";
 	public static final String NEWSUBSQUERY     = "newSubsQuery";
 	public static final String SUBSPRICEQUERY     = "subsPriceQuery";
+	public static final String DASHBOARDQUERY     = "dashBoardQuery";
 
 }

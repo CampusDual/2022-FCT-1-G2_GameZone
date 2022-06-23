@@ -42,4 +42,9 @@ public class TourUsersService implements ITourUsersService {
 	public EntityResult tourUsersDelete(Map<String, Object> keyMap) throws OntimizeJEERuntimeException {
 		return this.daoHelper.delete(this.tourUsersDao, keyMap);
 	}
+	
+	public EntityResult countTourQuery(Map<String, Object> keyMap, List<String> attrList)
+			throws OntimizeJEERuntimeException {
+		return this.daoHelper.query(this.tourUsersDao, keyMap, attrList, TourUsersDao.ATTR_COUNTTOURQUERY);
+	}
 }
