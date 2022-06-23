@@ -16,5 +16,7 @@ public interface ITourUsersService {
 			throws OntimizeJEERuntimeException;
 
 	public EntityResult tourUsersDelete(Map<String, Object> keyMap) throws OntimizeJEERuntimeException;
-
+	
+	public EntityResult countTourQuery(Map<String, Object> keyMap, List<String> attrList)
+			throws OntimizeJEERuntimeException;
 }

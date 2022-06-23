@@ -12,4 +12,19 @@
 		<Column>id</Column>
 	</UpdateKeys>
 	<GeneratedKey>id</GeneratedKey>
+	<Queries>
+		<Query id="countTourQuery">
+		<AmbiguousColumns>
+		<AmbiguousColumn name="id" prefix="tu"/>
+		</AmbiguousColumns>
+            <Sentence>
+                <![CDATA[
+					select count(user_name) as total, tour_name
+						from tour_users tu 
+						join tournaments t on tu.tour_id=t.id
+						group by t.tour_name
+				]]>
+            </Sentence>
+        </Query>
+	</Queries>
 </JdbcEntitySetup>

@@ -65,5 +65,10 @@ public class UserService implements IUserService {
 			throws OntimizeJEERuntimeException {
 		return this.daoHelper.query(this.userDao, keyMap, attrList, UserDao.SUBSPRICEQUERY);
 	}
+	
+	public EntityResult dashBoardQuery(Map<String, Object> keyMap, List<String> attrList)
+			throws OntimizeJEERuntimeException {
+		return this.daoHelper.query(this.userDao, keyMap, attrList, UserDao.DASHBOARDQUERY);
+	}
 
 }

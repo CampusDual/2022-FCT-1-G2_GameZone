@@ -19,4 +19,8 @@ export const SERVICE_CONFIG: Object = {
   'eventsusers':{
     'path': '/eventsusers'
   },
+
+  'tourusers':{
+    'path': '/tourusers'
+  },
 };

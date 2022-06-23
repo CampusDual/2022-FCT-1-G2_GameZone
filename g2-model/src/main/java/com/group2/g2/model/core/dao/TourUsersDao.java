@@ -14,5 +14,6 @@ public class TourUsersDao extends OntimizeJdbcDaoSupport {
 	public static final String ATTR_ID = "id";
 	public static final String ATTR_TOUR_ID = "tour_id";
 	public static final String ATTR_USER_NAME = "user_name";
+	public static final String ATTR_COUNTTOURQUERY = "countTourQuery";
 
 }
