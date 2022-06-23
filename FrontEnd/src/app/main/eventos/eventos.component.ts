@@ -46,7 +46,7 @@ export class EventosComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-
+  console.log(this.dataLoaded)
   }
 
   getData() {
@@ -57,19 +57,22 @@ export class EventosComponent implements OnInit, OnDestroy {
       .subscribe(
         // @ts-ignore
         (res) => (this.dataUsers = [...res.data]),
-        (err) => console.log(err)
+        (err) => console.log(err),
+        ()=>{
+          this.http
+            .get(
+              "http://localhost:33333/events/events?columns=id,event_name,description,start_date,end_date,users_max"
+            )
+            .subscribe(
+              // @ts-ignore
+              (res) => (this.dataEvents = [...res.data]),
+              (err) => console.log(err),
+              () => this.parseData()
+            );
+        }
       );
 
-    this.http
-      .get(
-        "http://localhost:33333/events/events?columns=id,event_name,description,start_date,end_date,users_max"
-      )
-      .subscribe(
-        // @ts-ignore
-        (res) => (this.dataEvents = [...res.data]),
-        (err) => console.log(err),
-        () => this.parseData()
-      );
+
   }
 
   Participar(id) {

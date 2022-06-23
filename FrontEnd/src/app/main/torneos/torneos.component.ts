@@ -88,21 +88,24 @@ export class TorneosComponent implements OnInit, OnDestroy {
       .subscribe(
         // @ts-ignore
         (res) => (this.dataUsers = [...res.data]),
-        (err) => console.log(err)
-      );
-
-    this.http
-      .get(
-        "http://localhost:33333/tournaments/tournaments?columns=id,tour_name,description,start_date,end_date,prize,users_max"
-      )
-      .subscribe(
-        // @ts-ignore
-        (res) => (this.dataTournaments = [...res.data]),
         (err) => console.log(err),
-        () => {
-          this.parseData();
+        ()=>{
+          this.http
+            .get(
+              "http://localhost:33333/tournaments/tournaments?columns=id,tour_name,description,start_date,end_date,prize,users_max"
+            )
+            .subscribe(
+              // @ts-ignore
+              (res) => (this.dataTournaments = [...res.data]),
+              (err) => console.log(err),
+              () => {
+                this.parseData();
+              }
+            );
         }
       );
+
+
   }
 
   ngOnDestroy() {
