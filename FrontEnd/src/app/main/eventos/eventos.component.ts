@@ -95,9 +95,6 @@ export class EventosComponent implements OnInit, OnDestroy {
         if (y.event_id === x.id) {
           x.users.push(y.user_name);
         }
-        if (x.id === y.event_id && this.user === y.user_name) {
-          this.participa = true;
-        }
       });
     });
     this.dataLoaded = Promise.resolve(true);

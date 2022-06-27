@@ -34,7 +34,6 @@ export class TorneosComponent implements OnInit, OnDestroy {
   logged: boolean;
   user: string;
   dataLoaded:Promise<boolean> = Promise.resolve(false)
-  participa:boolean = false;
 
   constructor(private http: HttpClient, private authService: AuthService) {
     this.user = this.authService.getSessionInfo().user;
@@ -56,9 +55,6 @@ export class TorneosComponent implements OnInit, OnDestroy {
       this.dataUsers.forEach((y) => {
         if (y.tour_id === x.id) {
           x.users.push(y.user_name);
-        }
-        if(x.id === y.tour_id && this.user === y.user_name){
-          this.participa=true
         }
       });
     });
