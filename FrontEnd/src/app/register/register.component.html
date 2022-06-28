@@ -1,9 +1,16 @@
-<o-form [formControl]="fc" service="users" entity="users/user" keys="user_" show-header="no" style="padding-top: 200px;">
+
+<a [routerLink]="['/main/home']" style="display: inline">
+  <img class="logo" src="/assets/images/logo_login.png" alt="logo">
+</a>
+<o-form [formControl]="fc" service="users" entity="users/user" keys="user_" show-header="no" >
   <o-row>
 
     <o-column title-label="Formulario_Prueba" fxFlex>
       <o-row>
         <o-text-input class="input-padding" attr="Nombre" fxFlex="40" required="yes" name="name" ngDefaultControl [(ngModel)]="user.name"></o-text-input> &nbsp;&nbsp;&nbsp;&nbsp;
+      </o-row>
+
+      <o-row>
         <o-text-input class="input-padding" attr="Apellidos" fxFlex="40" required="yes" name="surname" ngDefaultControl [(ngModel)]="user.surname"></o-text-input>
       </o-row>
 
@@ -20,10 +27,10 @@
       </o-row>
 
       <o-row>
-        <o-email-input attr="Correo electrónico" fxFlex name="email" ngDefaultControl [(ngModel)]="user.email" fxFlex="81"></o-email-input> &nbsp;&nbsp;&nbsp;&nbsp;
+        <o-email-input attr="Correo electrónico" fxFlex name="email" ngDefaultControl [(ngModel)]="user.email" fxFlex="40"></o-email-input> &nbsp;&nbsp;&nbsp;&nbsp;
       </o-row>
 
-      <o-button color="accent" attr="raised" type="RAISED" label="Registrarse" (click)="addUser()" fxFlex="81"></o-button>
+      <o-button color="accent" attr="raised" type="RAISED" label="Registrarse" (click)="addUser()" fxFlex="10" style="padding :0 0 0 250px ;" ></o-button>
     </o-column>
   </o-row>
 </o-form>
