@@ -52,9 +52,7 @@ export class SubsTypesComponent {
           function (d) {
             return d3.time.format('%m/%Y')(new Date(d));
           };
-          chartOps['yAxis']['tickFormat'] = function (d) {
-            return d3.format(',f')(d) + '€';
-          };
+
       }
     }
   }
