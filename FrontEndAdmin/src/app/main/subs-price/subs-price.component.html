@@ -1,9 +1,12 @@
-<h1>Tipos de suscriptores</h1>
+ <h1>Tipos de suscriptores</h1>
 
-<o-chart type="multiBar" x-label="Time" y-label="Amount (€)" layout-fill service="users" entity="subsPrice" y-data-type="int"
-  x-axis="month" y-axis="mensual;trimestral;anual" x-data-type="time"></o-chart>
+<o-chart #multiBar2 type="multiBar" x-label="Time" y-label="Amount (€)" layout-fill
+ x-data-type="time" x-axis="month" y-axis="mensual;trimestral;anual" [data]="prueba2"></o-chart>
 
 <h1>Ingresos</h1>
 
-<o-chart #multiBar type="multiBar" x-label="Time" y-label="Amount (€)" layout-fill service="users" entity="subsPrice" y-data-type="int"
-  x-axis="month" y-axis="total_mensual;total_trimestral;total_anual" x-data-type="time"></o-chart>
+<!-- <o-chart #multiBar type="multiBar" x-label="Time" y-label="Amount (€)" layout-fill service="users" entity="subsPrice" y-data-type="int"
+  x-axis="month" y-axis="total_mensual;total_trimestral;total_anual" x-data-type="time"></o-chart> -->
+
+<o-chart #multiBar type="multiBar" x-label="Time" y-label="Amount (€)" layout-fill
+ x-data-type="time" x-axis="month" y-axis="total_mensual;total_trimestral;total_anual" [data]="prueba"></o-chart>
