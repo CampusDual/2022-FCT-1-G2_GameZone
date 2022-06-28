@@ -11,6 +11,7 @@ export const MENU_CONFIG: MenuRootItem[] = [
     id: 'graficas', name: 'GRAPHICS', icon:'signal_cellular_alt', opened: false,
     items: [
     {id: 'new-subs' , name: 'NEW_SUBS', icon: 'group_add', route: '/main/new-subs'},
+    {id: 'subs-types' , name: 'SUBS_TYPES', icon: 'people', route: '/main/subs-types'},
     {id: 'subs-price' , name: 'SUBS_AND_INCOME', icon: 'people', route: '/main/subs-price'}
     ]
     },

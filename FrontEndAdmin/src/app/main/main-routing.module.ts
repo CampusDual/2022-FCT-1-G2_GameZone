@@ -15,6 +15,7 @@ export const routes: Routes = [
       { path: 'tournaments', loadChildren: () => import('./tournaments/tournaments.module').then(m => m.TournamentsModule) },
       { path: 'events', loadChildren: () => import('./events/events.module').then(m => m.EventsModule) },
       { path: 'new-subs', loadChildren: () => import('./new-subs/new-subs.module').then(m => m.NewSubsModule) },
+      { path: 'subs-types', loadChildren: () => import('./subs-types/subs-types.module').then(m => m.SubsTypesModule) },
       { path: 'subs-price', loadChildren: () => import('./subs-price/subs-price.module').then(m => m.SubsPriceModule) },
       { path: 'dash-board', loadChildren: () => import('./dash-board/dash-board.module').then(m => m.DashBoardModule) }
     ]
