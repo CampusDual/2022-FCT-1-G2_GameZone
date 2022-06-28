@@ -3,14 +3,14 @@ import { OntimizeService } from 'ontimize-web-ngx';
 import { ChartDataAdapter, ChartService, OChartComponent} from 'ontimize-web-ngx-charts';
 
 declare var d3: any;
+
 @Component({
-  selector: 'app-subs-price',
-  templateUrl: './subs-price.component.html',
-  styleUrls: ['./subs-price.component.css']
+  selector: 'app-subs-types',
+  templateUrl: './subs-types.component.html',
+  styleUrls: ['./subs-types.component.css']
 })
 
-export class SubsPriceComponent{
-
+export class SubsTypesComponent {
   @ViewChild('multiBar', {static: false})
   protected multiBar: OChartComponent;
 
@@ -52,10 +52,8 @@ export class SubsPriceComponent{
           function (d) {
             return d3.time.format('%m/%Y')(new Date(d));
           };
-          chartOps['yAxis']['tickFormat'] = function (d) {
-            return d3.format(',f')(d) + '€';
-          };
       }
     }
   }
 }
+

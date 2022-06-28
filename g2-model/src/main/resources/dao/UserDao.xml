@@ -76,8 +76,8 @@
             <Sentence>
                 <![CDATA[
 					select
-						TO_CHAR(sub_date, 'MM/YY') as month,
-						 extract(month from sub_date) as mes,
+						TO_CHAR(sub_date, 'MM/YY') as prueba,
+						to_timestamp(TO_CHAR(sub_date, 'MM/YY'),'MM/YY') as month,
 						count (sub_id) as total_month,
 						sum(case sub_id when 1 then 1 else 0 end) as mensual,
 						sum(case sub_id when 1 then 1 else 0 end)* 9.99 as total_mensual,
@@ -91,7 +91,7 @@
 						sub_id is not null
 						and sub_date is not null
 						group by
-						TO_CHAR(sub_date, 'YY/MM'), extract(month from sub_date),TO_CHAR(sub_date, 'MM/YY')
+						TO_CHAR(sub_date, 'YY/MM'),TO_CHAR(sub_date, 'MM/YY')
 						order by
 						TO_CHAR(sub_date, 'YY/MM') desc
 						limit 12
