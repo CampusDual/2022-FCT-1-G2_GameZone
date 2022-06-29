@@ -19,7 +19,7 @@
       <td *ngIf="!item.users_max">{{item.users.length}}</td>
       <td *ngIf="item.users_max!=item.users.length && logged &&  !item.users.includes(user)"><button class="boton" (click)="Participar(item.id)">Participar</button></td>
       <td *ngIf="item.users_max!=item.users.length && logged && item.users.includes(user)">REGISTRADO</td>
-      <td *ngIf="item.users_max!=item.users.length && !logged"><button class="boton" routerLink="/preRegister">Participar</button></td>
+      <td *ngIf="item.users_max!=item.users.length && !logged"><button class="boton" routerLink="/login">Participar</button></td>
       <td *ngIf="item.users_max===item.users.length">Completo</td>
     </tr>
     </tbody>
