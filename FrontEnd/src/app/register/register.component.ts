@@ -39,7 +39,7 @@ export class RegisterComponent {
         console.log("User added");
       },
       (err) => {
-        console.log(err);
+        alert("el nombre de usuario no está disponible")
       },
       () => {
         this.authService.login(this.user.user_,this.user.password)

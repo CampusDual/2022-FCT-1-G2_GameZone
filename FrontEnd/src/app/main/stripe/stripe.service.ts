@@ -91,6 +91,7 @@ export class StripeService {
         this.paymentHandler = (<any>window).StripeCheckout.configure({
           key: "pk_test_51L534GHYsU93QMKbQBAWHxrZB9eJ14uBXroYN050wBM8DbFwOzKyQP9hZ2xFmgVaM18zgXZ4FgfvLjcIvPseG3c700UajxIYC3",
           locale: "auto",
+          currency:"eur",
           token: function (stripeToken: any) {
             console.log(stripeToken);
             alert("Payment has been successfull!");
