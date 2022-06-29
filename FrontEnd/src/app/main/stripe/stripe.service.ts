@@ -61,7 +61,7 @@ export class StripeService {
           this.sendEmail(stripeToken.email, amount, date);
           this.sendRequest(date, 1).subscribe({ error: (err) => console.log(err) });
           this.router.navigate(["/main/home"]);
-        } else if (amount == 24.99) {
+        } else if (amount == 14.99) {
           date.setMonth(date.getMonth() + 3);
           this.sendEmail(stripeToken.email, amount, date);
           this.sendRequest(date, 2).subscribe({ error: (err) => console.log(err) });
